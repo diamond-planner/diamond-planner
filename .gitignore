@@ -207,8 +207,8 @@ Temporary Items
 
 ### Project-specific ###
 
-backend/pb_data
-backend/pb_migrations
+pb_data
+pb_migrations
 node_modules
 /build
 /.svelte-kit
@@ -225,7 +225,7 @@ vite.config.ts.timestamp-*
 /backend/test_pb_data/data.db-shm
 /backend/test_pb_data/data.db-wal
 test-results
-/backend/serve
+serve
 /src/locales/proxy.svelte.js
 /src/locales/*.compiled.main.svelte.js
 /craft/data/*.db*
