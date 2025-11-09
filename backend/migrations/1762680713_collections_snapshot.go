@@ -1,0 +1,2642 @@
+package migrations
+
+import (
+	"github.com/pocketbase/pocketbase/core"
+	m "github.com/pocketbase/pocketbase/migrations"
+)
+
+func init() {
+	m.Register(func(app core.App) error {
+		jsonData := `[
+			{
+				"authAlert": {
+					"emailTemplate": {
+						"body": "<p>Hello,</p>\n<p>We noticed a login to your {APP_NAME} account from a new location.</p>\n<p>If this was you, you may disregard this email.</p>\n<p><strong>If this wasn't you, you should immediately change your {APP_NAME} account password to revoke access from all other locations.</strong></p>\n<p>\n  Thanks,<br/>\n  {APP_NAME} team\n</p>",
+						"subject": "Login from a new location"
+					},
+					"enabled": true
+				},
+				"authRule": "verified=true",
+				"authToken": {
+					"duration": 15778476
+				},
+				"confirmEmailChangeTemplate": {
+					"body": "<p>Hello,</p>\n<p>Click on the button below to confirm your new email address.</p>\n<p>\n  <a class=\"btn\" href=\"{APP_URL}/_/#/auth/confirm-email-change/{TOKEN}\" target=\"_blank\" rel=\"noopener\">Confirm new email</a>\n</p>\n<p><i>If you didn't ask to change your email address, you can ignore this email.</i></p>\n<p>\n  Thanks,<br/>\n  {APP_NAME} team\n</p>",
+					"subject": "Confirm your {APP_NAME} new email address"
+				},
+				"createRule": "",
+				"deleteRule": "@request.auth.id != \"\" && id = @request.auth.id // users can delete themselves",
+				"emailChangeToken": {
+					"duration": 1800
+				},
+				"fields": [
+					{
+						"autogeneratePattern": "[a-z0-9]{15}",
+						"hidden": false,
+						"id": "_pbf_text_id_",
+						"max": 15,
+						"min": 15,
+						"name": "id",
+						"pattern": "^[a-z0-9]+$",
+						"presentable": false,
+						"primaryKey": true,
+						"required": true,
+						"system": true,
+						"type": "text"
+					},
+					{
+						"cost": 10,
+						"hidden": true,
+						"id": "_pbf_auth_password_",
+						"max": 0,
+						"min": 8,
+						"name": "password",
+						"pattern": "",
+						"presentable": false,
+						"required": true,
+						"system": true,
+						"type": "password"
+					},
+					{
+						"autogeneratePattern": "[a-zA-Z0-9_]{50}",
+						"hidden": true,
+						"id": "_pbf_auth_tokenKey_",
+						"max": 60,
+						"min": 30,
+						"name": "tokenKey",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": true,
+						"system": true,
+						"type": "text"
+					},
+					{
+						"exceptDomains": null,
+						"hidden": false,
+						"id": "_pbf_auth_email_",
+						"name": "email",
+						"onlyDomains": null,
+						"presentable": false,
+						"required": false,
+						"system": true,
+						"type": "email"
+					},
+					{
+						"hidden": false,
+						"id": "_pbf_auth_emailVisibility_",
+						"name": "emailVisibility",
+						"presentable": false,
+						"required": false,
+						"system": true,
+						"type": "bool"
+					},
+					{
+						"hidden": false,
+						"id": "_pbf_auth_verified_",
+						"name": "verified",
+						"presentable": false,
+						"required": false,
+						"system": true,
+						"type": "bool"
+					},
+					{
+						"autogeneratePattern": "users[0-9]{6}",
+						"hidden": false,
+						"id": "_pbf_auth_username_",
+						"max": 150,
+						"min": 3,
+						"name": "username",
+						"pattern": "^[\\w][\\w\\.\\-]*$",
+						"presentable": false,
+						"primaryKey": false,
+						"required": true,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "users_name",
+						"max": 0,
+						"min": 0,
+						"name": "first_name",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": false,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "nkxyyzrd",
+						"max": 0,
+						"min": 0,
+						"name": "last_name",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": false,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"hidden": false,
+						"id": "users_avatar",
+						"maxSelect": 1,
+						"maxSize": 5242880,
+						"mimeTypes": [
+							"image/jpeg",
+							"image/png",
+							"image/svg+xml",
+							"image/gif",
+							"image/webp"
+						],
+						"name": "avatar",
+						"presentable": false,
+						"protected": false,
+						"required": false,
+						"system": false,
+						"thumbs": null,
+						"type": "file"
+					},
+					{
+						"cascadeDelete": false,
+						"collectionId": "fltkvrsbbvzf9cf",
+						"hidden": false,
+						"id": "rv2r4uwf",
+						"maxSelect": 2147483647,
+						"minSelect": 0,
+						"name": "teams",
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "relation"
+					},
+					{
+						"cascadeDelete": false,
+						"collectionId": "z806hmy5um3qy5x",
+						"hidden": false,
+						"id": "lluojrwf",
+						"maxSelect": 2147483647,
+						"minSelect": 0,
+						"name": "club",
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "relation"
+					},
+					{
+						"hidden": false,
+						"id": "pmb9b15d",
+						"max": "",
+						"min": "",
+						"name": "last_login",
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "date"
+					},
+					{
+						"hidden": false,
+						"id": "sip8g281",
+						"max": "",
+						"min": "",
+						"name": "birthday",
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "date"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "jtdzmnqg",
+						"max": 0,
+						"min": 0,
+						"name": "number",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": false,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"hidden": false,
+						"id": "utqdvith",
+						"maxSelect": 15,
+						"name": "position",
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "select",
+						"values": [
+							"0",
+							"1",
+							"2",
+							"3",
+							"4",
+							"5",
+							"6",
+							"7",
+							"8",
+							"9",
+							"10",
+							"11",
+							"12",
+							"13",
+							"14"
+						]
+					},
+					{
+						"hidden": false,
+						"id": "elzgs2s7",
+						"maxSelect": 1,
+						"name": "bats",
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "select",
+						"values": [
+							"none",
+							"left",
+							"right",
+							"switch"
+						]
+					},
+					{
+						"hidden": false,
+						"id": "gahyjvnk",
+						"maxSelect": 1,
+						"name": "throws",
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "select",
+						"values": [
+							"none",
+							"left",
+							"right",
+							"switch"
+						]
+					},
+					{
+						"hidden": false,
+						"id": "xal9xfhx",
+						"maxSelect": 1,
+						"maxSize": 5242880,
+						"mimeTypes": null,
+						"name": "image",
+						"presentable": false,
+						"protected": false,
+						"required": false,
+						"system": false,
+						"thumbs": null,
+						"type": "file"
+					},
+					{
+						"hidden": false,
+						"id": "wqhoic1y",
+						"maxSelect": 1,
+						"name": "umpire",
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "select",
+						"values": [
+							"none",
+							"A",
+							"B",
+							"C",
+							"D"
+						]
+					},
+					{
+						"hidden": false,
+						"id": "0plahfdr",
+						"maxSelect": 1,
+						"name": "scorer",
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "select",
+						"values": [
+							"none",
+							"A",
+							"B",
+							"C",
+							"D"
+						]
+					},
+					{
+						"hidden": false,
+						"id": "po2giadm",
+						"max": null,
+						"min": null,
+						"name": "bsm_id",
+						"onlyInt": true,
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "number"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": true,
+						"id": "text1259466490",
+						"max": 0,
+						"min": 0,
+						"name": "signup_key",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": false,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"hidden": false,
+						"id": "bool2893625327",
+						"name": "display_on_website",
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "bool"
+					},
+					{
+						"hidden": false,
+						"id": "_pbf_autodate_created_",
+						"name": "created",
+						"onCreate": true,
+						"onUpdate": false,
+						"presentable": false,
+						"system": false,
+						"type": "autodate"
+					},
+					{
+						"hidden": false,
+						"id": "_pbf_autodate_updated_",
+						"name": "updated",
+						"onCreate": true,
+						"onUpdate": true,
+						"presentable": false,
+						"system": false,
+						"type": "autodate"
+					}
+				],
+				"fileToken": {
+					"duration": 120
+				},
+				"id": "_pb_users_auth_",
+				"indexes": [
+					"CREATE UNIQUE INDEX ` + "`" + `__pb_users_auth__username_idx` + "`" + ` ON ` + "`" + `users` + "`" + ` (username COLLATE NOCASE)",
+					"CREATE UNIQUE INDEX ` + "`" + `__pb_users_auth__email_idx` + "`" + ` ON ` + "`" + `users` + "`" + ` (email) WHERE email != ''",
+					"CREATE UNIQUE INDEX ` + "`" + `__pb_users_auth__tokenKey_idx` + "`" + ` ON ` + "`" + `users` + "`" + ` (tokenKey)",
+					"CREATE INDEX ` + "`" + `idx_zbjtgYA` + "`" + ` ON ` + "`" + `users` + "`" + ` (\n  ` + "`" + `teams` + "`" + `,\n  ` + "`" + `club` + "`" + `\n)",
+					"CREATE INDEX ` + "`" + `idx_LkeR6Uf` + "`" + ` ON ` + "`" + `users` + "`" + ` (\n  ` + "`" + `bsm_id` + "`" + `,\n  ` + "`" + `club` + "`" + `,\n  ` + "`" + `teams` + "`" + `\n)",
+					"CREATE INDEX ` + "`" + `idx_Gqr1QzTOdP` + "`" + ` ON ` + "`" + `users` + "`" + ` (` + "`" + `bsm_id` + "`" + `)",
+					"CREATE INDEX ` + "`" + `idx_0ElCGfOghH` + "`" + ` ON ` + "`" + `users` + "`" + ` (` + "`" + `club` + "`" + `)",
+					"CREATE INDEX ` + "`" + `idx_4gDlHi0pKv` + "`" + ` ON ` + "`" + `users` + "`" + ` (` + "`" + `teams` + "`" + `)"
+				],
+				"listRule": "@request.auth.id != \"\" && (\n    // the same user as the authenticated one\n    id = @request.auth.id ||\n    // or share the same club\n    club.id ?= @request.auth.club.id\n)",
+				"manageRule": null,
+				"mfa": {
+					"duration": 1800,
+					"enabled": false,
+					"rule": ""
+				},
+				"name": "users",
+				"oauth2": {
+					"enabled": true,
+					"mappedFields": {
+						"avatarURL": "",
+						"id": "",
+						"name": "",
+						"username": "username"
+					}
+				},
+				"otp": {
+					"duration": 180,
+					"emailTemplate": {
+						"body": "<p>Hello,</p>\n<p>Your one-time password is: <strong>{OTP}</strong></p>\n<p><i>If you didn't ask for the one-time password, you can ignore this email.</i></p>\n<p>\n  Thanks,<br/>\n  {APP_NAME} team\n</p>",
+						"subject": "OTP for {APP_NAME}"
+					},
+					"enabled": false,
+					"length": 8
+				},
+				"passwordAuth": {
+					"enabled": true,
+					"identityFields": [
+						"email"
+					]
+				},
+				"passwordResetToken": {
+					"duration": 1800
+				},
+				"resetPasswordTemplate": {
+					"body": "<p>Hello,</p>\n<p>Click on the button below to reset your password.</p>\n<p>\n  <a class=\"btn\" href=\"{APP_URL}/_/#/auth/confirm-password-reset/{TOKEN}\" target=\"_blank\" rel=\"noopener\">Reset password</a>\n</p>\n<p><i>If you didn't ask to reset your password, you can ignore this email.</i></p>\n<p>\n  Thanks,<br/>\n  {APP_NAME} team\n</p>",
+					"subject": "Reset your {APP_NAME} password"
+				},
+				"system": false,
+				"type": "auth",
+				"updateRule": "@request.auth.id != \"\" \n\n&& \n\n((id = @request.auth.id && @request.body.club:isset = false && @request.body.teams:isset = false) // user editing themselves, no setting team and club info\n||\nclub.admins.id ?= @request.auth.id // editing user is Club admin\n||\nclub.teams_via_club.admins.id ?= @request.auth.id) // editing user is Team admin for a club team\n\n&& \n\n// club admins can only add users to their own club\n(@request.body.club.admins.id ?= @request.auth.id || @request.body.club:isset = false) \n\n&&\n\n// team admins can only add users to their own teams\n(@request.body.teams.admins.id ?= @request.auth.id || @request.body.teams:isset = false)",
+				"verificationTemplate": {
+					"body": "<p>Hello,</p>\n<p>Thank you for joining us at {APP_NAME}.</p>\n<p>Click on the button below to verify your email address.</p>\n<p>\n  <a class=\"btn\" href=\"{APP_URL}/_/#/auth/confirm-verification/{TOKEN}\" target=\"_blank\" rel=\"noopener\">Verify</a>\n</p>\n<p>\n  Thanks,<br/>\n  {APP_NAME} team\n</p>",
+					"subject": "Verify your {APP_NAME} email"
+				},
+				"verificationToken": {
+					"duration": 604800
+				},
+				"viewRule": "@request.auth.id != \"\" && (\n    // the same user as the authenticated one\n    id = @request.auth.id ||\n    // or share the same club\n    club.id ?= @request.auth.club.id\n)"
+			},
+			{
+				"createRule": "@request.auth.id != \"\" && \n(team.admins ?~ @request.auth.id || team.club.admins ?~ @request.auth.id)",
+				"deleteRule": "@request.auth.id != \"\" && \n(team.admins ?~ @request.auth.id || team.club.admins ?~ @request.auth.id)",
+				"fields": [
+					{
+						"autogeneratePattern": "[a-z0-9]{15}",
+						"hidden": false,
+						"id": "_pbf_text_id_",
+						"max": 15,
+						"min": 15,
+						"name": "id",
+						"pattern": "^[a-z0-9]+$",
+						"presentable": false,
+						"primaryKey": true,
+						"required": true,
+						"system": true,
+						"type": "text"
+					},
+					{
+						"hidden": false,
+						"id": "9z6cbfb3",
+						"max": null,
+						"min": null,
+						"name": "bsm_id",
+						"onlyInt": true,
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "number"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "xjfjurpc",
+						"max": 255,
+						"min": 0,
+						"name": "title",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": true,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "2swii1t7",
+						"max": 0,
+						"min": 0,
+						"name": "desc",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": false,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"hidden": false,
+						"id": "vlgmsbda",
+						"max": "",
+						"min": "",
+						"name": "starttime",
+						"presentable": false,
+						"required": true,
+						"system": false,
+						"type": "date"
+					},
+					{
+						"hidden": false,
+						"id": "xrsqsvic",
+						"max": "",
+						"min": "",
+						"name": "meetingtime",
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "date"
+					},
+					{
+						"hidden": false,
+						"id": "lslkdo8o",
+						"max": "",
+						"min": "",
+						"name": "endtime",
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "date"
+					},
+					{
+						"hidden": false,
+						"id": "fvr4ulnq",
+						"maxSelect": 1,
+						"name": "type",
+						"presentable": false,
+						"required": true,
+						"system": false,
+						"type": "select",
+						"values": [
+							"game",
+							"practice",
+							"misc"
+						]
+					},
+					{
+						"cascadeDelete": false,
+						"collectionId": "us8qzkfxgxfqs43",
+						"hidden": false,
+						"id": "qjqfnhhz",
+						"maxSelect": 1,
+						"minSelect": 0,
+						"name": "attire",
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "relation"
+					},
+					{
+						"cascadeDelete": true,
+						"collectionId": "fltkvrsbbvzf9cf",
+						"hidden": false,
+						"id": "prkespsn",
+						"maxSelect": 1,
+						"minSelect": 0,
+						"name": "team",
+						"presentable": false,
+						"required": true,
+						"system": false,
+						"type": "relation"
+					},
+					{
+						"hidden": false,
+						"id": "dfcjwv48",
+						"name": "cancelled",
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "bool"
+					},
+					{
+						"hidden": false,
+						"id": "bf4ttznu",
+						"maxSize": 2000000,
+						"name": "match_json",
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "json"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "umjy80lx",
+						"max": 0,
+						"min": 0,
+						"name": "guests",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": false,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"cascadeDelete": false,
+						"collectionId": "pbc_29523945",
+						"hidden": false,
+						"id": "relation974127405",
+						"maxSelect": 1,
+						"minSelect": 0,
+						"name": "series",
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "relation"
+					},
+					{
+						"cascadeDelete": false,
+						"collectionId": "pbc_1942858786",
+						"hidden": false,
+						"id": "relation1587448267",
+						"maxSelect": 1,
+						"minSelect": 0,
+						"name": "location",
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "relation"
+					},
+					{
+						"hidden": false,
+						"id": "_pbf_autodate_created_",
+						"name": "created",
+						"onCreate": true,
+						"onUpdate": false,
+						"presentable": false,
+						"system": false,
+						"type": "autodate"
+					},
+					{
+						"hidden": false,
+						"id": "_pbf_autodate_updated_",
+						"name": "updated",
+						"onCreate": true,
+						"onUpdate": true,
+						"presentable": false,
+						"system": false,
+						"type": "autodate"
+					}
+				],
+				"id": "zyst8ardf4onbwz",
+				"indexes": [
+					"CREATE INDEX ` + "`" + `idx_zuKuzAF` + "`" + ` ON ` + "`" + `events` + "`" + ` (\n  ` + "`" + `starttime` + "`" + `,\n  ` + "`" + `type` + "`" + `,\n  ` + "`" + `title` + "`" + `,\n  ` + "`" + `bsm_id` + "`" + `,\n  ` + "`" + `meetingtime` + "`" + `,\n  ` + "`" + `team` + "`" + `\n)"
+				],
+				"listRule": "@request.auth.id != \"\" && \n(team.id ?~ @request.auth.teams.id || team.admins ?~ @request.auth.id || team.club.admins ?~ @request.auth.id)",
+				"name": "events",
+				"system": false,
+				"type": "base",
+				"updateRule": "@request.auth.id != \"\" && \n(team.admins ?~ @request.auth.id || team.club.admins ?~ @request.auth.id)",
+				"viewRule": "@request.auth.id != \"\" && \n(team.id ?~ @request.auth.teams.id || team.admins ?~ @request.auth.id || team.club.admins ?~ @request.auth.id)"
+			},
+			{
+				"createRule": "@request.auth.id != \"\"",
+				"deleteRule": null,
+				"fields": [
+					{
+						"autogeneratePattern": "[a-z0-9]{15}",
+						"hidden": false,
+						"id": "_pbf_text_id_",
+						"max": 15,
+						"min": 15,
+						"name": "id",
+						"pattern": "^[a-z0-9]+$",
+						"presentable": false,
+						"primaryKey": true,
+						"required": true,
+						"system": true,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "lmqq9nog",
+						"max": 0,
+						"min": 0,
+						"name": "name",
+						"pattern": "",
+						"presentable": true,
+						"primaryKey": false,
+						"required": true,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"hidden": false,
+						"id": "0tjealgq",
+						"max": null,
+						"min": null,
+						"name": "bsm_id",
+						"onlyInt": true,
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "number"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": true,
+						"id": "odlns7mr",
+						"max": 0,
+						"min": 0,
+						"name": "bsm_api_key",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": false,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "r175a7vd",
+						"max": 0,
+						"min": 0,
+						"name": "acronym",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": false,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"cascadeDelete": false,
+						"collectionId": "_pb_users_auth_",
+						"hidden": false,
+						"id": "rvymt3c3",
+						"maxSelect": 2147483647,
+						"minSelect": 0,
+						"name": "admins",
+						"presentable": false,
+						"required": true,
+						"system": false,
+						"type": "relation"
+					},
+					{
+						"hidden": false,
+						"id": "_pbf_autodate_created_",
+						"name": "created",
+						"onCreate": true,
+						"onUpdate": false,
+						"presentable": false,
+						"system": false,
+						"type": "autodate"
+					},
+					{
+						"hidden": false,
+						"id": "_pbf_autodate_updated_",
+						"name": "updated",
+						"onCreate": true,
+						"onUpdate": true,
+						"presentable": false,
+						"system": false,
+						"type": "autodate"
+					}
+				],
+				"id": "z806hmy5um3qy5x",
+				"indexes": [
+					"CREATE INDEX ` + "`" + `idx_lntUaHC` + "`" + ` ON ` + "`" + `clubs` + "`" + ` (\n  ` + "`" + `bsm_id` + "`" + `,\n  ` + "`" + `name` + "`" + `\n)"
+				],
+				"listRule": "@request.auth.id != \"\" && id ?~ @request.auth.club.id",
+				"name": "clubs",
+				"system": false,
+				"type": "base",
+				"updateRule": "@request.auth.id != \"\" && admins ?~ @request.auth.id",
+				"viewRule": "@request.auth.id != \"\" && id ?~ @request.auth.club.id"
+			},
+			{
+				"createRule": "@request.auth.id != \"\" && \nclub.admins.id ?= @request.auth.id",
+				"deleteRule": "@request.auth.id != \"\" && club.admins.id ?= @request.auth.id",
+				"fields": [
+					{
+						"autogeneratePattern": "[a-z0-9]{15}",
+						"hidden": false,
+						"id": "_pbf_text_id_",
+						"max": 15,
+						"min": 15,
+						"name": "id",
+						"pattern": "^[a-z0-9]+$",
+						"presentable": false,
+						"primaryKey": true,
+						"required": true,
+						"system": true,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "5l0qnh4d",
+						"max": 0,
+						"min": 0,
+						"name": "name",
+						"pattern": "",
+						"presentable": true,
+						"primaryKey": false,
+						"required": true,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"hidden": false,
+						"id": "4tpvql9y",
+						"max": null,
+						"min": null,
+						"name": "bsm_league_group",
+						"onlyInt": true,
+						"presentable": true,
+						"required": false,
+						"system": false,
+						"type": "number"
+					},
+					{
+						"hidden": false,
+						"id": "vfbkhmka",
+						"maxSelect": 1,
+						"name": "age_group",
+						"presentable": false,
+						"required": true,
+						"system": false,
+						"type": "select",
+						"values": [
+							"adults",
+							"minors"
+						]
+					},
+					{
+						"cascadeDelete": true,
+						"collectionId": "z806hmy5um3qy5x",
+						"hidden": false,
+						"id": "faotqznc",
+						"maxSelect": 1,
+						"minSelect": 0,
+						"name": "club",
+						"presentable": false,
+						"required": true,
+						"system": false,
+						"type": "relation"
+					},
+					{
+						"convertURLs": false,
+						"hidden": false,
+						"id": "vfsytols",
+						"maxSize": 0,
+						"name": "description",
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "editor"
+					},
+					{
+						"cascadeDelete": false,
+						"collectionId": "_pb_users_auth_",
+						"hidden": false,
+						"id": "ccuf3ho4",
+						"maxSelect": 2147483647,
+						"minSelect": 0,
+						"name": "admins",
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "relation"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "text1259466490",
+						"max": 0,
+						"min": 8,
+						"name": "signup_key",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": false,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"hidden": false,
+						"id": "_pbf_autodate_created_",
+						"name": "created",
+						"onCreate": true,
+						"onUpdate": false,
+						"presentable": false,
+						"system": false,
+						"type": "autodate"
+					},
+					{
+						"hidden": false,
+						"id": "_pbf_autodate_updated_",
+						"name": "updated",
+						"onCreate": true,
+						"onUpdate": true,
+						"presentable": false,
+						"system": false,
+						"type": "autodate"
+					}
+				],
+				"id": "fltkvrsbbvzf9cf",
+				"indexes": [
+					"CREATE INDEX ` + "`" + `idx_vBz1jG9` + "`" + ` ON ` + "`" + `teams` + "`" + ` (` + "`" + `bsm_league_group` + "`" + `)",
+					"CREATE INDEX ` + "`" + `idx_enGi1E4` + "`" + ` ON ` + "`" + `teams` + "`" + ` (\n  ` + "`" + `name` + "`" + `,\n  ` + "`" + `bsm_league_group` + "`" + `,\n  ` + "`" + `club` + "`" + `\n)",
+					"CREATE UNIQUE INDEX ` + "`" + `idx_ZoMECG3GbQ` + "`" + ` ON ` + "`" + `teams` + "`" + ` (` + "`" + `signup_key` + "`" + `)"
+				],
+				"listRule": "@request.auth.id != \"\" && \n(id ?~ @request.auth.teams.id || club.admins.id ?= @request.auth.id || @request.auth.club.id ?= club.id)",
+				"name": "teams",
+				"system": false,
+				"type": "base",
+				"updateRule": "@request.auth.id != \"\" && \n(admins.id ?= @request.auth.id || club.admins.id ?= @request.auth.id)",
+				"viewRule": "@request.auth.id != \"\" && \n(id ?~ @request.auth.teams.id || club.admins.id ?= @request.auth.id || @request.auth.club.id ?= club.id)"
+			},
+			{
+				"createRule": null,
+				"deleteRule": null,
+				"fields": [
+					{
+						"autogeneratePattern": "[a-z0-9]{15}",
+						"hidden": false,
+						"id": "_pbf_text_id_",
+						"max": 15,
+						"min": 15,
+						"name": "id",
+						"pattern": "^[a-z0-9]+$",
+						"presentable": false,
+						"primaryKey": true,
+						"required": true,
+						"system": true,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "9dpotreq",
+						"max": 0,
+						"min": 0,
+						"name": "hash",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": true,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"hidden": false,
+						"id": "r69uqln5",
+						"maxSize": 2000000,
+						"name": "responseBody",
+						"presentable": false,
+						"required": true,
+						"system": false,
+						"type": "json"
+					},
+					{
+						"exceptDomains": null,
+						"hidden": false,
+						"id": "d66krk0w",
+						"name": "url",
+						"onlyDomains": null,
+						"presentable": true,
+						"required": false,
+						"system": false,
+						"type": "url"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "text1999537002",
+						"max": 0,
+						"min": 0,
+						"name": "identifier",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": false,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"hidden": false,
+						"id": "_pbf_autodate_created_",
+						"name": "created",
+						"onCreate": true,
+						"onUpdate": false,
+						"presentable": false,
+						"system": false,
+						"type": "autodate"
+					},
+					{
+						"hidden": false,
+						"id": "_pbf_autodate_updated_",
+						"name": "updated",
+						"onCreate": true,
+						"onUpdate": true,
+						"presentable": false,
+						"system": false,
+						"type": "autodate"
+					}
+				],
+				"id": "ap0vz28x8jh6gv6",
+				"indexes": [
+					"CREATE UNIQUE INDEX ` + "`" + `idx_8P8482G` + "`" + ` ON ` + "`" + `requestcaches` + "`" + ` (` + "`" + `hash` + "`" + `)",
+					"CREATE INDEX ` + "`" + `idx_0ty87dm7lr` + "`" + ` ON ` + "`" + `requestcaches` + "`" + ` (` + "`" + `identifier` + "`" + `)"
+				],
+				"listRule": null,
+				"name": "requestcaches",
+				"system": false,
+				"type": "base",
+				"updateRule": null,
+				"viewRule": "@request.auth.id != \"\""
+			},
+			{
+				"createRule": null,
+				"deleteRule": null,
+				"fields": [
+					{
+						"autogeneratePattern": "[a-z0-9]{15}",
+						"hidden": false,
+						"id": "_pbf_text_id_",
+						"max": 15,
+						"min": 15,
+						"name": "id",
+						"pattern": "^[a-z0-9]+$",
+						"presentable": false,
+						"primaryKey": true,
+						"required": true,
+						"system": true,
+						"type": "text"
+					},
+					{
+						"hidden": false,
+						"id": "md7wkckl",
+						"max": null,
+						"min": null,
+						"name": "bsm_id",
+						"onlyInt": true,
+						"presentable": false,
+						"required": true,
+						"system": false,
+						"type": "number"
+					},
+					{
+						"hidden": false,
+						"id": "kydzznbv",
+						"max": null,
+						"min": null,
+						"name": "season",
+						"onlyInt": true,
+						"presentable": false,
+						"required": true,
+						"system": false,
+						"type": "number"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "lj9hwzjm",
+						"max": 0,
+						"min": 0,
+						"name": "acronym",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": true,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "p81r0nlu",
+						"max": 0,
+						"min": 0,
+						"name": "name",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": true,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"cascadeDelete": false,
+						"collectionId": "z806hmy5um3qy5x",
+						"hidden": false,
+						"id": "relation2780639523",
+						"maxSelect": 999,
+						"minSelect": 0,
+						"name": "clubs",
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "relation"
+					},
+					{
+						"hidden": false,
+						"id": "_pbf_autodate_created_",
+						"name": "created",
+						"onCreate": true,
+						"onUpdate": false,
+						"presentable": false,
+						"system": false,
+						"type": "autodate"
+					},
+					{
+						"hidden": false,
+						"id": "_pbf_autodate_updated_",
+						"name": "updated",
+						"onCreate": true,
+						"onUpdate": true,
+						"presentable": false,
+						"system": false,
+						"type": "autodate"
+					}
+				],
+				"id": "v46okut7xdcifdl",
+				"indexes": [],
+				"listRule": "// this does not contain any sensitive information\n@request.auth.id != \"\"",
+				"name": "leaguegroups",
+				"system": false,
+				"type": "base",
+				"updateRule": null,
+				"viewRule": "@request.auth.id != \"\""
+			},
+			{
+				"createRule": "@request.auth.id != \"\" && event.team.id ?= @request.auth.teams.id",
+				"deleteRule": "@request.auth.id != \"\" && (event.team.admins.id ?= @request.auth.id || event.team.club.admins.id ?= @request.auth.id)",
+				"fields": [
+					{
+						"autogeneratePattern": "[a-z0-9]{15}",
+						"hidden": false,
+						"id": "_pbf_text_id_",
+						"max": 15,
+						"min": 15,
+						"name": "id",
+						"pattern": "^[a-z0-9]+$",
+						"presentable": false,
+						"primaryKey": true,
+						"required": true,
+						"system": true,
+						"type": "text"
+					},
+					{
+						"cascadeDelete": true,
+						"collectionId": "_pb_users_auth_",
+						"hidden": false,
+						"id": "3isihple",
+						"maxSelect": 1,
+						"minSelect": 0,
+						"name": "user",
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "relation"
+					},
+					{
+						"cascadeDelete": true,
+						"collectionId": "zyst8ardf4onbwz",
+						"hidden": false,
+						"id": "if3a1hof",
+						"maxSelect": 1,
+						"minSelect": 0,
+						"name": "event",
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "relation"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "awtxtncq",
+						"max": 0,
+						"min": 0,
+						"name": "comment",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": false,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"hidden": false,
+						"id": "2wrlbkod",
+						"maxSelect": 1,
+						"name": "state",
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "select",
+						"values": [
+							"in",
+							"out",
+							"maybe"
+						]
+					},
+					{
+						"hidden": false,
+						"id": "_pbf_autodate_created_",
+						"name": "created",
+						"onCreate": true,
+						"onUpdate": false,
+						"presentable": false,
+						"system": false,
+						"type": "autodate"
+					},
+					{
+						"hidden": false,
+						"id": "_pbf_autodate_updated_",
+						"name": "updated",
+						"onCreate": true,
+						"onUpdate": true,
+						"presentable": false,
+						"system": false,
+						"type": "autodate"
+					}
+				],
+				"id": "ngighvrbraklj58",
+				"indexes": [
+					"CREATE UNIQUE INDEX ` + "`" + `idx_YCrorbP` + "`" + ` ON ` + "`" + `participations` + "`" + ` (\n  ` + "`" + `user` + "`" + `,\n  ` + "`" + `event` + "`" + `\n)"
+				],
+				"listRule": "@request.auth.id != \"\" && event.team.id ?= @request.auth.teams.id",
+				"name": "participations",
+				"system": false,
+				"type": "base",
+				"updateRule": "@request.auth.id != \"\" && (user.id = @request.auth.id || event.team.admins.id ?= @request.auth.id || event.team.club.admins.id ?= @request.auth.id)",
+				"viewRule": "@request.auth.id != \"\" && event.team.id ?= @request.auth.teams.id"
+			},
+			{
+				"createRule": "@request.auth.id != \"\" && club.admins.id ?= @request.auth.id",
+				"deleteRule": "@request.auth.id != \"\" && club.admins.id ?= @request.auth.id",
+				"fields": [
+					{
+						"autogeneratePattern": "[a-z0-9]{15}",
+						"hidden": false,
+						"id": "_pbf_text_id_",
+						"max": 15,
+						"min": 15,
+						"name": "id",
+						"pattern": "^[a-z0-9]+$",
+						"presentable": false,
+						"primaryKey": true,
+						"required": true,
+						"system": true,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "coohls3d",
+						"max": 0,
+						"min": 0,
+						"name": "name",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": true,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "7wcbi2qn",
+						"max": 0,
+						"min": 0,
+						"name": "cap",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": true,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "e0ucwahg",
+						"max": 0,
+						"min": 0,
+						"name": "jersey",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": true,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "jwzh7bhd",
+						"max": 0,
+						"min": 0,
+						"name": "pants",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": true,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"cascadeDelete": true,
+						"collectionId": "z806hmy5um3qy5x",
+						"hidden": false,
+						"id": "p9zjf0ay",
+						"maxSelect": 1,
+						"minSelect": 0,
+						"name": "club",
+						"presentable": false,
+						"required": true,
+						"system": false,
+						"type": "relation"
+					},
+					{
+						"hidden": false,
+						"id": "_pbf_autodate_created_",
+						"name": "created",
+						"onCreate": true,
+						"onUpdate": false,
+						"presentable": false,
+						"system": false,
+						"type": "autodate"
+					},
+					{
+						"hidden": false,
+						"id": "_pbf_autodate_updated_",
+						"name": "updated",
+						"onCreate": true,
+						"onUpdate": true,
+						"presentable": false,
+						"system": false,
+						"type": "autodate"
+					}
+				],
+				"id": "us8qzkfxgxfqs43",
+				"indexes": [
+					"CREATE INDEX ` + "`" + `idx_m6a1WEk` + "`" + ` ON ` + "`" + `uniformsets` + "`" + ` (` + "`" + `club` + "`" + `)"
+				],
+				"listRule": "@request.auth.id != \"\" && club.id ?~ @request.auth.club.id",
+				"name": "uniformsets",
+				"system": false,
+				"type": "base",
+				"updateRule": "@request.auth.id != \"\" && club.admins.id ?= @request.auth.id",
+				"viewRule": "@request.auth.id != \"\" && club.id ?~ @request.auth.club.id"
+			},
+			{
+				"authAlert": {
+					"emailTemplate": {
+						"body": "<p>Hello,</p>\n<p>We noticed a login to your {APP_NAME} account from a new location.</p>\n<p>If this was you, you may disregard this email.</p>\n<p><strong>If this wasn't you, you should immediately change your {APP_NAME} account password to revoke access from all other locations.</strong></p>\n<p>\n  Thanks,<br/>\n  {APP_NAME} team\n</p>",
+						"subject": "Login from a new location"
+					},
+					"enabled": true
+				},
+				"authRule": "",
+				"authToken": {
+					"duration": 1209600
+				},
+				"confirmEmailChangeTemplate": {
+					"body": "<p>Hello,</p>\n<p>Click on the button below to confirm your new email address.</p>\n<p>\n  <a class=\"btn\" href=\"{APP_URL}/_/#/auth/confirm-email-change/{TOKEN}\" target=\"_blank\" rel=\"noopener\">Confirm new email</a>\n</p>\n<p><i>If you didn't ask to change your email address, you can ignore this email.</i></p>\n<p>\n  Thanks,<br/>\n  {APP_NAME} team\n</p>",
+					"subject": "Confirm your {APP_NAME} new email address"
+				},
+				"createRule": null,
+				"deleteRule": null,
+				"emailChangeToken": {
+					"duration": 1800
+				},
+				"fields": [
+					{
+						"autogeneratePattern": "[a-z0-9]{15}",
+						"hidden": false,
+						"id": "text3208210256",
+						"max": 15,
+						"min": 15,
+						"name": "id",
+						"pattern": "^[a-z0-9]+$",
+						"presentable": false,
+						"primaryKey": true,
+						"required": true,
+						"system": true,
+						"type": "text"
+					},
+					{
+						"cost": 0,
+						"hidden": true,
+						"id": "password901924565",
+						"max": 0,
+						"min": 8,
+						"name": "password",
+						"pattern": "",
+						"presentable": false,
+						"required": true,
+						"system": true,
+						"type": "password"
+					},
+					{
+						"autogeneratePattern": "[a-zA-Z0-9]{50}",
+						"hidden": true,
+						"id": "text2504183744",
+						"max": 60,
+						"min": 30,
+						"name": "tokenKey",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": true,
+						"system": true,
+						"type": "text"
+					},
+					{
+						"exceptDomains": null,
+						"hidden": false,
+						"id": "email3885137012",
+						"name": "email",
+						"onlyDomains": null,
+						"presentable": false,
+						"required": true,
+						"system": true,
+						"type": "email"
+					},
+					{
+						"hidden": false,
+						"id": "bool1547992806",
+						"name": "emailVisibility",
+						"presentable": false,
+						"required": false,
+						"system": true,
+						"type": "bool"
+					},
+					{
+						"hidden": false,
+						"id": "bool256245529",
+						"name": "verified",
+						"presentable": false,
+						"required": false,
+						"system": true,
+						"type": "bool"
+					},
+					{
+						"hidden": false,
+						"id": "autodate2990389176",
+						"name": "created",
+						"onCreate": true,
+						"onUpdate": false,
+						"presentable": false,
+						"system": true,
+						"type": "autodate"
+					},
+					{
+						"hidden": false,
+						"id": "autodate3332085495",
+						"name": "updated",
+						"onCreate": true,
+						"onUpdate": true,
+						"presentable": false,
+						"system": true,
+						"type": "autodate"
+					}
+				],
+				"fileToken": {
+					"duration": 120
+				},
+				"id": "pbc_3142635823",
+				"indexes": [
+					"CREATE UNIQUE INDEX ` + "`" + `idx_tokenKey_pbc_3142635823` + "`" + ` ON ` + "`" + `_superusers` + "`" + ` (` + "`" + `tokenKey` + "`" + `)",
+					"CREATE UNIQUE INDEX ` + "`" + `idx_email_pbc_3142635823` + "`" + ` ON ` + "`" + `_superusers` + "`" + ` (` + "`" + `email` + "`" + `) WHERE ` + "`" + `email` + "`" + ` != ''"
+				],
+				"listRule": null,
+				"manageRule": null,
+				"mfa": {
+					"duration": 1800,
+					"enabled": false,
+					"rule": ""
+				},
+				"name": "_superusers",
+				"oauth2": {
+					"enabled": false,
+					"mappedFields": {
+						"avatarURL": "",
+						"id": "",
+						"name": "",
+						"username": ""
+					}
+				},
+				"otp": {
+					"duration": 180,
+					"emailTemplate": {
+						"body": "<p>Hello,</p>\n<p>Your one-time password is: <strong>{OTP}</strong></p>\n<p><i>If you didn't ask for the one-time password, you can ignore this email.</i></p>\n<p>\n  Thanks,<br/>\n  {APP_NAME} team\n</p>",
+						"subject": "OTP for {APP_NAME}"
+					},
+					"enabled": false,
+					"length": 8
+				},
+				"passwordAuth": {
+					"enabled": true,
+					"identityFields": [
+						"email"
+					]
+				},
+				"passwordResetToken": {
+					"duration": 1800
+				},
+				"resetPasswordTemplate": {
+					"body": "<p>Hello,</p>\n<p>Click on the button below to reset your password.</p>\n<p>\n  <a class=\"btn\" href=\"{APP_URL}/_/#/auth/confirm-password-reset/{TOKEN}\" target=\"_blank\" rel=\"noopener\">Reset password</a>\n</p>\n<p><i>If you didn't ask to reset your password, you can ignore this email.</i></p>\n<p>\n  Thanks,<br/>\n  {APP_NAME} team\n</p>",
+					"subject": "Reset your {APP_NAME} password"
+				},
+				"system": true,
+				"type": "auth",
+				"updateRule": null,
+				"verificationTemplate": {
+					"body": "<p>Hello,</p>\n<p>Thank you for joining us at {APP_NAME}.</p>\n<p>Click on the button below to verify your email address.</p>\n<p>\n  <a class=\"btn\" href=\"{APP_URL}/_/#/auth/confirm-verification/{TOKEN}\" target=\"_blank\" rel=\"noopener\">Verify</a>\n</p>\n<p>\n  Thanks,<br/>\n  {APP_NAME} team\n</p>",
+					"subject": "Verify your {APP_NAME} email"
+				},
+				"verificationToken": {
+					"duration": 259200
+				},
+				"viewRule": null
+			},
+			{
+				"createRule": null,
+				"deleteRule": "@request.auth.id != '' && recordRef = @request.auth.id && collectionRef = @request.auth.collectionId",
+				"fields": [
+					{
+						"autogeneratePattern": "[a-z0-9]{15}",
+						"hidden": false,
+						"id": "text3208210256",
+						"max": 15,
+						"min": 15,
+						"name": "id",
+						"pattern": "^[a-z0-9]+$",
+						"presentable": false,
+						"primaryKey": true,
+						"required": true,
+						"system": true,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "text455797646",
+						"max": 0,
+						"min": 0,
+						"name": "collectionRef",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": true,
+						"system": true,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "text127846527",
+						"max": 0,
+						"min": 0,
+						"name": "recordRef",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": true,
+						"system": true,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "text2462348188",
+						"max": 0,
+						"min": 0,
+						"name": "provider",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": true,
+						"system": true,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "text1044722854",
+						"max": 0,
+						"min": 0,
+						"name": "providerId",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": true,
+						"system": true,
+						"type": "text"
+					},
+					{
+						"hidden": false,
+						"id": "autodate2990389176",
+						"name": "created",
+						"onCreate": true,
+						"onUpdate": false,
+						"presentable": false,
+						"system": true,
+						"type": "autodate"
+					},
+					{
+						"hidden": false,
+						"id": "autodate3332085495",
+						"name": "updated",
+						"onCreate": true,
+						"onUpdate": true,
+						"presentable": false,
+						"system": true,
+						"type": "autodate"
+					}
+				],
+				"id": "pbc_2281828961",
+				"indexes": [
+					"CREATE UNIQUE INDEX ` + "`" + `idx_externalAuths_record_provider` + "`" + ` ON ` + "`" + `_externalAuths` + "`" + ` (collectionRef, recordRef, provider)",
+					"CREATE UNIQUE INDEX ` + "`" + `idx_externalAuths_collection_provider` + "`" + ` ON ` + "`" + `_externalAuths` + "`" + ` (collectionRef, provider, providerId)"
+				],
+				"listRule": "@request.auth.id != '' && recordRef = @request.auth.id && collectionRef = @request.auth.collectionId",
+				"name": "_externalAuths",
+				"system": true,
+				"type": "base",
+				"updateRule": null,
+				"viewRule": "@request.auth.id != '' && recordRef = @request.auth.id && collectionRef = @request.auth.collectionId"
+			},
+			{
+				"createRule": null,
+				"deleteRule": null,
+				"fields": [
+					{
+						"autogeneratePattern": "[a-z0-9]{15}",
+						"hidden": false,
+						"id": "text3208210256",
+						"max": 15,
+						"min": 15,
+						"name": "id",
+						"pattern": "^[a-z0-9]+$",
+						"presentable": false,
+						"primaryKey": true,
+						"required": true,
+						"system": true,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "text455797646",
+						"max": 0,
+						"min": 0,
+						"name": "collectionRef",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": true,
+						"system": true,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "text127846527",
+						"max": 0,
+						"min": 0,
+						"name": "recordRef",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": true,
+						"system": true,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "text1582905952",
+						"max": 0,
+						"min": 0,
+						"name": "method",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": true,
+						"system": true,
+						"type": "text"
+					},
+					{
+						"hidden": false,
+						"id": "autodate2990389176",
+						"name": "created",
+						"onCreate": true,
+						"onUpdate": false,
+						"presentable": false,
+						"system": true,
+						"type": "autodate"
+					},
+					{
+						"hidden": false,
+						"id": "autodate3332085495",
+						"name": "updated",
+						"onCreate": true,
+						"onUpdate": true,
+						"presentable": false,
+						"system": true,
+						"type": "autodate"
+					}
+				],
+				"id": "pbc_2279338944",
+				"indexes": [
+					"CREATE INDEX ` + "`" + `idx_mfas_collectionRef_recordRef` + "`" + ` ON ` + "`" + `_mfas` + "`" + ` (collectionRef,recordRef)"
+				],
+				"listRule": "@request.auth.id != '' && recordRef = @request.auth.id && collectionRef = @request.auth.collectionId",
+				"name": "_mfas",
+				"system": true,
+				"type": "base",
+				"updateRule": null,
+				"viewRule": "@request.auth.id != '' && recordRef = @request.auth.id && collectionRef = @request.auth.collectionId"
+			},
+			{
+				"createRule": null,
+				"deleteRule": null,
+				"fields": [
+					{
+						"autogeneratePattern": "[a-z0-9]{15}",
+						"hidden": false,
+						"id": "text3208210256",
+						"max": 15,
+						"min": 15,
+						"name": "id",
+						"pattern": "^[a-z0-9]+$",
+						"presentable": false,
+						"primaryKey": true,
+						"required": true,
+						"system": true,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "text455797646",
+						"max": 0,
+						"min": 0,
+						"name": "collectionRef",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": true,
+						"system": true,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "text127846527",
+						"max": 0,
+						"min": 0,
+						"name": "recordRef",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": true,
+						"system": true,
+						"type": "text"
+					},
+					{
+						"cost": 8,
+						"hidden": true,
+						"id": "password901924565",
+						"max": 0,
+						"min": 0,
+						"name": "password",
+						"pattern": "",
+						"presentable": false,
+						"required": true,
+						"system": true,
+						"type": "password"
+					},
+					{
+						"hidden": false,
+						"id": "autodate2990389176",
+						"name": "created",
+						"onCreate": true,
+						"onUpdate": false,
+						"presentable": false,
+						"system": true,
+						"type": "autodate"
+					},
+					{
+						"hidden": false,
+						"id": "autodate3332085495",
+						"name": "updated",
+						"onCreate": true,
+						"onUpdate": true,
+						"presentable": false,
+						"system": true,
+						"type": "autodate"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": true,
+						"id": "text3866985172",
+						"max": 0,
+						"min": 0,
+						"name": "sentTo",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": false,
+						"system": true,
+						"type": "text"
+					}
+				],
+				"id": "pbc_1638494021",
+				"indexes": [
+					"CREATE INDEX ` + "`" + `idx_otps_collectionRef_recordRef` + "`" + ` ON ` + "`" + `_otps` + "`" + ` (collectionRef, recordRef)"
+				],
+				"listRule": "@request.auth.id != '' && recordRef = @request.auth.id && collectionRef = @request.auth.collectionId",
+				"name": "_otps",
+				"system": true,
+				"type": "base",
+				"updateRule": null,
+				"viewRule": "@request.auth.id != '' && recordRef = @request.auth.id && collectionRef = @request.auth.collectionId"
+			},
+			{
+				"createRule": null,
+				"deleteRule": "@request.auth.id != '' && recordRef = @request.auth.id && collectionRef = @request.auth.collectionId",
+				"fields": [
+					{
+						"autogeneratePattern": "[a-z0-9]{15}",
+						"hidden": false,
+						"id": "text3208210256",
+						"max": 15,
+						"min": 15,
+						"name": "id",
+						"pattern": "^[a-z0-9]+$",
+						"presentable": false,
+						"primaryKey": true,
+						"required": true,
+						"system": true,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "text455797646",
+						"max": 0,
+						"min": 0,
+						"name": "collectionRef",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": true,
+						"system": true,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "text127846527",
+						"max": 0,
+						"min": 0,
+						"name": "recordRef",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": true,
+						"system": true,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "text4228609354",
+						"max": 0,
+						"min": 0,
+						"name": "fingerprint",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": true,
+						"system": true,
+						"type": "text"
+					},
+					{
+						"hidden": false,
+						"id": "autodate2990389176",
+						"name": "created",
+						"onCreate": true,
+						"onUpdate": false,
+						"presentable": false,
+						"system": true,
+						"type": "autodate"
+					},
+					{
+						"hidden": false,
+						"id": "autodate3332085495",
+						"name": "updated",
+						"onCreate": true,
+						"onUpdate": true,
+						"presentable": false,
+						"system": true,
+						"type": "autodate"
+					}
+				],
+				"id": "pbc_4275539003",
+				"indexes": [
+					"CREATE UNIQUE INDEX ` + "`" + `idx_authOrigins_unique_pairs` + "`" + ` ON ` + "`" + `_authOrigins` + "`" + ` (collectionRef, recordRef, fingerprint)"
+				],
+				"listRule": "@request.auth.id != '' && recordRef = @request.auth.id && collectionRef = @request.auth.collectionId",
+				"name": "_authOrigins",
+				"system": true,
+				"type": "base",
+				"updateRule": null,
+				"viewRule": "@request.auth.id != '' && recordRef = @request.auth.id && collectionRef = @request.auth.collectionId"
+			},
+			{
+				"createRule": "@request.auth.id != \"\" && \n(team.admins ?~ @request.auth.id || team.club.admins ?~ @request.auth.id)",
+				"deleteRule": "@request.auth.id != \"\" && \n(team.admins ?~ @request.auth.id || team.club.admins ?~ @request.auth.id)",
+				"fields": [
+					{
+						"autogeneratePattern": "[a-z0-9]{15}",
+						"hidden": false,
+						"id": "text3208210256",
+						"max": 15,
+						"min": 15,
+						"name": "id",
+						"pattern": "^[a-z0-9]+$",
+						"presentable": false,
+						"primaryKey": true,
+						"required": true,
+						"system": true,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "text724990059",
+						"max": 0,
+						"min": 0,
+						"name": "title",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": true,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"hidden": false,
+						"id": "number432467915",
+						"max": null,
+						"min": null,
+						"name": "interval",
+						"onlyInt": true,
+						"presentable": false,
+						"required": true,
+						"system": false,
+						"type": "number"
+					},
+					{
+						"hidden": false,
+						"id": "date2675529103",
+						"max": "",
+						"min": "",
+						"name": "series_start",
+						"presentable": false,
+						"required": true,
+						"system": false,
+						"type": "date"
+					},
+					{
+						"hidden": false,
+						"id": "date16528305",
+						"max": "",
+						"min": "",
+						"name": "series_end",
+						"presentable": false,
+						"required": true,
+						"system": false,
+						"type": "date"
+					},
+					{
+						"cascadeDelete": false,
+						"collectionId": "fltkvrsbbvzf9cf",
+						"hidden": false,
+						"id": "relation1542800728",
+						"maxSelect": 1,
+						"minSelect": 0,
+						"name": "team",
+						"presentable": false,
+						"required": true,
+						"system": false,
+						"type": "relation"
+					},
+					{
+						"convertURLs": false,
+						"hidden": false,
+						"id": "editor196455508",
+						"maxSize": 0,
+						"name": "desc",
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "editor"
+					},
+					{
+						"cascadeDelete": false,
+						"collectionId": "pbc_1942858786",
+						"hidden": false,
+						"id": "relation1587448267",
+						"maxSelect": 1,
+						"minSelect": 0,
+						"name": "location",
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "relation"
+					},
+					{
+						"hidden": false,
+						"id": "number2254405824",
+						"max": null,
+						"min": null,
+						"name": "duration",
+						"onlyInt": true,
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "number"
+					},
+					{
+						"hidden": false,
+						"id": "autodate2990389176",
+						"name": "created",
+						"onCreate": true,
+						"onUpdate": false,
+						"presentable": false,
+						"system": false,
+						"type": "autodate"
+					},
+					{
+						"hidden": false,
+						"id": "autodate3332085495",
+						"name": "updated",
+						"onCreate": true,
+						"onUpdate": true,
+						"presentable": false,
+						"system": false,
+						"type": "autodate"
+					}
+				],
+				"id": "pbc_29523945",
+				"indexes": [
+					"CREATE INDEX ` + "`" + `idx_QVU4dUhywn` + "`" + ` ON ` + "`" + `eventseries` + "`" + ` (` + "`" + `team` + "`" + `)",
+					"CREATE INDEX ` + "`" + `idx_JwbMaKE47A` + "`" + ` ON ` + "`" + `eventseries` + "`" + ` (` + "`" + `series_end` + "`" + `)"
+				],
+				"listRule": "@request.auth.id != \"\" && \n(team.id ?~ @request.auth.teams.id || team.admins ?~ @request.auth.id || team.club.admins ?~ @request.auth.id)",
+				"name": "eventseries",
+				"system": false,
+				"type": "base",
+				"updateRule": "@request.auth.id != \"\" && \n(team.admins ?~ @request.auth.id || team.club.admins ?~ @request.auth.id)",
+				"viewRule": "@request.auth.id != \"\" && \n(team.id ?~ @request.auth.teams.id || team.admins ?~ @request.auth.id || team.club.admins ?~ @request.auth.id)"
+			},
+			{
+				"createRule": "@request.auth.id != \"\" && \nclub.admins.id ?= @request.auth.id",
+				"deleteRule": "@request.auth.id != \"\" && \nclub.admins.id ?= @request.auth.id",
+				"fields": [
+					{
+						"autogeneratePattern": "[a-z0-9]{15}",
+						"hidden": false,
+						"id": "text3208210256",
+						"max": 15,
+						"min": 15,
+						"name": "id",
+						"pattern": "^[a-z0-9]+$",
+						"presentable": false,
+						"primaryKey": true,
+						"required": true,
+						"system": true,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "text1579384326",
+						"max": 0,
+						"min": 0,
+						"name": "name",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": true,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "text1843675174",
+						"max": 0,
+						"min": 0,
+						"name": "description",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": false,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "text3860915807",
+						"max": 0,
+						"min": 0,
+						"name": "address_addon",
+						"pattern": "",
+						"presentable": true,
+						"primaryKey": false,
+						"required": false,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "text4042183640",
+						"max": 0,
+						"min": 0,
+						"name": "street",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": false,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "text3935888246",
+						"max": 0,
+						"min": 0,
+						"name": "postal_code",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": false,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "text1400097126",
+						"max": 2,
+						"min": 0,
+						"name": "country",
+						"pattern": "",
+						"presentable": true,
+						"primaryKey": false,
+						"required": false,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "text760939060",
+						"max": 0,
+						"min": 0,
+						"name": "city",
+						"pattern": "",
+						"presentable": true,
+						"primaryKey": false,
+						"required": false,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"hidden": false,
+						"id": "number2246143851",
+						"max": null,
+						"min": null,
+						"name": "longitude",
+						"onlyInt": false,
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "number"
+					},
+					{
+						"hidden": false,
+						"id": "number1092145443",
+						"max": null,
+						"min": null,
+						"name": "latitude",
+						"onlyInt": false,
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "number"
+					},
+					{
+						"hidden": false,
+						"id": "number821417040",
+						"max": null,
+						"min": null,
+						"name": "spectator_total",
+						"onlyInt": true,
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "number"
+					},
+					{
+						"hidden": false,
+						"id": "number1295540830",
+						"max": null,
+						"min": null,
+						"name": "spectator_seats",
+						"onlyInt": false,
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "number"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "text615491333",
+						"max": 0,
+						"min": 0,
+						"name": "other_information",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": false,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "text2162860710",
+						"max": 0,
+						"min": 0,
+						"name": "groundrules",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": false,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "text2494603360",
+						"max": 0,
+						"min": 0,
+						"name": "human_country",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": false,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"exceptDomains": [],
+						"hidden": false,
+						"id": "url2077391994",
+						"name": "photo_url",
+						"onlyDomains": [],
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "url"
+					},
+					{
+						"cascadeDelete": false,
+						"collectionId": "z806hmy5um3qy5x",
+						"hidden": false,
+						"id": "relation3102619762",
+						"maxSelect": 1,
+						"minSelect": 0,
+						"name": "club",
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "relation"
+					},
+					{
+						"hidden": false,
+						"id": "number448833041",
+						"max": null,
+						"min": null,
+						"name": "bsm_id",
+						"onlyInt": true,
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "number"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "text2997088205",
+						"max": 0,
+						"min": 0,
+						"name": "internal_name",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": false,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"hidden": false,
+						"id": "autodate2990389176",
+						"name": "created",
+						"onCreate": true,
+						"onUpdate": false,
+						"presentable": false,
+						"system": false,
+						"type": "autodate"
+					},
+					{
+						"hidden": false,
+						"id": "autodate3332085495",
+						"name": "updated",
+						"onCreate": true,
+						"onUpdate": true,
+						"presentable": false,
+						"system": false,
+						"type": "autodate"
+					}
+				],
+				"id": "pbc_1942858786",
+				"indexes": [
+					"CREATE INDEX ` + "`" + `idx_NcfiHiYnsJ` + "`" + ` ON ` + "`" + `locations` + "`" + ` (\n  ` + "`" + `name` + "`" + `,\n  ` + "`" + `longitude` + "`" + `,\n  ` + "`" + `latitude` + "`" + `,\n  ` + "`" + `address_addon` + "`" + `\n)"
+				],
+				"listRule": "@request.auth.id != \"\" && \n@request.auth.club.id ?= club.id",
+				"name": "locations",
+				"system": false,
+				"type": "base",
+				"updateRule": "@request.auth.id != \"\" && \nclub.admins.id ?= @request.auth.id",
+				"viewRule": "@request.auth.id != \"\" && \n@request.auth.club.id ?= club.id"
+			},
+			{
+				"createRule": "@request.auth.id != \"\" && ((team.id = \"\" && club.admins.id ?= @request.auth.id) || (club.id = \"\" && team.admins.id ?= @request.auth.id ))",
+				"deleteRule": "@request.auth.id != \"\" && ((team.id = \"\" && club.admins.id ?= @request.auth.id) || (club.id = \"\" && team.admins.id ?= @request.auth.id ))",
+				"fields": [
+					{
+						"autogeneratePattern": "[a-z0-9]{15}",
+						"hidden": false,
+						"id": "text3208210256",
+						"max": 15,
+						"min": 15,
+						"name": "id",
+						"pattern": "^[a-z0-9]+$",
+						"presentable": false,
+						"primaryKey": true,
+						"required": true,
+						"system": true,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "text724990059",
+						"max": 0,
+						"min": 0,
+						"name": "title",
+						"pattern": "",
+						"presentable": true,
+						"primaryKey": false,
+						"required": true,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"convertURLs": false,
+						"hidden": false,
+						"id": "editor4152030090",
+						"maxSize": 0,
+						"name": "bodytext",
+						"presentable": true,
+						"required": true,
+						"system": false,
+						"type": "editor"
+					},
+					{
+						"exceptDomains": [],
+						"hidden": false,
+						"id": "url917281265",
+						"name": "link",
+						"onlyDomains": [],
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "url"
+					},
+					{
+						"hidden": false,
+						"id": "select1655102503",
+						"maxSelect": 1,
+						"name": "priority",
+						"presentable": false,
+						"required": true,
+						"system": false,
+						"type": "select",
+						"values": [
+							"info",
+							"warning",
+							"danger"
+						]
+					},
+					{
+						"cascadeDelete": true,
+						"collectionId": "z806hmy5um3qy5x",
+						"hidden": false,
+						"id": "relation3102619762",
+						"maxSelect": 1,
+						"minSelect": 0,
+						"name": "club",
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "relation"
+					},
+					{
+						"cascadeDelete": true,
+						"collectionId": "fltkvrsbbvzf9cf",
+						"hidden": false,
+						"id": "relation3303056927",
+						"maxSelect": 1,
+						"minSelect": 0,
+						"name": "team",
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "relation"
+					},
+					{
+						"cascadeDelete": false,
+						"collectionId": "_pb_users_auth_",
+						"hidden": false,
+						"id": "relation3182418120",
+						"maxSelect": 1,
+						"minSelect": 0,
+						"name": "author",
+						"presentable": false,
+						"required": true,
+						"system": false,
+						"type": "relation"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "text2328638830",
+						"max": 0,
+						"min": 0,
+						"name": "link_text",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": false,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"hidden": false,
+						"id": "autodate2990389176",
+						"name": "created",
+						"onCreate": true,
+						"onUpdate": false,
+						"presentable": false,
+						"system": false,
+						"type": "autodate"
+					},
+					{
+						"hidden": false,
+						"id": "autodate3332085495",
+						"name": "updated",
+						"onCreate": true,
+						"onUpdate": true,
+						"presentable": false,
+						"system": false,
+						"type": "autodate"
+					}
+				],
+				"id": "pbc_3866499052",
+				"indexes": [
+					"CREATE INDEX ` + "`" + `idx_yJqhZETWyh` + "`" + ` ON ` + "`" + `announcements` + "`" + ` (\n  ` + "`" + `club` + "`" + `,\n  ` + "`" + `team` + "`" + `\n)"
+				],
+				"listRule": "@request.auth.id != \"\" && (club.id ?~ @request.auth.club.id || team.id ?~ @request.auth.teams.id)",
+				"name": "announcements",
+				"system": false,
+				"type": "base",
+				"updateRule": "@request.auth.id != \"\" && ((@request.body.team.id = \"\" && @request.body.club.admins.id ?= @request.auth.id) || (@request.body.club.id = \"\" && @request.body.team.admins.id ?= @request.auth.id ))",
+				"viewRule": "@request.auth.id != \"\" && (club.id ?~ @request.auth.club.id || team.id ?~ @request.auth.teams.id)"
+			},
+			{
+				"createRule": "@request.auth.id != \"\" && (@request.auth.club.id ?= event.team.club.id  || @request.auth.club.id ?= announcement.club.id || event.team.club.admins.id ?= @request.auth.id  || event.team.admins.id ?= @request.auth.id || announcement.club.admins.id ?= @request.auth.id || announcement.team.admins.id ?= @request.auth.id)",
+				"deleteRule": "@request.auth.id != \"\" && (user.id = @request.auth.id || event.team.admins.id ?= @request.auth.id || event.team.club.admins ?= @request.auth.id || announcement.club.admins.id ?= @request.auth.id || announcement.team.admins.id ?= @request.auth.id)",
+				"fields": [
+					{
+						"autogeneratePattern": "[a-z0-9]{15}",
+						"hidden": false,
+						"id": "text3208210256",
+						"max": 15,
+						"min": 15,
+						"name": "id",
+						"pattern": "^[a-z0-9]+$",
+						"presentable": false,
+						"primaryKey": true,
+						"required": true,
+						"system": true,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "text999008199",
+						"max": 500,
+						"min": 0,
+						"name": "text",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": true,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"cascadeDelete": true,
+						"collectionId": "_pb_users_auth_",
+						"hidden": false,
+						"id": "relation2375276105",
+						"maxSelect": 1,
+						"minSelect": 0,
+						"name": "user",
+						"presentable": false,
+						"required": true,
+						"system": false,
+						"type": "relation"
+					},
+					{
+						"cascadeDelete": true,
+						"collectionId": "pbc_3866499052",
+						"hidden": false,
+						"id": "relation1304025372",
+						"maxSelect": 1,
+						"minSelect": 0,
+						"name": "announcement",
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "relation"
+					},
+					{
+						"cascadeDelete": true,
+						"collectionId": "zyst8ardf4onbwz",
+						"hidden": false,
+						"id": "relation1001261735",
+						"maxSelect": 1,
+						"minSelect": 0,
+						"name": "event",
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "relation"
+					},
+					{
+						"hidden": false,
+						"id": "autodate2990389176",
+						"name": "created",
+						"onCreate": true,
+						"onUpdate": false,
+						"presentable": false,
+						"system": false,
+						"type": "autodate"
+					},
+					{
+						"hidden": false,
+						"id": "autodate3332085495",
+						"name": "updated",
+						"onCreate": true,
+						"onUpdate": true,
+						"presentable": false,
+						"system": false,
+						"type": "autodate"
+					}
+				],
+				"id": "pbc_533777971",
+				"indexes": [
+					"CREATE INDEX ` + "`" + `idx_yMUhqMcso9` + "`" + ` ON ` + "`" + `comments` + "`" + ` (\n  ` + "`" + `user` + "`" + `,\n  ` + "`" + `announcement` + "`" + `,\n  ` + "`" + `event` + "`" + `\n)"
+				],
+				"listRule": "@request.auth.id != \"\" && (@request.auth.club.id ?= event.team.club.id  || @request.auth.club.id ?= announcement.club.id || @request.auth.club.id ?= announcement.team.club.id || @request.auth.teams.id ?= announcement.team.id || announcement.club.admins.id ?= @request.auth.id || announcement.team.admins.id ?= @request.auth.id || event.team.admins.id ?= @request.auth.id || event.team.club.admins.id ?= @request.auth.id)",
+				"name": "comments",
+				"system": false,
+				"type": "base",
+				"updateRule": "@request.auth.id != \"\" && ((@request.body.event:isset = false &&  @request.body.announcement:isset = false && user.id = @request.auth.id) || @request.auth.club.id ?= @request.body.event.team.club.id  || @request.auth.club.id ?= @request.body.announcement.club.id || @request.body.event.team.club.admins.id ?= @request.auth.id  || @request.body.event.team.admins.id ?= @request.auth.id || @request.body.announcement.club.admins.id ?= @request.auth.id || @request.body.announcement.team.admins.id ?= @request.auth.id)",
+				"viewRule": "@request.auth.id != \"\" && (@request.auth.club.id ?= event.team.club.id  || @request.auth.club.id ?= announcement.club.id || @request.auth.club.id ?= announcement.team.club.id || @request.auth.teams.id ?= announcement.team.id || announcement.club.admins.id ?= @request.auth.id || announcement.team.admins.id ?= @request.auth.id || event.team.admins.id ?= @request.auth.id || event.team.club.admins.id ?= @request.auth.id)"
+			}
+		]`
+
+		return app.ImportCollectionsByMarshaledJSON([]byte(jsonData), false)
+	}, func(app core.App) error {
+		return nil
+	})
+}
