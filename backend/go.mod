@@ -1,4 +1,4 @@
-module github.com/diamond-planner/diamond-planner
+module github.com/diamond-planner/diamond-planner/backend
 
 go 1.25
 
