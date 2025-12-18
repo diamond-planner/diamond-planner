@@ -26,7 +26,7 @@
   <Sheet.Content class="navigation-sheet-content" side="left">
     <Sheet.Header></Sheet.Header>
 
-    <a aria-label="to home page" class="anchor" href="/static" onclick={() => open = false}>
+    <a aria-label="to home page" class="anchor" href="/" onclick={() => open = false}>
       <img alt="Diamond Planner Logo" src="/icon_dp.svg">
 
       <h2>Home Page</h2>
