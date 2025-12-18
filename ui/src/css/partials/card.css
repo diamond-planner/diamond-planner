@@ -1,0 +1,40 @@
+/* Components: Cards */
+.card {
+  border-radius: var(--radius-container);
+
+  .card-header {
+    padding: calc(var(--spacing) * 4);
+  }
+
+  .card-footer {
+    padding: calc(var(--spacing) * 4);
+  }
+
+  & a {
+    /* Transitions (all) */
+    transition-property: all;
+    transition-timing-function: var(--default-transition-timing-function);
+    transition-duration: var(--default-transition-duration);
+
+    &:hover {
+      filter: brightness(95%);
+      @media (prefers-color-scheme: dark) {
+        filter: brightness(110%);
+      }
+    }
+  }
+}
+
+.card-hover {
+  /* Transitions (all) */
+  transition-property: all;
+  transition-timing-function: var(--default-transition-timing-function);
+  transition-duration: var(--default-transition-duration);
+
+  &:hover {
+    filter: brightness(95%);
+    @media (prefers-color-scheme: dark) {
+      filter: brightness(110%);
+    }
+  }
+}

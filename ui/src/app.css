@@ -1,0 +1,10 @@
+@layer properties;
+@layer base;
+@layer theme;
+@layer components;
+@layer utilities;
+
+/* TODO: make this obsolete */
+@import "./css/theme/tailwind_merged.css";
+@import "./css/index.css";
+@import "css/dp-theme.css";

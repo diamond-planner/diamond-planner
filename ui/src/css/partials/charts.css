@@ -1,0 +1,6 @@
+/**
+ * We do not want the default background colors
+ */
+.apexcharts-svg {
+  background: none !important;
+}

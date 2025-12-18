@@ -1,0 +1,2992 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-12T16:35:53.634Z\n"
+"PO-Revision-Date: 2025-12-05T17:14:58.437Z\n"
+"Last-Translator: \n"
+"Language: ru\n"
+"Language-Team: \n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
+"MIME-Version: 1.0\n"
+
+#~ msgid "Hero"
+#~ msgstr "Главная"
+
+#~ msgid "Scores"
+#~ msgstr "Результаты"
+
+#: src/lib/dp/auth/AccountModal.svelte
+msgid "Logged in as:"
+msgstr "Вы вошли как:"
+
+#: src/lib/dp/auth/AccountModal.svelte
+#: src/routes/(dp)/(protected)/account/announcements/[announcement]/+page.svelte
+msgid "Club:"
+msgstr "Клуб:"
+
+#: src/lib/dp/auth/AccountModal.svelte
+msgid "Log out"
+msgstr "Выйти"
+
+#~ msgid "Berlin Skylarks Web App"
+#~ msgstr "Веб-приложение Berlin Skylarks"
+
+#~ msgid "Skylarks Team Logo"
+#~ msgstr "Логотип команды Skylarks"
+
+#: src/lib/dp/auth/ChangeEmailForm.svelte
+msgid "A verification email has been sent to your new address."
+msgstr "На ваш новый адрес отправлено письмо с подтверждением."
+
+#: src/lib/dp/auth/ChangeEmailForm.svelte
+msgid "An error occurred while sending your email change request."
+msgstr "Произошла ошибка при отправке запроса на изменение вашего адреса электронной почты."
+
+#: src/lib/dp/auth/ChangeEmailForm.svelte
+msgid "E-Mail <0/> <1>You will be logged out and instructed to verify your new email address.</1>"
+msgstr "Электронная почта <0/> <1>Вы будете автоматически вышли из системы, и вам будет предложено подтвердить свой новый адрес электронной почты.</1>"
+
+#: src/lib/dp/auth/ChangeEmailForm.svelte
+#: src/lib/dp/auth/PasswordRequestButton.svelte
+#: src/lib/dp/components/forms/UserDetailsForm.svelte
+#: src/lib/dp/components/team/TeamMembersTableContent.svelte
+#: src/lib/dp/components/utils/DeleteButton.svelte
+msgid "Confirm"
+msgstr "Подтвердить"
+
+#: src/lib/dp/auth/LoginBadge.svelte
+msgid "Account Overview"
+msgstr "Обзор учетной записи"
+
+#: src/lib/dp/auth/LoginBadge.svelte
+msgid "Login / Register"
+msgstr "Войти / Зарегистрироваться"
+
+#: src/lib/dp/auth/LoginBadge.svelte
+#: src/lib/dp/auth/LoginForm.svelte
+msgid "Login"
+msgstr "Войти"
+
+#: src/lib/dp/auth/LoginBadge.svelte
+msgid "<0/> Login"
+msgstr "<0/> Войти"
+
+#: src/lib/dp/auth/LoginForm.svelte
+#: src/lib/dp/auth/LoginForm.svelte
+msgid "Your email"
+msgstr "Ваш email"
+
+#: src/lib/dp/auth/LoginForm.svelte
+#: src/lib/dp/auth/LoginForm.svelte
+msgid "Your password"
+msgstr "Ваш пароль"
+
+#: src/lib/dp/auth/LoginForm.svelte
+msgid "Login to your account"
+msgstr "Войдите в свою учетную запись"
+
+#: src/lib/dp/auth/LoginForm.svelte
+msgid "Forgot Password?"
+msgstr "Забыли пароль?"
+
+#: src/lib/dp/auth/LoginForm.svelte
+msgid "Reset Password"
+msgstr "Сбросить пароль"
+
+#: src/lib/dp/auth/LoginForm.svelte
+msgid "Sign in to Skylarks Diamond Planner"
+msgstr "Войдите в Skylarks Diamond Planner"
+
+#: src/lib/dp/auth/LoginForm.svelte
+msgid "Log In"
+msgstr "Войти"
+
+#: src/lib/dp/auth/LoginForm.svelte
+msgid "Create Account"
+msgstr "Создать учетную запись"
+
+#: src/lib/dp/auth/LoginForm.svelte
+msgid "First Name"
+msgstr "Имя"
+
+#: src/lib/dp/auth/LoginForm.svelte
+msgid "John"
+msgstr "Иван"
+
+#: src/lib/dp/auth/LoginForm.svelte
+msgid "Last Name"
+msgstr "Фамилия"
+
+#: src/lib/dp/auth/LoginForm.svelte
+msgid "Doe"
+msgstr "Иванов"
+
+#: src/lib/dp/auth/LoginForm.svelte
+msgid "Confirm password"
+msgstr "Подтвердите пароль"
+
+#: src/lib/dp/auth/LoginForm.svelte
+#: src/lib/dp/components/forms/TeamForm.svelte
+msgid "Signup Key"
+msgstr "Ключ регистрации"
+
+#: src/lib/dp/auth/LoginForm.svelte
+msgid ""
+"A valid signup key needs to be entered upon user account creation.\n"
+"If you do not have a signup key, please contact your team manager."
+msgstr ""
+"При создании учетной записи необходимо ввести действительный ключ регистрации.\n"
+"Если у вас нет ключа регистрации, обратитесь к менеджеру вашей команды."
+
+#: src/lib/dp/auth/LoginForm.svelte
+msgid "Register new account"
+msgstr "Зарегистрировать новую учетную запись"
+
+#: src/lib/dp/auth/LoginForm.svelte
+msgid "or sign in with"
+msgstr "или войти с помощью"
+
+#: src/lib/dp/auth/LoginForm.svelte
+msgid ""
+"Even when using an external login provider,\n"
+"a signup key (see above) is still required for account creation."
+msgstr ""
+"Даже при использовании внешнего поставщика услуг для входа в систему,\n"
+"для создания учетной записи все равно требуется ключ регистрации (см. выше)."
+
+#: src/lib/dp/auth/LoginForm.svelte
+msgid ""
+"Note: it is possible to associate a local account with an\n"
+"external provider later by using the same email address. A single account can be associated with more\n"
+"than one external provider."
+msgstr ""
+"Примечание: можно связать локальную учетную запись с\n"
+"внешним поставщиком услуг позже, используя тот же адрес электронной почты. Одна учетная запись может быть связана с несколькими\n"
+"внешними поставщиками услуг."
+
+#: src/lib/dp/auth/LoginForm.svelte
+msgid "There seems to be an error while contacting the backend. Please try again later."
+msgstr "Похоже, произошла ошибка при обращении к серверу. Пожалуйста, повторите попытку позже."
+
+#: src/lib/dp/auth/OAuthProviderButton.svelte
+#: src/lib/dp/auth/OAuthProviderButton.svelte
+msgid "Google logo"
+msgstr "Логотип Google"
+
+#: src/lib/dp/auth/OAuthProviderButton.svelte
+#: src/lib/dp/auth/OAuthProviderButton.svelte
+msgid "Apple logo"
+msgstr "Логотип Apple"
+
+#: src/lib/dp/auth/OAuthProviderButton.svelte
+#: src/lib/dp/auth/OAuthProviderButton.svelte
+msgid "GitHub logo"
+msgstr "Логотип GitHub"
+
+#: src/lib/dp/auth/OAuthProviderButton.svelte
+msgid "Discord logo"
+msgstr "Логотип Discord"
+
+#: src/lib/dp/components/forms/UserDetailsForm.svelte
+msgid ""
+"This data is only used for internal purposes and never shown anywhere publicly.\n"
+"(Your team and club administrators have access)."
+msgstr ""
+"Эти данные используются только для внутренних целей и никогда не отображаются публично.\n"
+"(Ваши администраторы команды и клуба имеют доступ)."
+
+#: src/lib/dp/components/forms/UserDetailsForm.svelte
+msgid "First Name(s) <0/>"
+msgstr "Имя(ена) <0/>"
+
+#: src/lib/dp/components/forms/UserDetailsForm.svelte
+msgid "Last Name <0/>"
+msgstr "Фамилия <0/>"
+
+#: src/lib/dp/components/forms/UserDetailsForm.svelte
+msgid "Profile Image <0/>"
+msgstr "Изображение профиля <0/>"
+
+#: src/lib/dp/components/forms/UserDetailsForm.svelte
+msgid "Selected file:"
+msgstr "Выбранный файл:"
+
+#. placeholder {0}: file.name
+#. placeholder {1}: file.size
+#. placeholder {0}: file.name
+#. placeholder {1}: file.size
+#: src/lib/dp/components/forms/UserDetailsForm.svelte
+msgid "{0} ({1} bytes)"
+msgstr "{0} ({1} байт)"
+
+#: src/lib/dp/components/forms/UserDetailsForm.svelte
+msgid "This is your app profile picture. It will not be used for your player profile image."
+msgstr "Это изображение профиля вашего приложения. Оно не будет использоваться в качестве изображения профиля вашего игрока."
+
+#: src/lib/dp/auth/PasswordRequestButton.svelte
+#: src/lib/dp/components/team/TeamMembersTableContent.svelte
+#: src/lib/dp/components/utils/DeleteButton.svelte
+msgid "Please Confirm"
+msgstr "Пожалуйста, подтвердите"
+
+#: src/lib/dp/auth/PasswordRequestButton.svelte
+msgid ""
+"Send change password request for <0/>?\n"
+"You will be logged out and an email with instructions will be sent to your address."
+msgstr ""
+"Отправить запрос на изменение пароля для <0/>?\n"
+"Вы будете автоматически вышли из системы, и на ваш адрес электронной почты будет отправлено письмо с инструкциями."
+
+#: src/lib/dp/auth/PasswordRequestButton.svelte
+#: src/lib/dp/components/forms/EventSeriesForm.svelte
+#: src/lib/dp/components/team/TeamMembersTableContent.svelte
+#: src/lib/dp/components/utils/DeleteButton.svelte
+msgid "Cancel"
+msgstr "Отмена"
+
+#: src/routes/(tib)/club/+page.svelte
+msgid "Details"
+msgstr "Подробности"
+
+#: src/routes/(tib)/club/+page.svelte
+msgid "More Info"
+msgstr "Больше информации"
+
+#: src/lib/dp/components/navigation/StaticNavigationLinks.svelte
+#: src/lib/dp/components/player/PlayerDataCard.svelte
+#: src/lib/tib/components/navigation/StaticNavigationLinks.svelte
+#: src/routes/(tib)/club/+page.svelte
+#: src/routes/(tib)/teams/+page.svelte
+msgid "Teams"
+msgstr "Команды"
+
+#: src/routes/(tib)/club/+page.svelte
+msgid "Adult and Youth"
+msgstr "Взрослые и молодежь"
+
+#: src/lib/tib/components/match/MatchDetailOfficialsCard.svelte
+#: src/routes/(tib)/club/+page.svelte
+msgid "Scorer"
+msgstr "Счетчик"
+
+#: src/routes/(tib)/club/+page.svelte
+msgid "Keeping statistics"
+msgstr "Ведение статистики"
+
+#: src/lib/tib/components/match/MatchDetailOfficialsCard.svelte
+#: src/routes/(tib)/club/+page.svelte
+msgid "Umpire"
+msgstr "Судья"
+
+#: src/routes/(tib)/club/+page.svelte
+msgid "Our Referees"
+msgstr "Наши судьи"
+
+#: src/lib/dp/components/event/match/MatchDetailLocationCard.svelte
+#: src/routes/(tib)/club/+page.svelte
+#: src/routes/(tib)/club/ballpark/+page.svelte
+msgid "Ballpark"
+msgstr "Стадион"
+
+#: src/routes/(tib)/club/+page.svelte
+msgid "The Lark's Nest"
+msgstr "Гнездо жаворонка"
+
+#: src/routes/(tib)/club/+page.svelte
+msgid "Officials"
+msgstr "Официальные лица"
+
+#: src/routes/(tib)/club/+page.svelte
+msgid "Club Administration"
+msgstr "Администрация клуба"
+
+#: src/routes/(dp)/(protected)/+layout.svelte
+msgid "Internal Area"
+msgstr "Внутренняя область"
+
+#: src/routes/(dp)/(protected)/+layout.svelte
+msgid "Please log in!"
+msgstr "Пожалуйста, войдите в систему!"
+
+#: src/routes/(dp)/(protected)/+layout.svelte
+msgid "Go to Login Page"
+msgstr "Перейти на страницу входа"
+
+#: src/routes/(dp)/(protected)/+layout.svelte
+msgid "<0/> Login Page"
+msgstr "<0/> Страница входа"
+
+#: src/lib/tib/components/match/CurrentMatchesOverviewCard.svelte
+#: src/routes/(tib)/gamecenter/+page.svelte
+msgid "Gamecenter"
+msgstr "Игровой центр"
+
+#: src/routes/(tib)/gamecenter/+page.svelte
+msgid "Show external games"
+msgstr "Показать внешние игры"
+
+#: src/routes/(dp)/signupconfirm/+page.svelte
+msgid "Complete signup process"
+msgstr "Завершите процесс регистрации"
+
+#: src/routes/(dp)/signupconfirm/+page.svelte
+msgid "Your account has been successfully created."
+msgstr "Ваша учетная запись успешно создана."
+
+#: src/routes/(dp)/signupconfirm/+page.svelte
+msgid "Please check your email to follow the required steps to confirm your account."
+msgstr "Пожалуйста, проверьте свою электронную почту, чтобы выполнить необходимые шаги для подтверждения вашей учетной записи."
+
+#: src/lib/tib/components/boxscore/MatchBoxscoreAdditionalStatsSection.svelte
+msgid "BATTING"
+msgstr "БИТЫ"
+
+#: src/lib/tib/components/boxscore/MatchBoxscoreAdditionalStatsSection.svelte
+msgid "2B:"
+msgstr "2B:"
+
+#: src/lib/tib/components/boxscore/MatchBoxscoreAdditionalStatsSection.svelte
+msgid "3B:"
+msgstr "3B:"
+
+#: src/lib/tib/components/boxscore/MatchBoxscoreAdditionalStatsSection.svelte
+msgid "HR:"
+msgstr "HR:"
+
+#: src/lib/tib/components/boxscore/MatchBoxscoreAdditionalStatsSection.svelte
+msgid "SH:"
+msgstr "SH:"
+
+#: src/lib/tib/components/boxscore/MatchBoxscoreAdditionalStatsSection.svelte
+msgid "SF:"
+msgstr "SF:"
+
+#: src/lib/tib/components/boxscore/MatchBoxscoreAdditionalStatsSection.svelte
+msgid "BASERUNNING"
+msgstr "БЕГ ПО БАЗАМ"
+
+#: src/lib/tib/components/boxscore/MatchBoxscoreAdditionalStatsSection.svelte
+msgid "SB:"
+msgstr "SB:"
+
+#: src/lib/tib/components/boxscore/MatchBoxscoreAdditionalStatsSection.svelte
+msgid "CS:"
+msgstr "CS:"
+
+#: src/lib/tib/components/boxscore/MatchBoxscoreAdditionalStatsSection.svelte
+msgid "FIELDING"
+msgstr "ПОЛЕВАЯ ИГРА"
+
+#: src/lib/tib/components/boxscore/MatchBoxscoreAdditionalStatsSection.svelte
+msgid "E:"
+msgstr "О:"
+
+#: src/lib/tib/components/boxscore/MatchBoxscoreAdditionalStatsSection.svelte
+msgid "PB:"
+msgstr "PB:"
+
+#: src/lib/tib/components/boxscore/MatchBoxscoreAdditionalStatsSection.svelte
+msgid "DP:"
+msgstr "DP:"
+
+#: src/lib/tib/components/boxscore/MatchBoxscoreAdditionalStatsSection.svelte
+msgid "TP:"
+msgstr "TP:"
+
+#: src/lib/dp/components/navigation/StaticNavigationLinks.svelte
+#: src/lib/tib/components/navigation/StaticNavigationLinks.svelte
+#: src/routes/(tib)/ligen/+page.svelte
+msgid "Leagues"
+msgstr "Лиги"
+
+#: src/routes/(tib)/ligen/+page.svelte
+msgid "Loading Leagues..."
+msgstr "Загрузка лиг..."
+
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#: src/routes/(dp)/(protected)/stats/[user]/+page.svelte
+#: src/routes/(dp)/(protected)/stats/[user]/+page.svelte
+#: src/routes/(tib)/club/ballpark/+page.svelte
+#: src/routes/(tib)/club/officials/+page.svelte
+#: src/routes/(tib)/club/scorer/+page.svelte
+#: src/routes/(tib)/club/umpire/+page.svelte
+#: src/routes/(tib)/league_entries/[entry]/+page.svelte
+#: src/routes/(tib)/ligen/+page.svelte
+#: src/routes/(tib)/ligen/[id]/+page.svelte
+#: src/routes/(tib)/players/[id]/+page.svelte
+#: src/routes/(tib)/teams/+page.svelte
+#: src/routes/(tib)/teams/[id]/+page.svelte
+#: src/routes/(tib)/teams/[id]/+page.svelte
+#: src/routes/(tib)/teams/[id]/+page.svelte
+msgid "error loading: {0}"
+msgstr "ошибка загрузки: {0}"
+
+#: src/routes/(tib)/teams/+page.svelte
+msgid "Loading Teams..."
+msgstr "Загрузка команд..."
+
+#: src/routes/(tib)/favorite/+page.svelte
+msgid "Favorite Team"
+msgstr "Любимая команда"
+
+#: src/routes/(tib)/favorite/+page.svelte
+msgid "Quick Details"
+msgstr "Краткая информация"
+
+#: src/routes/(tib)/favorite/+page.svelte
+msgid "You have not selected a favorite team yet."
+msgstr "Вы еще не выбрали любимую команду."
+
+#: src/routes/(tib)/favorite/+page.svelte
+msgid "Team Stats Links"
+msgstr "Ссылки на статистику команды"
+
+#: src/routes/(tib)/favorite/+page.svelte
+msgid "Data per League"
+msgstr "Данные по лиге"
+
+#: src/routes/(tib)/favorite/+page.svelte
+msgid "A single team can be associated to several leagues per season in BSM."
+msgstr "Одна команда может быть связана с несколькими лигами за сезон в BSM."
+
+#. placeholder {0}: favoriteTeam?.name
+#. placeholder {0}: favoriteTeam?.team.name
+#: src/routes/(tib)/favorite/+page.svelte
+msgid "The team \"{0}\" does not have a league entry in this league."
+msgstr "У команды \"{0}\" нет записи в этой лиге."
+
+#: src/routes/(tib)/favorite/+page.svelte
+#: src/routes/(tib)/teams/[id]/+page.svelte
+msgid "Standings"
+msgstr "Турнирная таблица"
+
+#: src/routes/(tib)/favorite/+page.svelte
+msgid "Playoffs"
+msgstr "Плей-офф"
+
+#: src/routes/(tib)/favorite/+page.svelte
+msgid "Graphs and Mood"
+msgstr "Графики и настроение"
+
+#: src/lib/dp/components/navigation/StaticNavigationLinks.svelte
+#: src/lib/dp/components/team/TeamAdminSection.svelte
+#: src/lib/tib/components/match/GamecenterMatchSection.svelte
+#: src/lib/tib/components/navigation/StaticNavigationLinks.svelte
+#: src/lib/tib/components/stats/StatsBlock.svelte
+#: src/routes/(tib)/favorite/+page.svelte
+msgid "Games"
+msgstr "Игры"
+
+#: src/routes/(tib)/favorite/+page.svelte
+msgid "Previous Game"
+msgstr "Предыдущая игра"
+
+#: src/routes/(tib)/favorite/+page.svelte
+msgid "No previous game found."
+msgstr "Предыдущая игра не найдена."
+
+#: src/routes/(tib)/favorite/+page.svelte
+msgid "Next Game"
+msgstr "Следующая игра"
+
+#: src/routes/(tib)/favorite/+page.svelte
+msgid "No next game found."
+msgstr "Следующая игра не найдена."
+
+#: src/routes/(tib)/favorite/+page.svelte
+msgid "No data found."
+msgstr "Данные не найдены."
+
+#: src/routes/(tib)/favorite/+page.svelte
+msgid "Loading..."
+msgstr "Загрузка..."
+
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#: src/routes/(tib)/favorite/+page.svelte
+msgid "Error: {0}"
+msgstr "Ошибка: {0}"
+
+#: src/lib/tib/components/boxscore/Linescore.svelte
+#: src/lib/tib/components/boxscore/MatchBoxscoreOffensiveTable.svelte
+#: src/lib/tib/components/boxscore/MatchBoxscorePitchingTable.svelte
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "R"
+msgstr "П"
+
+#: src/lib/tib/components/boxscore/Linescore.svelte
+#: src/lib/tib/components/boxscore/MatchBoxscoreOffensiveTable.svelte
+#: src/lib/tib/components/boxscore/MatchBoxscorePitchingTable.svelte
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "H"
+msgstr "У"
+
+#: src/lib/tib/components/boxscore/Linescore.svelte
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "E"
+msgstr "О"
+
+#: src/lib/tib/components/boxscore/MatchBoxscoreSection.svelte
+msgid "Linescore"
+msgstr "Счет по иннингам"
+
+#: src/lib/tib/components/boxscore/MatchBoxscoreSection.svelte
+msgid "Offensive"
+msgstr "Нападение"
+
+#: src/lib/tib/components/boxscore/MatchBoxscoreSection.svelte
+#: src/lib/tib/components/stats/BaseballStatsDatatable.svelte
+#: src/routes/(tib)/ligen/[id]/stats/+page.svelte
+msgid "Pitching"
+msgstr "Питчинг"
+
+#: src/lib/dp/components/announcements/AnnouncementCard.svelte
+#: src/lib/dp/components/forms/AnnouncementForm.svelte
+#: src/lib/dp/components/forms/AnnouncementForm.svelte
+#: src/routes/(dp)/(protected)/account/announcements/[announcement]/+page.svelte
+msgid "Announcement"
+msgstr "Объявление"
+
+#: src/lib/dp/components/announcements/AnnouncementCard.svelte
+msgid "Number of Comments:"
+msgstr "Количество комментариев:"
+
+#: src/lib/dp/components/announcements/AnnouncementCard.svelte
+msgid "Read more"
+msgstr "Читать далее"
+
+#. placeholder {0}: teamName
+#. placeholder {0}: teamName
+#: src/lib/tib/components/boxscore/MatchBoxscoreOffensiveTable.svelte
+msgid "{0} (Batters)"
+msgstr "{0} (Бьющие)"
+
+#: src/lib/tib/components/boxscore/MatchBoxscoreOffensiveTable.svelte
+#: src/lib/tib/components/boxscore/MatchBoxscorePitchingTable.svelte
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "AB"
+msgstr "Вых"
+
+#: src/lib/tib/components/boxscore/MatchBoxscoreOffensiveTable.svelte
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "RBI"
+msgstr "RBI"
+
+#: src/lib/tib/components/boxscore/MatchBoxscoreOffensiveTable.svelte
+#: src/lib/tib/components/boxscore/MatchBoxscorePitchingTable.svelte
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "K"
+msgstr "K"
+
+#: src/lib/tib/components/boxscore/MatchBoxscoreOffensiveTable.svelte
+#: src/lib/tib/components/boxscore/MatchBoxscorePitchingTable.svelte
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "BB"
+msgstr "BB"
+
+#: src/lib/tib/components/boxscore/MatchBoxscoreOffensiveTable.svelte
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "AVG"
+msgstr "AVG"
+
+#: src/lib/tib/components/boxscore/MatchBoxscoreOffensiveTable.svelte
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "OPS"
+msgstr "OPS"
+
+#. placeholder {0}: teamName
+#. placeholder {0}: teamName
+#: src/lib/tib/components/boxscore/MatchBoxscorePitchingTable.svelte
+msgid "{0} (Pitchers)"
+msgstr "{0} (Питчеры)"
+
+#: src/lib/tib/components/boxscore/MatchBoxscorePitchingTable.svelte
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "IP"
+msgstr "IP"
+
+#: src/lib/tib/components/boxscore/MatchBoxscorePitchingTable.svelte
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "BF"
+msgstr "BF"
+
+#: src/lib/tib/components/boxscore/MatchBoxscorePitchingTable.svelte
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "ER"
+msgstr "ER"
+
+#: src/lib/tib/components/boxscore/MatchBoxscorePitchingTable.svelte
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "ERA"
+msgstr "ERA"
+
+#: src/lib/dp/components/announcements/AnnouncementSectionContent.svelte
+msgid "No announcements available."
+msgstr "Нет доступных объявлений."
+
+#: src/lib/dp/components/comments/CommentRow.svelte
+#: src/lib/dp/components/comments/CommentRow.svelte
+#: src/lib/dp/components/comments/CommentSection.svelte
+#: src/lib/dp/components/forms/ParticipationForm.svelte
+msgid "Comment"
+msgstr "Комментарий"
+
+#: src/lib/dp/components/comments/CommentRow.svelte
+#: src/lib/dp/components/comments/CommentSection.svelte
+msgid "Your comment..."
+msgstr "Ваш комментарий..."
+
+#: src/lib/dp/components/comments/CommentRow.svelte
+#: src/lib/dp/components/comments/CommentSection.svelte
+msgid "Add comment"
+msgstr "Добавить комментарий"
+
+#: src/lib/dp/components/datatable/RowsPerPage.svelte
+msgid "Show <0/>"
+msgstr "Показать <0/>"
+
+#: src/lib/dp/components/comments/CommentSection.svelte
+msgid "No comments yet."
+msgstr "Пока нет комментариев."
+
+#: src/routes/(dp)/login/+page.svelte
+msgid "Login Page"
+msgstr "Страница входа"
+
+#: src/routes/(dp)/login/+page.svelte
+msgid "Go to Account Page"
+msgstr "Перейти на страницу учетной записи"
+
+#: src/lib/dp/components/datatable/RowCount.svelte
+msgid "No Elements found."
+msgstr "Элементы не найдены."
+
+#: src/lib/dp/components/datatable/Search.svelte
+msgid "Search..."
+msgstr "Поиск..."
+
+#: src/lib/dp/components/announcements/PriorityBadge.svelte
+msgid "Info"
+msgstr "Информация"
+
+#: src/lib/dp/components/announcements/PriorityBadge.svelte
+msgid "Important"
+msgstr "Важно"
+
+#: src/lib/dp/components/announcements/PriorityBadge.svelte
+msgid "Critical"
+msgstr "Критично"
+
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "G"
+msgstr "И"
+
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "GS"
+msgstr "СИ"
+
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "PA"
+msgstr "ВЗ"
+
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "2B"
+msgstr "2Б"
+
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "3B"
+msgstr "3Б"
+
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "HR"
+msgstr "ХР"
+
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "IBB"
+msgstr "ППБ"
+
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "HP"
+msgstr "ПП"
+
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "SB"
+msgstr "УБ"
+
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "CS"
+msgstr "КС"
+
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "SH"
+msgstr "ЖП"
+
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "SF"
+msgstr "ЖП"
+
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "I"
+msgstr "Х"
+
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "OBP"
+msgstr "ОПБ"
+
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "SLG"
+msgstr "СЛГ"
+
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "CG"
+msgstr "ПИ"
+
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "BK"
+msgstr "БК"
+
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "WP"
+msgstr "ГП"
+
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "HBP"
+msgstr "ППТ"
+
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "WHIP"
+msgstr "ОПП"
+
+#: src/lib/dp/components/event/match/GameResultIndicator.svelte
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+#: src/lib/tib/components/table/StandingsTable.svelte
+msgid "W"
+msgstr "В"
+
+#: src/lib/dp/components/event/match/GameResultIndicator.svelte
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+#: src/lib/tib/components/table/StandingsTable.svelte
+msgid "L"
+msgstr "П"
+
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "SV"
+msgstr "СП"
+
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "A"
+msgstr "П"
+
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "PO"
+msgstr "АУ"
+
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "DP"
+msgstr "ДП"
+
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "TP"
+msgstr "ТП"
+
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "PB"
+msgstr "ПБ"
+
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "FA"
+msgstr "ОП"
+
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "P"
+msgstr "П"
+
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "C"
+msgstr "К"
+
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "1B"
+msgstr "1Б"
+
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "SS"
+msgstr "ШО"
+
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "LF"
+msgstr "ЛФ"
+
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "CF"
+msgstr "ЦФ"
+
+#: src/lib/tib/components/stats/StatsHeaderRow.svelte
+msgid "RF"
+msgstr "ПФ"
+
+#: src/lib/tib/components/stats/BaseballStatsDatatable.svelte
+#: src/routes/(tib)/ligen/[id]/stats/+page.svelte
+msgid "Batting"
+msgstr "Бэттинг"
+
+#: src/lib/tib/components/stats/BaseballStatsDatatable.svelte
+#: src/routes/(tib)/ligen/[id]/stats/+page.svelte
+msgid "Fielding"
+msgstr "Игра в поле"
+
+#: src/lib/tib/components/stats/BaseballStatsDatatable.svelte
+msgid "Total"
+msgstr "Всего"
+
+#: src/lib/dp/components/club/ClubDetailCard.svelte
+#: src/lib/dp/components/forms/ClubForm.svelte
+#: src/lib/dp/components/forms/UniformSetForm.svelte
+#: src/lib/dp/components/team/TeamMembersTableContent.svelte
+#: src/lib/dp/components/team/TeamTeaserCard.svelte
+#: src/lib/dp/components/user/UserDataCard.svelte
+#: src/lib/tib/components/club/officials/ClubOfficialDetailCard.svelte
+#: src/lib/tib/components/favorite/FavoriteTeamInfoCard.svelte
+#: src/lib/tib/components/league/LeagueDetailInfoCard.svelte
+#: src/lib/tib/components/stats/StatsTableContent.svelte
+#: src/lib/tib/components/table/LeaderboardTable.svelte
+#: src/lib/tib/components/team/TeamDetailInfoCard.svelte
+msgid "Name"
+msgstr "Имя"
+
+#: src/lib/tib/components/stats/StatsTableContent.svelte
+msgid "Saison"
+msgstr "Сезон"
+
+#: src/lib/tib/components/stats/StatsTableContent.svelte
+msgid "No data available for this category."
+msgstr "Нет доступных данных для этой категории."
+
+#: src/lib/dp/components/team/TeamMembersTableContent.svelte
+#: src/lib/tib/components/match/MatchMainInfoSection.svelte
+msgid "Status"
+msgstr "Статус"
+
+#: src/lib/dp/components/team/TeamMembersTableContent.svelte
+#: src/lib/tib/components/club/licenses/LicenseDetailHolderCard.svelte
+msgid "Number"
+msgstr "Номер"
+
+#: src/lib/dp/components/forms/LocationForm.svelte
+#: src/lib/dp/components/team/TeamMembersTableContent.svelte
+msgid "BSM ID"
+msgstr "BSM ID"
+
+#: src/lib/dp/components/team/TeamMembersTableContent.svelte
+msgid "Position"
+msgstr "Позиция"
+
+#: src/lib/dp/components/team/TeamMembersTableContent.svelte
+msgid "Last Login"
+msgstr "Последний вход"
+
+#: src/lib/dp/components/event/EventPageAdminSection.svelte
+#: src/lib/dp/components/team/TeamMembersTableContent.svelte
+msgid "Actions"
+msgstr "Действия"
+
+#: src/lib/dp/components/team/TeamMembersTableContent.svelte
+msgid "Verified"
+msgstr "Подтверждено"
+
+#: src/lib/dp/components/team/TeamMembersTableContent.svelte
+msgid "Unverified"
+msgstr "Не подтверждено"
+
+#: src/lib/dp/components/form/MultiSelectCombobox.svelte
+#: src/lib/dp/components/forms/TeamGamesModal.svelte
+#: src/lib/dp/components/team/TeamMembersTableContent.svelte
+#: src/lib/dp/components/team/TeamMembersTableContent.svelte
+#: src/lib/tib/components/favorite/ClubTeamPicker.svelte
+msgid "None"
+msgstr "Никакие"
+
+#: src/lib/dp/components/team/TeamMembersTableContent.svelte
+msgid "<0/> Revoke Admin Access"
+msgstr "<0/> Отозвать права администратора"
+
+#: src/lib/dp/components/team/TeamMembersTableContent.svelte
+msgid "<0/> Make Admin"
+msgstr "<0/> Сделать администратором"
+
+#: src/lib/dp/components/team/TeamMembersTableContent.svelte
+msgid "<0/> Remove"
+msgstr "<0/> Удалить"
+
+#. placeholder {0}: row.first_name + " " + row.last_name
+#. placeholder {1}: team.name
+#. placeholder {0}: row.first_name + " " + row.last_name
+#. placeholder {1}: team.name
+#: src/lib/dp/components/team/TeamMembersTableContent.svelte
+msgid "Are you sure you wish to remove \"{0}\" from \"{1}\"?"
+msgstr "Вы уверены, что хотите удалить \"{0}\" из \"{1}\"?"
+
+#: src/lib/dp/components/team/TeamMembersTableContent.svelte
+msgid "No team members to display."
+msgstr "Нет членов команды для отображения."
+
+#: src/lib/dp/components/forms/TeamGamesModal.svelte
+#: src/lib/tib/components/favorite/FavoriteTeamInfoCard.svelte
+msgid "League"
+msgstr "Лига"
+
+#: src/lib/tib/components/favorite/FavoriteTeamInfoCard.svelte
+msgid "Season"
+msgstr "Сезон"
+
+#: src/lib/tib/components/favorite/LeagueChartGraph.svelte
+msgid "League Wins Visualisation"
+msgstr "Визуализация побед в лиге"
+
+#: src/lib/dp/components/club/ClubDetailCard.svelte
+#: src/lib/dp/components/forms/ClubForm.svelte
+#: src/lib/tib/components/favorite/LeagueInfoCard.svelte
+#: src/lib/tib/components/league/LeagueDetailInfoCard.svelte
+#: src/lib/tib/components/team/TeamDetailInfoCard.svelte
+msgid "Acronym"
+msgstr "Аббревиатура"
+
+#: src/lib/tib/components/favorite/LeagueInfoCard.svelte
+msgid "Record"
+msgstr "Рекорд"
+
+#: src/lib/tib/components/favorite/LeagueInfoCard.svelte
+#: src/lib/tib/components/favorite/WinningPercentageGauge.svelte
+msgid "Pct."
+msgstr "Процент"
+
+#: src/lib/tib/components/favorite/LeagueInfoCard.svelte
+#: src/lib/tib/components/favorite/WinningPercentageContainer.svelte
+msgid "Rank"
+msgstr "Ранг"
+
+#: src/lib/tib/components/favorite/StreakEmoji.svelte
+msgid "Team Mood"
+msgstr "Настроение команды"
+
+#: src/lib/tib/components/favorite/StreakEmoji.svelte
+msgid "Clubhouse champagne celebration or dugout fights?"
+msgstr "Празднование с шампанским в клубе или драки в землянке?"
+
+#: src/lib/tib/components/favorite/PlayoffSheet.svelte
+msgid "Show Playoff Series"
+msgstr "Показать серию плей-офф"
+
+#: src/lib/tib/components/favorite/PlayoffSheet.svelte
+msgid "Playoff Series"
+msgstr "Серия плей-офф"
+
+#. placeholder {0}: playoffSeries.leading_team.name
+#. placeholder {0}: playoffSeries.leading_team.name
+#: src/lib/tib/components/favorite/PlayoffSheet.svelte
+msgid "{0} lead series"
+msgstr "{0} ведет серию"
+
+#. placeholder {0}: playoffSeries.leading_team.name
+#. placeholder {0}: playoffSeries.leading_team.name
+#: src/lib/tib/components/favorite/PlayoffSheet.svelte
+msgid "{0} win series"
+msgstr "{0} выигрывает серию"
+
+#: src/lib/tib/components/favorite/PlayoffSheet.svelte
+msgid "Series tied"
+msgstr "Серия равная"
+
+#. placeholder {0}: playoffSeries.series_length
+#. placeholder {0}: playoffSeries.series_length
+#: src/lib/tib/components/favorite/PlayoffSheet.svelte
+msgid "Length of series: Best of {0}"
+msgstr "Продолжительность серии: Лучший из {0}"
+
+#: src/lib/tib/components/favorite/WinsOverSeasonChart.svelte
+#: src/lib/tib/components/favorite/WinsOverSeasonChart.svelte
+msgid "Wins Count"
+msgstr "Количество побед"
+
+#: src/lib/tib/components/favorite/WinsOverSeasonChart.svelte
+msgid "Gamedays"
+msgstr "Игровые дни"
+
+#: src/lib/tib/components/favorite/WinsOverSeasonChart.svelte
+msgid "Season Progression"
+msgstr "Прогресс сезона"
+
+#: src/lib/tib/components/favorite/StreakGraphSection.svelte
+msgid "Graph"
+msgstr "График"
+
+#: src/lib/tib/components/favorite/StreakGraphSection.svelte
+#: src/lib/tib/components/favorite/WinningPercentageContainer.svelte
+msgid "Percentage"
+msgstr "Процент"
+
+#: src/lib/tib/components/favorite/StreakGraphSection.svelte
+msgid "Series"
+msgstr "Серии"
+
+#: src/lib/tib/components/favorite/WinningPercentageContainer.svelte
+msgid "Wins/Losses"
+msgstr "Победы/Поражения"
+
+#: src/lib/dp/components/forms/AnnouncementForm.svelte
+msgid "Edit Announcement"
+msgstr "Редактировать объявление"
+
+#: src/lib/dp/components/forms/AnnouncementForm.svelte
+#: src/lib/dp/components/forms/LocationForm.svelte
+#: src/lib/dp/components/forms/TeamForm.svelte
+#: src/routes/(dp)/(protected)/account/clubs/[club]/+page.svelte
+msgid "Create new"
+msgstr "Создать новый"
+
+#. placeholder {0}: form?.title
+#. placeholder {0}: form?.title
+#: src/lib/dp/components/forms/AnnouncementForm.svelte
+msgid "Edit Announcement \"{0}\""
+msgstr "Редактировать объявление \"{0}\""
+
+#: src/lib/dp/components/forms/AnnouncementForm.svelte
+msgid "Create new Announcement"
+msgstr "Создать новое объявление"
+
+#: src/lib/dp/components/forms/AnnouncementForm.svelte
+#: src/lib/tib/components/club/officials/ClubOfficialDetailCard.svelte
+msgid "Title"
+msgstr "Заголовок"
+
+#: src/lib/dp/components/forms/AnnouncementForm.svelte
+msgid "Announcement Text <0/>"
+msgstr "Текст объявления <0/>"
+
+#: src/lib/dp/components/forms/AnnouncementForm.svelte
+msgid "Priority"
+msgstr "Приоритет"
+
+#: src/lib/dp/components/forms/AnnouncementForm.svelte
+msgid "Link Settings"
+msgstr "Настройки ссылки"
+
+#: src/lib/dp/components/forms/AnnouncementForm.svelte
+#: src/routes/(dp)/(protected)/account/announcements/[announcement]/+page.svelte
+msgid "Link"
+msgstr "Ссылка"
+
+#: src/lib/dp/components/forms/AnnouncementForm.svelte
+msgid "Please enter a valid URL"
+msgstr "Пожалуйста, введите действительный URL"
+
+#: src/lib/dp/components/forms/AnnouncementForm.svelte
+msgid "Single link in case the announcement is used as a call to action."
+msgstr "Одиночная ссылка, если объявление используется в качестве призыва к действию."
+
+#: src/lib/dp/components/forms/AnnouncementForm.svelte
+msgid "Link Text"
+msgstr "Текст ссылки"
+
+#: src/lib/dp/components/forms/AnnouncementForm.svelte
+msgid "Click here"
+msgstr "Нажмите здесь"
+
+#: src/lib/dp/components/forms/AnnouncementForm.svelte
+msgid "If not set, the link itself will be used as a the text."
+msgstr "Если не установлено, сама ссылка будет использоваться в качестве текста."
+
+#: src/lib/dp/components/event/EventPageAdminSection.svelte
+#: src/lib/dp/components/forms/AnnouncementForm.svelte
+#: src/lib/dp/components/forms/ClubForm.svelte
+#: src/lib/dp/components/forms/EventForm.svelte
+#: src/lib/dp/components/forms/EventSeriesForm.svelte
+#: src/lib/dp/components/forms/LocationForm.svelte
+#: src/lib/dp/components/forms/ParticipationForm.svelte
+#: src/lib/dp/components/forms/PlayerDataForm.svelte
+#: src/lib/dp/components/forms/TeamForm.svelte
+#: src/lib/dp/components/forms/TeamGamesModal.svelte
+#: src/lib/dp/components/forms/TeamMembersForm.svelte
+#: src/lib/dp/components/forms/UniformSetForm.svelte
+msgid "Submit"
+msgstr "Отправить"
+
+#: src/lib/dp/components/club/ClubDetailCard.svelte
+#: src/lib/dp/components/forms/ClubForm.svelte
+#: src/lib/dp/components/forms/ClubForm.svelte
+#: src/lib/dp/components/navigation/StaticNavigationLinks.svelte
+#: src/lib/dp/components/team/TeamListTeaser.svelte
+#: src/lib/dp/components/team/TeamTeaserCard.svelte
+#: src/lib/dp/components/user/PlayerProfileClubsSection.svelte
+#: src/lib/tib/components/navigation/StaticNavigationLinks.svelte
+#: src/routes/(tib)/club/+page.svelte
+msgid "Club"
+msgstr "Клуб"
+
+#: src/lib/dp/components/forms/ClubForm.svelte
+msgid "Edit Club"
+msgstr "Редактировать клуб"
+
+#: src/lib/dp/components/forms/ClubForm.svelte
+msgid "Create a Club"
+msgstr "Создать клуб"
+
+#. placeholder {0}: form?.name
+#. placeholder {0}: form?.name
+#: src/lib/dp/components/forms/ClubForm.svelte
+msgid "Edit Club \"{0}\""
+msgstr "Редактировать клуб \"{0}\""
+
+#: src/lib/dp/components/forms/ClubForm.svelte
+msgid "Create new Club"
+msgstr "Создать новый клуб"
+
+#: src/lib/dp/components/forms/ClubForm.svelte
+msgid "BSM Club ID"
+msgstr "BSM ID клуба"
+
+#: src/lib/dp/components/forms/ClubForm.svelte
+msgid ""
+"Can be found in the BSM address bar while editing\n"
+"(e.g. <0>https://bsm.baseball-softball.de/clubs/xxx/edit</0>).\n"
+"Needs to be set for the app to function properly."
+msgstr ""
+"Можно найти в адресной строке BSM при редактировании\n"
+"(например, <0>https://bsm.baseball-softball.de/clubs/xxx/edit</0>).\n"
+"Необходимо установить, чтобы приложение работало правильно."
+
+#: src/lib/dp/components/forms/ClubForm.svelte
+msgid "BSM API Key"
+msgstr "Ключ API BSM"
+
+#: src/lib/dp/components/forms/ClubForm.svelte
+msgid ""
+"Must be created in BSM in a user's account that has the role \"Team Administration\".\n"
+"If set, all game events for the club can be automatically imported."
+msgstr ""
+"Должен быть создан в BSM в учетной записи пользователя, у которого есть роль «Администрирование команды».\n"
+"Если установлено, все игровые события для клуба могут быть автоматически импортированы."
+
+#: src/lib/dp/components/forms/ClubForm.svelte
+msgid "Club Admins"
+msgstr "Администраторы клуба"
+
+#: src/lib/dp/components/forms/ClubForm.svelte
+#: src/lib/dp/components/forms/TeamForm.svelte
+msgid "Admin"
+msgstr "Админ"
+
+#: src/lib/dp/components/forms/ClubForm.svelte
+msgid "It is not possible to remove the last admin from a club. <0/> Caution: You can remove yourself as admin, losing all access rights!"
+msgstr "Невозможно удалить последнего администратора из клуба. <0/> Внимание: вы можете удалить себя как администратора, потеряв все права доступа!"
+
+#: src/lib/dp/components/event/EventPageAdminSection.svelte
+#: src/lib/dp/components/forms/ParticipationForm.svelte
+msgid "Created"
+msgstr "Создано"
+
+#: src/lib/dp/components/event/EventPageAdminSection.svelte
+#: src/lib/dp/components/forms/ParticipationForm.svelte
+msgid "Last Updated"
+msgstr "Последнее обновление"
+
+#: src/lib/dp/components/event/EventSeriesView.svelte
+#: src/lib/dp/components/forms/EventSeriesForm.svelte
+#: src/lib/dp/components/forms/EventSeriesForm.svelte
+#: src/lib/dp/components/team/TeamAdminSection.svelte
+msgid "Event Series"
+msgstr "Серия событий"
+
+#. placeholder {0}: eventSeries.title
+#. placeholder {0}: eventSeries.title
+#: src/lib/dp/components/forms/EventSeriesForm.svelte
+msgid "Edit Event Series \"{0}\""
+msgstr "Редактировать серию событий \"{0}\""
+
+#. placeholder {0}: team.name
+#. placeholder {0}: team.name
+#: src/lib/dp/components/forms/EventSeriesForm.svelte
+msgid "Create new Event Series for {0}"
+msgstr "Создать новую серию событий для {0}"
+
+#: src/lib/dp/components/forms/EventSeriesForm.svelte
+msgid "Series First Occurrence <0/>"
+msgstr "Первое событие серии <0/>"
+
+#: src/lib/dp/components/forms/EventSeriesForm.svelte
+msgid ""
+"This is the first event in your new series. It will have the exact start time you enter here.<0/> The next events are then created <1>RECURRING INTERVAL</1> days after the previous one and all will have\n"
+"the end time set to <2>DURATION</2> minutes after their start time."
+msgstr ""
+"Это первое событие в вашей новой серии. Оно будет иметь точное время начала, которое вы здесь введете.<0/> Следующие события затем создаются через <1>ПЕРИОДИЧЕСКИЙ ИНТЕРВАЛ</1> дней после предыдущего, и все они будут\n"
+"время окончания установлено на <2>ПРОДОЛЖИТЕЛЬНОСТЬ</2> минут после времени их начала."
+
+#: src/lib/dp/components/forms/EventSeriesForm.svelte
+msgid "Series End <0/> <1>No events will be created after this date.</1>"
+msgstr "Окончание серии <0/> <1>После этой даты события создаваться не будут.</1>"
+
+#: src/lib/dp/components/forms/EventForm.svelte
+#: src/lib/dp/components/forms/EventSeriesForm.svelte
+msgid "Title <0/>"
+msgstr "Заголовок <0/>"
+
+#: src/lib/dp/components/forms/EventSeriesForm.svelte
+msgid "Recurring Interval <0/> <1>Interval between each series occurrence (in days).</1>"
+msgstr "Периодический интервал <0/> <1>Интервал между каждым повторением серии (в днях).</1>"
+
+#: src/lib/dp/components/forms/EventSeriesForm.svelte
+msgid "Duration <0/> <1>Duration of each event to determine end time (in minutes).</1>"
+msgstr "Длительность <0/> <1>Продолжительность каждого события для определения времени окончания (в минутах).</1>"
+
+#: src/lib/dp/components/forms/EventForm.svelte
+#: src/lib/dp/components/forms/EventSeriesForm.svelte
+#: src/lib/dp/components/forms/TeamForm.svelte
+msgid "Description <0/>"
+msgstr "Описание <0/>"
+
+#: src/lib/dp/components/forms/EventForm.svelte
+#: src/lib/dp/components/forms/EventSeriesForm.svelte
+msgid "No additional name"
+msgstr "Нет дополнительного имени"
+
+#: src/lib/dp/components/forms/EventForm.svelte
+#: src/lib/dp/components/forms/EventSeriesForm.svelte
+msgid "Location <0>None</0>"
+msgstr "Местоположение <0>Нет</0>"
+
+#: src/lib/dp/components/forms/TeamForm.svelte
+#: src/lib/dp/components/forms/TeamForm.svelte
+#: src/lib/dp/components/team/TeamAdminSection.svelte
+#: src/lib/dp/components/team/TeamListTeaser.svelte
+#: src/lib/tib/components/table/StandingsTable.svelte
+#: src/routes/(tib)/league_entries/[entry]/+page.svelte
+msgid "Team"
+msgstr "Команда"
+
+#: src/lib/dp/components/forms/TeamForm.svelte
+msgid "Edit Team"
+msgstr "Редактировать команду"
+
+#. placeholder {0}: form?.name
+#. placeholder {0}: form?.name
+#: src/lib/dp/components/forms/TeamForm.svelte
+msgid "Edit Team \"{0}\""
+msgstr "Редактировать команду \"{0}\""
+
+#: src/lib/dp/components/forms/TeamForm.svelte
+msgid "Create new Team"
+msgstr "Создать новую команду"
+
+#: src/lib/dp/components/event/EventPageAdminSection.svelte
+#: src/lib/dp/components/forms/TeamForm.svelte
+msgid "Name <0/>"
+msgstr "Имя <0/>"
+
+#: src/lib/dp/components/forms/TeamForm.svelte
+msgid "Club <0/>"
+msgstr "Клуб <0/>"
+
+#: src/lib/dp/components/forms/TeamForm.svelte
+msgid ""
+"A valid signup key needs to be entered upon user account creation.\n"
+"New users are automatically added as members to the team corresponding to the signup key used."
+msgstr ""
+"При создании учетной записи пользователя необходимо ввести действительный ключ регистрации.\n"
+"Новые пользователи автоматически добавляются в качестве членов команды, соответствующей использованному ключу регистрации."
+
+#: src/lib/dp/components/forms/TeamForm.svelte
+msgid "Team Admins"
+msgstr "Администраторы команды"
+
+#: src/lib/dp/components/forms/TeamMembersForm.svelte
+msgid "Selected Users:"
+msgstr "Выбранные пользователи:"
+
+#: src/lib/dp/components/forms/TeamMembersForm.svelte
+msgid "Member"
+msgstr "Участник"
+
+#: src/lib/dp/components/event/EventPageAdminSection.svelte
+#: src/lib/dp/components/event/EventTypeBadge.svelte
+#: src/lib/dp/components/forms/EventForm.svelte
+#: src/lib/dp/components/forms/EventForm.svelte
+msgid "Event"
+msgstr "Событие"
+
+#. placeholder {0}: form?.title
+#. placeholder {0}: form?.title
+#: src/lib/dp/components/forms/EventForm.svelte
+msgid "Edit Event \"{0}\""
+msgstr "Редактировать событие \"{0}\""
+
+#: src/lib/dp/components/forms/EventForm.svelte
+msgid "Create new Event"
+msgstr "Создать новое событие"
+
+#: src/lib/dp/components/forms/EventForm.svelte
+msgid "BSM ID <0/>"
+msgstr "BSM ID <0/>"
+
+#: src/lib/dp/components/forms/EventForm.svelte
+msgid "Start <0/>"
+msgstr "Начало <0/>"
+
+#: src/lib/dp/components/forms/EventForm.svelte
+msgid "Meeting <0/>"
+msgstr "Встреча <0/>"
+
+#: src/lib/dp/components/forms/EventForm.svelte
+msgid "End <0/>"
+msgstr "Конец <0/>"
+
+#: src/lib/dp/components/forms/EventForm.svelte
+msgid "Uniform Set <0/>"
+msgstr "Комплект формы <0/>"
+
+#: src/lib/dp/components/forms/EventForm.svelte
+msgid "Cancelled"
+msgstr "Отменено"
+
+#: src/lib/dp/components/forms/UniformSetForm.svelte
+#: src/lib/dp/components/forms/UniformSetForm.svelte
+#: src/lib/dp/components/uniformset/UniformSetInfoCard.svelte
+msgid "Uniform Set"
+msgstr "Комплект униформы"
+
+#: src/lib/dp/components/forms/UniformSetForm.svelte
+msgid "Cap Color"
+msgstr "Цвет кепки"
+
+#: src/lib/dp/components/forms/UniformSetForm.svelte
+msgid "Jersey Color"
+msgstr "Цвет майки"
+
+#: src/lib/dp/components/forms/UniformSetForm.svelte
+msgid "Pants Color"
+msgstr "Цвет штанов"
+
+#: src/lib/dp/components/forms/UniformSetForm.svelte
+msgid "Both hexadecimal color values (6 characters with leading '#') and <0>named CSS colors</0> can be used."
+msgstr "Можно использовать как шестнадцатеричные значения цвета (6 символов с ведущим '#'), так и <0>именованные цвета CSS</0>."
+
+#: src/lib/dp/components/icons/Pants.svelte
+msgid "Baseball Pants"
+msgstr "Бейсбольные штаны"
+
+#: src/lib/dp/components/icons/Shirt.svelte
+msgid "Baseball Jersey"
+msgstr "Бейсбольная майка"
+
+#: src/lib/tib/components/league/LeagueDetailInfoCard.svelte
+#: src/lib/tib/components/team/TeamDetailInfoCard.svelte
+msgid "Sport"
+msgstr "Спорт"
+
+#: src/lib/dp/components/forms/TeamForm.svelte
+#: src/lib/dp/components/team/TeamListTeaser.svelte
+#: src/lib/dp/components/team/TeamTeaserCard.svelte
+#: src/lib/tib/components/league/LeagueDetailInfoCard.svelte
+#: src/lib/tib/components/team/TeamDetailInfoCard.svelte
+msgid "Age Group"
+msgstr "Возрастная группа"
+
+#: src/lib/tib/components/match/CurrentMatchesOverviewCard.svelte
+#: src/routes/(tib)/gamecenter/+page.svelte
+msgid "Gameday"
+msgstr "Игровой день"
+
+#: src/lib/tib/components/match/CurrentMatchesOverviewCard.svelte
+msgid "Current Games"
+msgstr "Текущие игры"
+
+#: src/lib/tib/components/match/CurrentMatchesOverviewCard.svelte
+msgid "Previous <0/>"
+msgstr "Предыдущие <0/>"
+
+#: src/lib/tib/components/match/CurrentMatchesOverviewCard.svelte
+msgid "Current <0/>"
+msgstr "Текущие <0/>"
+
+#: src/lib/tib/components/match/CurrentMatchesOverviewCard.svelte
+msgid "Next <0/>"
+msgstr "Следующие <0/>"
+
+#: src/lib/dp/components/event/match/GameResultIndicator.svelte
+msgid "F"
+msgstr "З"
+
+#: src/lib/dp/components/event/match/GameResultIndicator.svelte
+msgid "TBD"
+msgstr "Уточняется"
+
+#: src/lib/dp/components/event/match/GameResultIndicator.svelte
+#: src/lib/tib/components/match/CurrentMatchRow.svelte
+msgid "PPD"
+msgstr "ОТЛ"
+
+#: src/lib/dp/components/forms/TeamGamesModal.svelte
+msgid "League has been successfully changed."
+msgstr "Лига успешно изменена."
+
+#: src/lib/dp/components/forms/TeamGamesModal.svelte
+msgid "Current Values"
+msgstr "Текущие значения"
+
+#: src/lib/dp/components/forms/TeamGamesModal.svelte
+msgid "Current League ID:"
+msgstr "Текущий ID лиги:"
+
+#: src/lib/dp/components/forms/TeamGamesModal.svelte
+msgid "None selected"
+msgstr "Ничего не выбрано"
+
+#: src/lib/dp/components/forms/TeamGamesModal.svelte
+msgid "BSM-imported games in database:"
+msgstr "Игры, импортированные из BSM, в базе данных:"
+
+#: src/lib/dp/components/forms/TeamGamesModal.svelte
+msgid "Show leagues for"
+msgstr "Показать лиги для"
+
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#: src/lib/dp/components/forms/TeamGamesModal.svelte
+#: src/lib/tib/components/match/CurrentMatchBlock.svelte
+#: src/routes/(tib)/gamecenter/+page.svelte
+#: src/routes/(tib)/ligen/[id]/stats/+page.svelte
+msgid "error loading matches: {0}"
+msgstr "ошибка загрузки матчей: {0}"
+
+#: src/lib/dp/components/forms/TeamGamesModal.svelte
+msgid ""
+"To import games automatically, Diamond Planner needs to know the league this team is currently\n"
+"playing in.\n"
+"The league is imported from BSM and changes every season (even if the actual league name is still\n"
+"the same)."
+msgstr ""
+"Для автоматического импорта игр Diamond Planner должен знать, в какой лиге в настоящее время играет эта команда.\n"
+"Лига импортируется из BSM и меняется каждый сезон (даже если фактическое название лиги остается\n"
+"тем же)."
+
+#: src/lib/dp/components/event/match/MatchDetailLocationCard.svelte
+msgid "Address"
+msgstr "Адрес"
+
+#: src/lib/dp/components/event/match/MatchDetailLocationCard.svelte
+#: src/lib/dp/components/forms/LocationForm.svelte
+msgid "City"
+msgstr "Город"
+
+#: src/lib/dp/components/event/match/MatchDetailLocationCard.svelte
+msgid "Open in Google Maps"
+msgstr "Открыть в Google Maps"
+
+#: src/lib/dp/components/event/match/MatchDetailLocationCard.svelte
+msgid "Open in Apple Maps"
+msgstr "Открыть в Apple Maps"
+
+#: src/lib/dp/components/club/ClubLocationsSection.svelte
+#: src/lib/dp/components/forms/LocationForm.svelte
+#: src/lib/dp/components/forms/LocationForm.svelte
+#: src/routes/(tib)/club/details/+page.svelte
+msgid "Location"
+msgstr "Местоположение"
+
+#. placeholder {0}: form?.address_addon ?? form?.internal_name
+#. placeholder {0}: form?.address_addon ?? form?.internal_name
+#: src/lib/dp/components/forms/LocationForm.svelte
+msgid "Edit Location \"{0}\""
+msgstr "Редактировать местоположение \"{0}\""
+
+#: src/lib/dp/components/forms/LocationForm.svelte
+msgid "Add New Location"
+msgstr "Добавить новое местоположение"
+
+#: src/lib/dp/components/forms/LocationForm.svelte
+msgid "Address Addon*"
+msgstr "Дополнение к адресу*"
+
+#: src/lib/dp/components/forms/LocationForm.svelte
+msgid "Often used in BSM data for the field name."
+msgstr "Часто используется в данных BSM для названия поля."
+
+#: src/lib/dp/components/forms/LocationForm.svelte
+msgid "Name (Sport)*"
+msgstr "Название (Спорт)*"
+
+#: src/lib/dp/components/forms/LocationForm.svelte
+msgid "Street"
+msgstr "Улица"
+
+#: src/lib/dp/components/forms/LocationForm.svelte
+msgid "Postal Code"
+msgstr "Почтовый индекс"
+
+#: src/lib/dp/components/forms/LocationForm.svelte
+msgid "Country Code"
+msgstr "Код страны"
+
+#: src/lib/dp/components/forms/LocationForm.svelte
+msgid "Country Name"
+msgstr "Название страны"
+
+#: src/lib/dp/components/forms/LocationForm.svelte
+msgid "Internal Name"
+msgstr "Внутреннее название"
+
+#: src/lib/dp/components/forms/LocationForm.svelte
+msgid ""
+"Custom name field that will not be overwritten by automatic\n"
+"imports."
+msgstr ""
+"Пользовательское поле имени, которое не будет перезаписано автоматическим\n"
+"импортом."
+
+#: src/lib/dp/components/forms/LocationForm.svelte
+msgid "Latitude*"
+msgstr "Широта*"
+
+#: src/lib/dp/components/forms/LocationForm.svelte
+msgid "Longitude*"
+msgstr "Долгота*"
+
+#: src/lib/dp/components/forms/LocationForm.svelte
+msgid "Coordinate Map <0>Select a location on the map to set coordinates automatically</0> <1/>"
+msgstr "Карта координат <0>Выберите местоположение на карте, чтобы автоматически установить координаты</0> <1/>"
+
+#: src/lib/tib/components/match/CurrentMatchBlock.svelte
+msgid "No games for this timeframe."
+msgstr "Нет игр на этот период времени."
+
+#: src/lib/tib/components/match/CurrentMatchBlock.svelte
+#: src/routes/(tib)/gamecenter/+page.svelte
+msgid "Loading matches..."
+msgstr "Загрузка матчей..."
+
+#: src/lib/tib/components/match/MatchMainInfoSection.svelte
+msgid "Main Info"
+msgstr "Основная информация"
+
+#: src/lib/tib/components/match/MatchMainInfoSection.svelte
+msgid "Date"
+msgstr "Дата"
+
+#: src/lib/tib/components/match/MatchDetailStatsCard.svelte
+msgid "Liga"
+msgstr "Лига"
+
+#: src/lib/tib/components/match/MatchDetailStatsCard.svelte
+msgid "Spiel-ID"
+msgstr "ID игры"
+
+#: src/lib/tib/components/match/MatchDetailStatsCard.svelte
+msgid "geplante Innings"
+msgstr "Запланированные иннинги"
+
+#: src/lib/tib/components/match/MatchDetailStatsCard.svelte
+msgid "Link zum Scoresheet"
+msgstr "Ссылка на таблицу результатов"
+
+#: src/lib/tib/components/match/MatchDetailStatsCard.svelte
+msgid "Kein Scoresheet vorhanden."
+msgstr "Таблица результатов отсутствует."
+
+#: src/lib/tib/components/match/MatchDetailOfficialsCard.svelte
+msgid "No umpires assigned yet."
+msgstr "Судьи еще не назначены."
+
+#: src/lib/tib/components/match/MatchDetailOfficialsCard.svelte
+msgid "No scorers assigned yet."
+msgstr "Бомбардиры еще не назначены."
+
+#: src/lib/tib/components/match/ShareButton.svelte
+msgid "Share game data using your browser"
+msgstr "Поделитесь данными игры с помощью вашего браузера"
+
+#: src/lib/tib/components/match/ShareButton.svelte
+msgid "Share Game <0/>"
+msgstr "Поделиться игрой <0/>"
+
+#: src/lib/dp/components/icons/Cap.svelte
+msgid "Berlin Skylarks Home Cap"
+msgstr "Домашняя кепка Berlin Skylarks"
+
+#: src/lib/dp/components/icons/Cap.svelte
+msgid "Bird"
+msgstr "Bird"
+
+#: src/lib/dp/components/icons/Cap.svelte
+msgid "Berlin Skylarks Road Cap"
+msgstr "Выездная кепка Berlin Skylarks"
+
+#: src/lib/tib/components/gameReport/GameReport.svelte
+msgid "Bericht Spiel 1"
+msgstr "Отчет об игре 1"
+
+#: src/lib/tib/components/gameReport/GameReport.svelte
+msgid "Bericht Spiel 2"
+msgstr "Отчет об игре 2"
+
+#: src/lib/tib/components/gameReport/GameReport.svelte
+msgid "Ausblick"
+msgstr "Перспектива"
+
+#: src/lib/tib/components/gameReport/GameReport.svelte
+msgid "Bildergalerie"
+msgstr "Фотогалерея"
+
+#: src/lib/tib/components/club/ClubInfoSection.svelte
+#: src/routes/(tib)/club/details/+page.svelte
+msgid "Skylarks Logo"
+msgstr "Логотип Skylarks"
+
+#: src/lib/tib/components/gameReport/GameReportHeader.svelte
+msgid "Veröffentlicht:"
+msgstr "Опубликовано:"
+
+#: src/lib/tib/components/gameReport/GameReportHeader.svelte
+msgid "Liga:"
+msgstr "Лига:"
+
+#: src/lib/tib/components/gameReport/GameReportHeader.svelte
+msgid "Autor:"
+msgstr "Автор:"
+
+#~ msgid "Facebook brand logo"
+#~ msgstr "Логотип бренда Facebook"
+
+#~ msgid "Instagram brand logo"
+#~ msgstr "Логотип бренда Instagram"
+
+#~ msgid "TiB Logo"
+#~ msgstr "Логотип TiB"
+
+#: src/lib/dp/components/meta/Footer.svelte
+msgid "Terms & Conditions"
+msgstr "Условия использования"
+
+#: src/lib/dp/components/meta/Footer.svelte
+msgid "Impressum"
+msgstr "Выходные данные"
+
+#: src/lib/dp/components/meta/Footer.svelte
+msgid "Datenschutzerklärung"
+msgstr "Политика конфиденциальности"
+
+#: src/lib/dp/components/meta/SidebarNavigation.svelte
+msgid "My Account"
+msgstr "Мой аккаунт"
+
+#: src/lib/dp/components/meta/SidebarNavigation.svelte
+msgid "Dashboard"
+msgstr "Панель управления"
+
+#: src/lib/dp/components/meta/SidebarNavigation.svelte
+msgid "Personal Stats"
+msgstr "Личная статистика"
+
+#: src/lib/dp/components/meta/SidebarNavigation.svelte
+msgid "Player Profile"
+msgstr "Профиль игрока"
+
+#: src/lib/dp/components/meta/SidebarNavigation.svelte
+msgid "My Clubs & Teams"
+msgstr "Мои клубы и команды"
+
+#: src/lib/dp/components/meta/SidebarNavigation.svelte
+msgid "Administration"
+msgstr "Администрирование"
+
+#: src/lib/dp/components/meta/SidebarNavigation.svelte
+msgid "Admin Dashboard"
+msgstr "Административная панель"
+
+#: src/lib/dp/components/player/PlayerDataCard.svelte
+msgid "Not specified"
+msgstr "Не указано"
+
+#: src/lib/dp/components/player/PlayerDataCard.svelte
+msgid "Age"
+msgstr "Возраст"
+
+#: src/lib/dp/components/player/PlayerDataCard.svelte
+msgid "Member since"
+msgstr "Участник с"
+
+#: src/lib/dp/components/player/PlayerDataCard.svelte
+msgid "Positions"
+msgstr "Позиции"
+
+#: src/lib/dp/components/forms/PlayerDataForm.svelte
+#: src/lib/dp/components/player/PlayerDataCard.svelte
+msgid "Bats"
+msgstr "Бьет"
+
+#: src/lib/dp/components/forms/PlayerDataForm.svelte
+#: src/lib/dp/components/player/PlayerDataCard.svelte
+msgid "Throws"
+msgstr "Бросает"
+
+#: src/lib/tib/components/table/LeaderboardTable.svelte
+msgid "Value"
+msgstr "Значение"
+
+#: src/lib/tib/components/table/StandingsTable.svelte
+msgid "Win %"
+msgstr "% Побед"
+
+#: src/lib/tib/components/table/StandingsTable.svelte
+msgid "GB"
+msgstr "ОТ"
+
+#: src/lib/tib/components/table/StandingsTable.svelte
+msgid "Serie"
+msgstr "Серия"
+
+#: src/lib/dp/components/player/PlayerHeaderSection.svelte
+#: src/lib/dp/components/player/PlayerRow.svelte
+msgid "Player fallback"
+msgstr "Запасной игрок"
+
+#: src/lib/dp/components/navigation/StaticNavigationLinks.svelte
+#: src/lib/tib/components/navigation/StaticNavigationLinks.svelte
+msgid "Start"
+msgstr "Начать"
+
+#: src/lib/dp/components/navigation/StaticNavigationLinks.svelte
+#: src/lib/tib/components/navigation/StaticNavigationLinks.svelte
+msgid "Favorite"
+msgstr "Избранное"
+
+#: src/routes/(dp)/(protected)/account/+page.svelte
+msgid "My Dashboard"
+msgstr "Моя панель управления"
+
+#: src/routes/(dp)/(protected)/account/+page.svelte
+msgid "My Teams"
+msgstr "Мои команды"
+
+#: src/routes/(dp)/(protected)/account/+page.svelte
+msgid "You are not a member of any teams yet."
+msgstr "Вы пока не являетесь участником ни одной команды."
+
+#: src/lib/tib/components/team/TeamDetailInfoCard.svelte
+msgid "Antritt außer Konkurrenz (aK):"
+msgstr "Участие вне конкурса (aK):"
+
+#: src/lib/dp/components/team/TeamAddMemberButton.svelte
+msgid "Add Members"
+msgstr "Добавить участников"
+
+#. placeholder {0}: team.name
+#. placeholder {0}: team.name
+#: src/lib/dp/components/team/TeamAddMemberButton.svelte
+msgid "Add Members to team \"{0}\""
+msgstr "Добавить участников в команду \"{0}\""
+
+#. placeholder {0}: club.name
+#. placeholder {0}: club.name
+#: src/lib/dp/components/team/TeamAddMemberButton.svelte
+msgid "Select all {0} members that should be added to the team."
+msgstr "Выберите всех {0} участников, которых следует добавить в команду."
+
+#: src/lib/tib/components/favorite/ClubTeamPicker.svelte
+msgid "Select Team:"
+msgstr "Выберите команду:"
+
+#: src/lib/tib/components/league/LeagueFilter.svelte
+msgid "All Leagues"
+msgstr "Все лиги"
+
+#. placeholder {0}: modelName
+#. placeholder {0}: modelName
+#: src/lib/dp/components/utils/DeleteButton.svelte
+msgid "Are you sure you wish to delete this {0}? In most cases, data cannot be recovered after deletion. Please be certain."
+msgstr "Вы уверены, что хотите удалить этот {0}? В большинстве случаев данные не могут быть восстановлены после удаления. Пожалуйста, будьте уверены."
+
+#: src/lib/tib/components/stats/StatsBlock.svelte
+msgid "Batting Average"
+msgstr "Средний показатель отбивания"
+
+#: src/lib/tib/components/stats/StatsBlock.svelte
+msgid "On Base Percentage"
+msgstr "Процент выхода на базу"
+
+#: src/lib/tib/components/stats/StatsBlock.svelte
+msgid "Slugging Average"
+msgstr "Средний показатель слаггинга"
+
+#: src/lib/tib/components/stats/StatsBlock.svelte
+msgid "On Base Plus Slugging"
+msgstr "Процент выхода на базу плюс слаггинг"
+
+#: src/lib/tib/components/stats/StatsBlock.svelte
+msgid "Wins - Losses"
+msgstr "Победы - Поражения"
+
+#: src/lib/tib/components/stats/StatsBlock.svelte
+msgid "Innings Pitched"
+msgstr "Проведено иннингов"
+
+#: src/lib/tib/components/stats/StatsBlock.svelte
+msgid "Earned Run Average"
+msgstr "Среднее количество заработанных пробежек"
+
+#: src/lib/tib/components/stats/StatsBlock.svelte
+msgid "Walks & Hits per Innings Pitched"
+msgstr "Пропуски и хиты за проведенный иннинг"
+
+#: src/lib/tib/components/stats/StatsBlock.svelte
+msgid "Innings Played"
+msgstr "Сыграно иннингов"
+
+#: src/lib/tib/components/stats/StatsBlock.svelte
+msgid "Fielding Average"
+msgstr "Процент успешных действий в поле"
+
+#. placeholder {0}: itemName
+#. placeholder {0}: itemName
+#: src/lib/dp/components/form/MultiSelectCombobox.svelte
+msgid "You cannot remove the last {0}!"
+msgstr "Вы не можете удалить последний {0}!"
+
+#. placeholder {0}: itemName
+#. placeholder {0}: itemName
+#: src/lib/dp/components/form/MultiSelectCombobox.svelte
+msgid "Select to add as {0}:"
+msgstr "Выберите, чтобы добавить как {0}:"
+
+#: src/lib/dp/components/forms/PlayerDataForm.svelte
+msgid "Position is already selected."
+msgstr "Эта позиция уже выбрана."
+
+#: src/lib/dp/components/forms/PlayerDataForm.svelte
+#: src/lib/dp/components/forms/PlayerDataForm.svelte
+msgid "Player data"
+msgstr "Данные игрока"
+
+#: src/lib/dp/components/forms/PlayerDataForm.svelte
+msgid "Edit Player Data"
+msgstr "Редактировать данные игрока"
+
+#. placeholder {0}: `${authRecord.first_name} ${authRecord.last_name}`
+#. placeholder {0}: `${authRecord.first_name} ${authRecord.last_name}`
+#: src/lib/dp/components/forms/PlayerDataForm.svelte
+msgid "Edit Player Data for \"{0}\""
+msgstr "Редактировать данные игрока для \"{0}\""
+
+#: src/lib/dp/components/forms/PlayerDataForm.svelte
+msgid "Jersey Number <0/>"
+msgstr "Номер майки <0/>"
+
+#: src/lib/dp/components/forms/PlayerDataForm.svelte
+msgid "BSM ID (Player Pass Number) <0/>"
+msgstr "BSM ID (номер пропуска игрока) <0/>"
+
+#: src/lib/dp/components/forms/PlayerDataForm.svelte
+msgid "Enter positions or click buttons..."
+msgstr "Введите позиции или нажмите кнопки..."
+
+#: src/lib/dp/components/forms/PlayerDataForm.svelte
+msgid "Positions <0/> <1/>"
+msgstr "Позиции <0/> <1/>"
+
+#: src/routes/(tib)/club/officials/+page.svelte
+msgid "Club Officials"
+msgstr "Официальные лица клуба"
+
+#: src/routes/(tib)/club/ballpark/+page.svelte
+#: src/routes/(tib)/club/officials/+page.svelte
+msgid "Loading Club Officials..."
+msgstr "Загрузка официальных лиц клуба..."
+
+#: src/routes/(dp)/(protected)/account/clubs/[club]/+page.svelte
+#: src/routes/(tib)/club/details/+page.svelte
+msgid "Club Details"
+msgstr "Подробности о клубе"
+
+#: src/routes/(tib)/club/details/+page.svelte
+msgid "Team Basics"
+msgstr "Основы команды"
+
+#: src/routes/(tib)/club/details/+page.svelte
+msgid "Name:"
+msgstr "Имя:"
+
+#: src/routes/(tib)/club/details/+page.svelte
+msgid "Acronym:"
+msgstr "Акроним:"
+
+#: src/routes/(tib)/club/details/+page.svelte
+msgid "Main Club:"
+msgstr "Основной клуб:"
+
+#: src/routes/(tib)/club/details/+page.svelte
+msgid "Achievements"
+msgstr "Достижения"
+
+#: src/routes/(tib)/club/details/+page.svelte
+msgid "Legal Info"
+msgstr "Юридическая информация"
+
+#: src/routes/(tib)/club/details/+page.svelte
+msgid "Chairman:"
+msgstr "Председатель:"
+
+#: src/routes/(tib)/club/details/+page.svelte
+msgid "Registered Association:"
+msgstr "Зарегистрированная ассоциация:"
+
+#: src/routes/(tib)/club/details/+page.svelte
+msgid "Court:"
+msgstr "Суд:"
+
+#: src/lib/tib/components/club/ballpark/BallparkDetailCard.svelte
+#: src/routes/(tib)/club/details/+page.svelte
+msgid "Address:"
+msgstr "Адрес:"
+
+#: src/routes/(tib)/club/details/+page.svelte
+msgid "Street:"
+msgstr "Улица:"
+
+#: src/routes/(tib)/ligen/[id]/+page.svelte
+#: src/routes/(tib)/teams/[id]/+page.svelte
+msgid "Information"
+msgstr "Информация"
+
+#: src/routes/(tib)/ligen/[id]/+page.svelte
+msgid "League Stats"
+msgstr "Статистика лиги"
+
+#: src/routes/(tib)/ligen/[id]/+page.svelte
+msgid ""
+"Statistics about current league leaders in various statistical categories can be found on a\n"
+"dedicated subpage."
+msgstr ""
+"Статистику о текущих лидерах лиги в различных статистических категориях можно найти на\n"
+"специальной подстранице."
+
+#: src/routes/(tib)/ligen/[id]/+page.svelte
+msgid "Tabelle"
+msgstr "Таблица"
+
+#: src/routes/(tib)/club/umpire/+page.svelte
+msgid "Umpire Licenses"
+msgstr "Лицензии судей"
+
+#: src/routes/(tib)/club/scorer/+page.svelte
+#: src/routes/(tib)/club/umpire/+page.svelte
+msgid "Loading Licenses..."
+msgstr "Загрузка лицензий..."
+
+#. placeholder {0}: batting.person?.first_name
+#. placeholder {1}: batting.person?.last_name
+#. placeholder {0}: batting.person?.first_name
+#. placeholder {1}: batting.person?.last_name
+#: src/routes/(tib)/players/[id]/+page.svelte
+msgid "Player Profile for {0} {1}"
+msgstr "Профиль игрока для {0} {1}"
+
+#: src/routes/(tib)/players/[id]/+page.svelte
+msgid "Profile Data"
+msgstr "Данные профиля"
+
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#: src/routes/(tib)/players/[id]/+page.svelte
+msgid "An error occurred fetching player data: {0}.<0/> The data source might be temporarily unavailable, please try again later."
+msgstr "Произошла ошибка при получении данных игрока: {0}.<0/> Источник данных может быть временно недоступен, пожалуйста, попробуйте позже."
+
+#: src/routes/(tib)/players/[id]/+page.svelte
+#: src/routes/(tib)/teams/[id]/+page.svelte
+msgid "Stats"
+msgstr "Статистика"
+
+#. placeholder {0}: clubTeam.name
+#. placeholder {1}: clubTeam.season
+#. placeholder {0}: clubTeam.team.name
+#. placeholder {1}: clubTeam.team.season
+#: src/routes/(tib)/teams/[id]/+page.svelte
+msgid "{0} (Saison {1})"
+msgstr "{0} (Сезон {1})"
+
+#: src/routes/(tib)/teams/[id]/+page.svelte
+msgid "No Standings available."
+msgstr "Нет доступных таблиц."
+
+#: src/routes/(tib)/club/scorer/+page.svelte
+msgid "Scorer Licenses"
+msgstr "Лицензии бомбардиров"
+
+#: src/lib/dp/components/club/ClubDetailCard.svelte
+msgid "BSM-ID"
+msgstr "BSM-ID"
+
+#. placeholder {0}: data.teamName ?? "Team"
+#. placeholder {0}: data.teamName ?? "Team"
+#: src/routes/(tib)/league_entries/[entry]/+page.svelte
+msgid "Stats for {0}"
+msgstr "Статистика для {0}"
+
+#: src/lib/dp/components/club/ClubLocationsSection.svelte
+msgid "This club doesn't have saved locations yet."
+msgstr "У этого клуба ещё нет сохранённых мест."
+
+#: src/lib/dp/components/event/EventCoreInfo.svelte
+msgid "Meet:"
+msgstr "Встреча:"
+
+#: src/lib/dp/components/event/EventCoreInfo.svelte
+msgid "Start:"
+msgstr "Начало:"
+
+#: src/lib/dp/components/event/EventCoreInfo.svelte
+msgid "No location provided."
+msgstr "Местоположение не указано."
+
+#: src/lib/dp/components/event/EventPageAdminSection.svelte
+#: src/lib/dp/components/team/TeamAdminSection.svelte
+#: src/routes/(dp)/(protected)/account/clubs/[club]/+page.svelte
+msgid "Admin Section"
+msgstr "Раздел администратора"
+
+#: src/lib/dp/components/event/EventPageAdminSection.svelte
+msgid "Event Details"
+msgstr "Детали мероприятия"
+
+#: src/lib/dp/components/event/EventPageAdminSection.svelte
+msgid "BSM event ID"
+msgstr "BSM ID мероприятия"
+
+#: src/lib/dp/components/event/EventPageAdminSection.svelte
+msgid "Add Guest player"
+msgstr "Добавить гостевого игрока"
+
+#: src/lib/dp/components/event/EventPageAdminSection.svelte
+msgid "Enter the guest player's name"
+msgstr "Введите имя гостевого игрока"
+
+#: src/lib/dp/components/event/EventPageAdminSection.svelte
+msgid "Edit Event"
+msgstr "Редактировать мероприятие"
+
+#: src/lib/dp/components/event/EventPageAdminSection.svelte
+msgid "Delete Event"
+msgstr "Удалить мероприятие"
+
+#: src/lib/dp/components/event/EventAttireSection.svelte
+msgid "Uniform"
+msgstr "Форма"
+
+#: src/lib/dp/components/event/EventParticipantsOverviewSection.svelte
+msgid "Participants"
+msgstr "Участники"
+
+#: src/lib/dp/components/event/EventParticipantsOverviewSection.svelte
+msgid "In"
+msgstr "В игре"
+
+#: src/lib/dp/components/event/EventParticipantsOverviewSection.svelte
+msgid "Maybe"
+msgstr "Возможно"
+
+#: src/lib/dp/components/event/EventParticipantsOverviewSection.svelte
+msgid "Out"
+msgstr "Не в игре"
+
+#: src/lib/dp/components/event/EventTeaser.svelte
+#: src/routes/(dp)/(protected)/account/event/[id]/+page.svelte
+msgid "<0/> Cancelled"
+msgstr "<0/> Отменено"
+
+#: src/lib/dp/components/event/EventTeaser.svelte
+#: src/routes/(dp)/(protected)/account/event/[id]/+page.svelte
+msgid "Only team members can participate in events."
+msgstr "Только члены команды могут участвовать в мероприятиях."
+
+#: src/lib/dp/components/event/IndividualParticipationEditButton.svelte
+msgid "Created:"
+msgstr "Создано:"
+
+#: src/lib/dp/components/event/IndividualParticipationEditButton.svelte
+msgid "Last Updated:"
+msgstr "Последнее обновление:"
+
+#: src/lib/dp/components/event/IndividualParticipationEditButton.svelte
+msgid "Comment/Reason:"
+msgstr "Комментарий/Причина:"
+
+#: src/lib/dp/components/event/EventSeriesView.svelte
+#: src/lib/dp/components/event/IndividualParticipationEditButton.svelte
+msgid "Edit"
+msgstr "Редактировать"
+
+#. placeholder {0}: participation?.expand?.user?.first_name
+#. placeholder {1}: participation?.expand?.user?.last_name
+#. placeholder {0}: participation?.expand?.user?.first_name
+#. placeholder {1}: participation?.expand?.user?.last_name
+#: src/lib/dp/components/event/IndividualParticipationEditButton.svelte
+msgid ""
+"Edit participation data\n"
+"for {0} {1}"
+msgstr ""
+"Редактировать данные об участии\n"
+"для {0} {1}"
+
+#: src/lib/dp/components/event/EventSeriesView.svelte
+msgid "Manage Event Series"
+msgstr "Управление серией мероприятий"
+
+#. placeholder {0}: team?.name
+#. placeholder {0}: team?.name
+#: src/lib/dp/components/event/EventSeriesView.svelte
+msgid "Manage Event Series for {0}"
+msgstr "Управление серией мероприятий для {0}"
+
+#: src/lib/dp/components/event/EventSeriesView.svelte
+msgid "Active Event Series"
+msgstr "Активные серии мероприятий"
+
+#: src/lib/dp/components/event/EventSeriesView.svelte
+msgid "Delete"
+msgstr "Удалить"
+
+#: src/lib/dp/components/event/EventSeriesView.svelte
+msgid "No event series have been set up for this team yet."
+msgstr "Для этой команды ещё не настроены серии мероприятий."
+
+#: src/lib/dp/components/event/EventSeriesView.svelte
+msgid "Add new Event Series"
+msgstr "Добавить новую серию мероприятий"
+
+#: src/lib/dp/components/team/TeamListTeaser.svelte
+#: src/lib/dp/components/team/TeamTeaserCard.svelte
+msgid "BSM-Liga (für aktuelle Saison)"
+msgstr "BSM-Лига (для текущего сезона)"
+
+#: src/lib/dp/components/team/TeamAdminSection.svelte
+msgid ""
+"Events of type \"Game\" don't need to be created manually.\n"
+"All data can be imported from BSM and kept in sync with\n"
+"the current state."
+msgstr ""
+"Мероприятия типа \"Игра\" не нужно создавать вручную.\n"
+"Все данные можно импортировать из BSM и поддерживать синхронизацию с\n"
+"текущим состоянием."
+
+#: src/lib/dp/components/team/TeamAdminSection.svelte
+msgid "Setup Games Import"
+msgstr "Настроить импорт игр"
+
+#. placeholder {0}: team.name
+#. placeholder {0}: team.name
+#: src/lib/dp/components/team/TeamAdminSection.svelte
+msgid "Games Import Setup for {0}"
+msgstr "Настройка импорта игр для {0}"
+
+#: src/lib/dp/components/team/TeamAdminSection.svelte
+msgid ""
+"Manage all recurring series of events (mostly of type\n"
+"\"Practice\") that take place on the same day every week."
+msgstr ""
+"Управление всеми повторяющимися сериями мероприятий (в основном типа\n"
+"\"Тренировка\"), которые проходят в один и тот же день каждую неделю."
+
+#: src/lib/dp/components/team/TeamAdminSection.svelte
+msgid "Single Events"
+msgstr "Единичные мероприятия"
+
+#: src/lib/dp/components/team/TeamAdminSection.svelte
+msgid ""
+"Single Events are not connected to any other events and\n"
+"don't contain additional logic. Well suited for one-off\n"
+"occurrences."
+msgstr ""
+"Единичные мероприятия не связаны с другими мероприятиями и\n"
+"не содержат дополнительной логики. Хорошо подходят для разовых\n"
+"событий."
+
+#: src/lib/dp/components/team/TeamAdminSection.svelte
+msgid "Create Single Event"
+msgstr "Создать единичное мероприятие"
+
+#: src/lib/dp/components/team/TeamAdminSection.svelte
+msgid "Team Settings"
+msgstr "Настройки команды"
+
+#: src/lib/dp/components/team/TeamAdminSection.svelte
+msgid "Danger Zone"
+msgstr "Опасная зона"
+
+#: src/lib/dp/components/team/TeamAdminSection.svelte
+msgid "Delete Team"
+msgstr "Удалить команду"
+
+#. placeholder {0}: title
+#. placeholder {0}: title
+#: src/lib/dp/components/stats/AttendanceTotalStatsBlock.svelte
+msgid "Totals - {0}"
+msgstr "Итого - {0}"
+
+#: src/lib/dp/components/stats/StatsByTypePieChart.svelte
+msgid "Attendance Stats"
+msgstr "Статистика посещаемости"
+
+#: src/lib/dp/components/stats/StatsByTypePieChart.svelte
+msgid "Events where you did not select anything are counted as \"out\"."
+msgstr "Мероприятия, где вы ничего не выбрали, считаются как \"не в игре\"."
+
+#. placeholder {0}: uniformSet.name
+#. placeholder {0}: uniformSet.name
+#: src/lib/dp/components/uniformset/UniformSetInfoCard.svelte
+msgid "Edit Uniform Set \"{0}\""
+msgstr "Редактировать комплект формы \"{0}\""
+
+#: src/lib/dp/components/user/PlayerDataProfileSection.svelte
+msgid "Player Profile Avatar"
+msgstr "Аватар профиля игрока"
+
+#: src/lib/dp/components/user/PlayerDataProfileSection.svelte
+msgid "Public Profile"
+msgstr "Публичный профиль"
+
+#~ msgid ""
+#~ "You have the option to display your player data in your public\n"
+#~ "profile on the Skylarks website and apps."
+#~ msgstr ""
+#~ "У вас есть возможность отображать свои данные игрока в вашем публичном\n"
+#~ "профиле на веб-сайте и в приложениях Skylarks."
+
+#: src/lib/dp/components/user/PlayerDataProfileSection.svelte
+msgid ""
+"Please note that all statistics and basic info such as your name and\n"
+"team affiliation is considered public information when participating\n"
+"in official DBV and BSVBB competitions."
+msgstr ""
+"Обратите внимание, что вся статистика и основная информация, такая как ваше имя и\n"
+"принадлежность к команде, считается общедоступной информацией при участии\n"
+"в официальных соревнованиях DBV и BSVBB."
+
+#: src/lib/dp/components/user/PlayerDataProfileSection.svelte
+msgid "Go to Profile Page"
+msgstr "Перейти на страницу профиля"
+
+#: src/lib/dp/components/user/UserDataCard.svelte
+msgid "User Data"
+msgstr "Данные пользователя"
+
+#: src/lib/dp/components/user/UserDataCard.svelte
+msgid "email address"
+msgstr "адрес электронной почты"
+
+#: src/lib/dp/components/user/UserDataCard.svelte
+msgid "Edit User Data:"
+msgstr "Редактировать данные пользователя:"
+
+#. placeholder {0}: model.first_name
+#. placeholder {1}: model.last_name
+#. placeholder {0}: model.first_name
+#. placeholder {1}: model.last_name
+#: src/lib/dp/components/user/UserDataCard.svelte
+msgid "Change email address for {0} {1}"
+msgstr "Изменить адрес электронной почты для {0} {1}"
+
+#. placeholder {0}: model.first_name
+#. placeholder {1}: model.last_name
+#. placeholder {0}: model.first_name
+#. placeholder {1}: model.last_name
+#: src/lib/dp/components/user/UserDataCard.svelte
+msgid "Edit User Data for {0} {1}"
+msgstr "Редактировать данные пользователя для {0} {1}"
+
+#: src/lib/dp/components/user/PlayerProfileClubsSection.svelte
+msgid "You are not a member of any clubs yet."
+msgstr "Вы ещё не являетесь членом ни одного клуба."
+
+#: src/lib/dp/components/user/PlayerProfileClubsSection.svelte
+msgid "Join a Club"
+msgstr "Присоединиться к клубу"
+
+#. placeholder {0}: eventSeries.interval
+#. placeholder {0}: eventSeries.interval
+#: src/lib/dp/components/eventseries/EventSeriesListItem.svelte
+msgid "every {0} days"
+msgstr "каждые {0} дней"
+
+#: src/lib/dp/components/eventseries/EventSeriesListItem.svelte
+msgid "Series First Occurrence:"
+msgstr "Первое мероприятие серии:"
+
+#: src/lib/dp/components/eventseries/EventSeriesListItem.svelte
+msgid "Series End After:"
+msgstr "Серия заканчивается после:"
+
+#: src/lib/dp/components/eventseries/EventSeriesListItem.svelte
+msgid "Event Duration:"
+msgstr "Продолжительность мероприятия:"
+
+#. placeholder {0}: eventSeries.duration
+#. placeholder {0}: eventSeries.duration
+#: src/lib/dp/components/eventseries/EventSeriesListItem.svelte
+msgid "{0} Minutes"
+msgstr "{0} минут"
+
+#: src/routes/(dp)/(protected)/account/playerprofile/+page.svelte
+msgid "My Player Data"
+msgstr "Мои данные игрока"
+
+#: src/lib/tib/components/club/licenses/LicenseDetailHolderCard.svelte
+msgid "Holder"
+msgstr "Владелец"
+
+#: src/lib/tib/components/club/licenses/LicenseDetailHolderCard.svelte
+msgid "Valid until"
+msgstr "Действителен до"
+
+#: src/lib/tib/components/club/licenses/LicenseDetailHolderCard.svelte
+msgid "Relative Time"
+msgstr "Относительное время"
+
+#. placeholder {0}: user?.first_name
+#. placeholder {1}: user?.last_name
+#. placeholder {0}: user?.first_name
+#. placeholder {1}: user?.last_name
+#: src/routes/(dp)/(protected)/stats/[user]/+page.svelte
+msgid "Stats for {0} {1}"
+msgstr "Статистика для {0} {1}"
+
+#: src/routes/(dp)/(protected)/stats/[user]/+page.svelte
+msgid "Season <0/>"
+msgstr "Сезон <0/>"
+
+#: src/lib/tib/components/club/licenses/LicenseDetailCard.svelte
+msgid "Level"
+msgstr "Уровень"
+
+#: src/lib/tib/components/club/licenses/LicenseDetailCard.svelte
+#: src/lib/tib/components/club/licenses/LicenseList.svelte
+msgid "Baseball"
+msgstr "Бейсбол"
+
+#: src/lib/tib/components/club/licenses/LicenseDetailCard.svelte
+#: src/lib/tib/components/club/licenses/LicenseList.svelte
+msgid "Softball"
+msgstr "Софтбол"
+
+#: src/lib/tib/components/club/licenses/LicenseDetailCard.svelte
+msgid "Sleeve Number"
+msgstr "Номер на рукаве"
+
+#. placeholder {0}: level
+#. placeholder {0}: level
+#: src/lib/tib/components/club/licenses/LicenseLevelIndicator.svelte
+msgid "License level {0}:"
+msgstr "Уровень лицензии {0}:"
+
+#: src/lib/tib/components/club/licenses/LicenseList.svelte
+msgid "No baseball licenses available."
+msgstr "Нет доступных лицензий на бейсбол."
+
+#: src/lib/tib/components/club/licenses/LicenseList.svelte
+msgid "No softball licenses available."
+msgstr "Нет доступных лицензий на софтбол."
+
+#: src/lib/tib/components/club/ballpark/BallparkGrid.svelte
+msgid "No ballparks found."
+msgstr "Стадионы не найдены."
+
+#: src/lib/tib/components/club/ballpark/BallparkDetailCard.svelte
+msgid "Ballpark Name"
+msgstr "Название стадиона"
+
+#: src/lib/tib/components/club/ballpark/BallparkDetailCard.svelte
+msgid "Address Addon"
+msgstr "Дополнение к адресу"
+
+#: src/lib/tib/components/club/ballpark/BallparkDetailCard.svelte
+msgid "Capacity"
+msgstr "Вместимость"
+
+#: src/lib/tib/components/club/ballpark/BallparkDetailCard.svelte
+msgid "Seats"
+msgstr "Сидячие места"
+
+#: src/lib/tib/components/club/officials/ClubOfficialDetailCard.svelte
+msgid "Category"
+msgstr "Категория"
+
+#: src/lib/tib/components/club/officials/ClubOfficialDetailCard.svelte
+msgid "Since"
+msgstr "С"
+
+#: src/lib/tib/components/club/officials/ClubOfficialDetailCard.svelte
+msgid "Contact"
+msgstr "Контакт"
+
+#: src/routes/(tib)/club/ballpark/[id]/+page.svelte
+msgid "Ballpark Details"
+msgstr "Детали стадиона"
+
+#: src/routes/(tib)/club/ballpark/[id]/+page.svelte
+msgid "How to get there"
+msgstr "Как добраться"
+
+#. placeholder {0}: match.match_id
+#. placeholder {0}: match.match_id
+#: src/routes/(tib)/gamecenter/game-detail/[id]/+page.svelte
+msgid "Details zu Spiel {0}"
+msgstr "Подробности об игре {0}"
+
+#: src/routes/(dp)/(protected)/account/event/[id]/+page.svelte
+#: src/routes/(tib)/gamecenter/game-detail/[id]/+page.svelte
+msgid "Game Data"
+msgstr "Данные игры"
+
+#: src/routes/(tib)/gamecenter/game-detail/[id]/+page.svelte
+msgid "Box Score"
+msgstr "Статистика игры"
+
+#: src/routes/(tib)/gamecenter/game-detail/[id]/+page.svelte
+msgid "Game Report"
+msgstr "Отчёт об игре"
+
+#: src/routes/(tib)/gamecenter/game-detail/[id]/+page.svelte
+msgid "No Game Report available."
+msgstr "Отчёт об игре недоступен."
+
+#. placeholder {0}: error.message
+#. placeholder {0}: error.message
+#: src/routes/(tib)/gamecenter/game-detail/[id]/+page.svelte
+msgid "error loading Game Report: {0}"
+msgstr "ошибка загрузки отчёта об игре: {0}"
+
+#: src/routes/(tib)/gamecenter/game-detail/[id]/+page.svelte
+msgid "Caveat"
+msgstr "Предостережение"
+
+#: src/routes/(tib)/gamecenter/game-detail/[id]/+page.svelte
+msgid "Sharing games does not work on Firefox."
+msgstr "Обмен играми не работает в Firefox."
+
+#: src/lib/tib/components/club/officials/ClubOfficialsList.svelte
+msgid "No club officials available."
+msgstr "Нет доступных должностных лиц клуба."
+
+#: src/routes/(dp)/(protected)/stats/admin/+page.svelte
+msgid "Stats Admin Dashboard"
+msgstr "Панель администратора статистики"
+
+#: src/routes/(dp)/(protected)/stats/admin/+page.svelte
+msgid "Not implemented yet."
+msgstr "Еще не реализовано."
+
+#: src/routes/(tib)/club/license/[id]/+page.svelte
+msgid "License Details"
+msgstr "Детали лицензии"
+
+#: src/routes/(tib)/club/license/[id]/+page.svelte
+msgid "No license data due to error."
+msgstr "Данные лицензии недоступны из-за ошибки."
+
+#: src/routes/(dp)/(protected)/account/announcements/[announcement]/+page.svelte
+msgid "Team:"
+msgstr "Команда:"
+
+#. placeholder {0}: $announcement.link
+#. placeholder {0}: $announcement.link
+#: src/routes/(dp)/(protected)/account/announcements/[announcement]/+page.svelte
+msgid "Link associated with this announcement: {0}"
+msgstr "Ссылка, связанная с этим объявлением: {0}"
+
+#: src/routes/(dp)/(protected)/account/announcements/[announcement]/+page.svelte
+#: src/routes/(dp)/(protected)/account/event/[id]/+page.svelte
+msgid "Comments"
+msgstr "Комментарии"
+
+#: src/routes/(dp)/(protected)/account/announcements/[announcement]/+page.svelte
+msgid "Admin Options"
+msgstr "Параметры администратора"
+
+#: src/routes/(dp)/(protected)/account/announcements/[announcement]/+page.svelte
+msgid "Delete Announcement"
+msgstr "Удалить объявление"
+
+#: src/routes/(dp)/(protected)/account/event/[id]/+page.svelte
+msgid "End:"
+msgstr "Конец:"
+
+#: src/routes/(dp)/(protected)/account/event/[id]/+page.svelte
+msgid "Location Details"
+msgstr "Детали местоположения"
+
+#: src/routes/(dp)/(protected)/account/event/[id]/+page.svelte
+msgid "My Participation"
+msgstr "Моё участие"
+
+#: src/routes/(tib)/club/officials/[id]/+page.svelte
+msgid "Official Details"
+msgstr "Детали официального лица"
+
+#. placeholder {0}: data.leagueGroup.name
+#. placeholder {1}: data.leagueGroup.season
+#. placeholder {0}: data.leagueGroup.name
+#. placeholder {1}: data.leagueGroup.season
+#: src/routes/(tib)/ligen/[id]/stats/+page.svelte
+msgid "Leaderboards for {0} ({1})"
+msgstr "Таблицы лидеров для {0} ({1})"
+
+#: src/lib/dp/components/modal/sheet/sheet-content.svelte
+msgid "Close"
+msgstr "Закрыть"
+
+#: src/routes/(dp)/(protected)/account/team/[id]/+page.svelte
+msgid "Team Description"
+msgstr "Описание команды"
+
+#: src/routes/(dp)/(protected)/account/clubs/[club]/+page.svelte
+#: src/routes/(dp)/(protected)/account/team/[id]/+page.svelte
+msgid "Announcements"
+msgstr "Объявления"
+
+#: src/routes/(dp)/(protected)/account/team/[id]/+page.svelte
+msgid "Team Events"
+msgstr "Мероприятия команды"
+
+#: src/routes/(dp)/(protected)/account/team/[id]/+page.svelte
+msgid "No events available with the current filters."
+msgstr "Нет мероприятий, доступных с текущими фильтрами."
+
+#: src/routes/(dp)/(protected)/account/team/[id]/+page.svelte
+msgid "Links"
+msgstr "Ссылки"
+
+#: src/routes/(dp)/(protected)/account/team/[id]/+page.svelte
+msgid "Player List"
+msgstr "Список игроков"
+
+#: src/routes/(dp)/(protected)/account/team/[id]/members/+page.svelte
+msgid "Team Members"
+msgstr "Члены команды"
+
+#. placeholder {0}: data.team.name
+#. placeholder {0}: data.team.name
+#: src/routes/(dp)/(protected)/account/team/[id]/members/+page.svelte
+msgid "Team member list for {0}."
+msgstr "Список членов команды для {0}."
+
+#. placeholder {0}: data.team.name
+#. placeholder {0}: data.team.name
+#: src/routes/(dp)/(protected)/account/team/[id]/members/+page.svelte
+msgid "Team members for Team \"{0}\""
+msgstr "Члены команды для команды \"{0}\""
+
+#: src/routes/(dp)/(protected)/account/clubs/[club]/locations/+page.svelte
+msgid "Club Locations"
+msgstr "Местоположения клуба"
+
+#. placeholder {0}: club.name
+#. placeholder {0}: club.name
+#: src/routes/(dp)/(protected)/account/clubs/[club]/locations/+page.svelte
+msgid "All configured locations for {0}, including baseball fields and other venues."
+msgstr "Все настроенные местоположения для {0}, включая бейсбольные поля и другие площадки."
+
+#. placeholder {0}: club.name
+#. placeholder {0}: club.name
+#: src/routes/(dp)/(protected)/account/clubs/[club]/locations/+page.svelte
+msgid "{0} - Locations"
+msgstr "{0} - Местоположения"
+
+#. placeholder {0}: club.name
+#. placeholder {0}: club.name
+#: src/routes/(dp)/(protected)/account/clubs/[club]/+page.svelte
+msgid "Club overview page for the {0} with info about teams and uniform sets."
+msgstr "Страница обзора клуба для {0} с информацией о командах и комплектах формы."
+
+#: src/routes/(dp)/(protected)/account/clubs/[club]/+page.svelte
+msgid "Club Teams"
+msgstr "Команды клуба"
+
+#: src/routes/(dp)/(protected)/account/clubs/[club]/+page.svelte
+msgid "This club does not have any teams yet."
+msgstr "У этого клуба ещё нет команд."
+
+#: src/routes/(dp)/(protected)/account/clubs/[club]/+page.svelte
+msgid "Uniform Sets"
+msgstr "Комплекты формы"
+
+#: src/routes/(dp)/(protected)/account/clubs/[club]/+page.svelte
+msgid "Create new Uniform Set"
+msgstr "Создать новый комплект формы"
+
+#: src/routes/(dp)/(protected)/account/clubs/[club]/+page.svelte
+msgid "Team Locations"
+msgstr "Местоположения команд"
+
+#: src/routes/(dp)/(protected)/account/clubs/[club]/+page.svelte
+msgid "Locations Page"
+msgstr "Страница местоположений"
+
+#: src/routes/(dp)/(protected)/account/clubs/[club]/+page.svelte
+msgid "Club deletion"
+msgstr "Удаление клуба"
+
+#: src/routes/(dp)/(protected)/account/clubs/[club]/+page.svelte
+msgid ""
+"Deleting a club will delete all team, event and participation data.\n"
+"For safety reasons, a club can therefore only be deleted by a\n"
+"superadmin."
+msgstr ""
+"Удаление клуба приведёт к удалению всех данных о команде, мероприятии и участии.\n"
+"В целях безопасности клуб может быть удалён только\n"
+"суперадминистратором."
+
+#: src/routes/(dp)/(protected)/account/clubs/[club]/+page.svelte
+msgid "Please contact your club's administration."
+msgstr "Пожалуйста, свяжитесь с администрацией вашего клуба."
+
+#: src/routes/(tib)/teams/[id]/+page.svelte
+msgid "Players"
+msgstr "Игроки"
+
+#: src/routes/(tib)/teams/[id]/+page.svelte
+msgid "No Players found for this team."
+msgstr "Игроки не найдены для этой команды."
+
+#: src/lib/dp/components/event/EventParticipantsOverviewSection.svelte
+msgid "No Response"
+msgstr "Нет ответа"
+
+#: src/lib/dp/components/forms/EventSeriesForm.svelte
+msgid ""
+"When editing an event series, only select fields can be changed because editing past events would affect\n"
+"participation statistics. If you want to change a long-running practice series, end the previous one by\n"
+"setting the end date accordingly and create a new series."
+msgstr "При редактировании серии событий можно изменить только выбранные поля, поскольку редактирование прошлых событий повлияет на статистику участия. Если вы хотите изменить длительную серию тренировок, завершите предыдущую, установив соответствующую дату окончания, и создайте новую серию."
+
+#. placeholder {0}: modelName
+#. placeholder {0}: modelName
+#: src/lib/dp/service/ToastController.svelte.ts
+msgid "An error occurred while saving {0} data."
+msgstr "Произошла ошибка при сохранении данных {0}."
+
+#: src/lib/dp/components/forms/PlayerDataForm.svelte
+msgid "Umpire License"
+msgstr "Лицензия судьи"
+
+#: src/lib/dp/components/forms/PlayerDataForm.svelte
+msgid "Scorer License"
+msgstr "Лицензия счетовода"
+
+#: src/lib/dp/components/forms/EventForm.svelte
+#: src/routes/(dp)/(protected)/account/team/[id]/+page.svelte
+msgid "Type"
+msgstr "Тип"
+
+#: src/lib/dp/components/eventseries/EventSeriesListItem.svelte
+msgid "Ongoing"
+msgstr "В процессе"
+
+#: src/lib/dp/components/eventseries/EventSeriesListItem.svelte
+#: src/routes/(dp)/(protected)/account/team/[id]/+page.svelte
+msgid "Past"
+msgstr "Прошедшее"
+
+#: src/lib/dp/components/eventseries/EventSeriesListItem.svelte
+msgid "Upcoming"
+msgstr "Предстоящее"
+
+#: src/lib/tib/components/boxscore/MatchBoxscoreSection.svelte
+msgid "Away Team"
+msgstr "Гостевая команда"
+
+#: src/lib/tib/components/boxscore/MatchBoxscoreSection.svelte
+msgid "Home Team"
+msgstr "Домашняя команда"
+
+#: src/lib/tib/components/match/ContentFilteredUnavailable.svelte
+msgid "There is no data to display for the selected filters."
+msgstr "Нет данных для отображения для выбранных фильтров."
+
+#: src/lib/dp/components/forms/TeamGamesModal.svelte
+msgid "An error occurred while saving the event."
+msgstr "Произошла ошибка при сохранении события."
+
+#. placeholder {0}: season
+#. placeholder {0}: season
+#: src/lib/dp/components/stats/AttendanceTotalStatsBlock.svelte
+msgid "All possible events of this type for {0}"
+msgstr "Все возможные события этого типа для {0}"
+
+#: src/lib/tib/components/favorite/LeagueChartGraph.svelte
+msgid "Wins"
+msgstr "Победы"
+
+#: src/lib/tib/components/favorite/LeagueChartGraph.svelte
+msgid "Total Wins"
+msgstr "Всего побед"
+
+#: src/lib/dp/auth/LoginForm.svelte
+msgid "There was an error processing your authentication request."
+msgstr "Произошла ошибка при обработке вашего запроса аутентификации."
+
+#: src/lib/dp/components/form/TagsInput.svelte
+msgid "Enter"
+msgstr "Ввод"
+
+#: src/lib/dp/components/form/TagsInput.svelte
+msgid "Backspace"
+msgstr "Удаление"
+
+#: src/lib/dp/components/form/TagsInput.svelte
+msgid "Remove tag"
+msgstr "Удалить тег"
+
+#: src/lib/dp/components/form/TagsInput.svelte
+msgid "You have entered a value that is not allowed here."
+msgstr "Вы ввели значение, которое здесь не разрешено."
+
+#: src/routes/(tib)/ligen/[id]/+page.svelte
+msgid ""
+"Go to\n"
+"stats"
+msgstr ""
+"Перейти к\n"
+"статистике"
+
+#: src/lib/dp/components/navigation/NavigationSheet.svelte
+msgid "Home Page"
+msgstr "Домашняя страница"
+
+#: src/routes/+layout.svelte
+#: src/routes/+page.svelte
+msgid "Diamond Planner"
+msgstr "Diamond Planner"
+
+#~ msgid "Berlin Skylarks Team App"
+#~ msgstr "Приложение для команды Berlin Skylarks"
+
+#~ msgid ""
+#~ "The core functionality of this app (getting up-to-date information about games, standings and public club\n"
+#~ "information) is available without logging in."
+#~ msgstr "Основная функциональность этого приложения (получение актуальной информации об играх, турнирной таблице и публичной информации о клубе) доступна без входа в систему."
+
+#: src/routes/+page.svelte
+msgid "To access internal team information and participate in team activities, please <0>log in to your account.</0>"
+msgstr "Чтобы получить доступ к внутренней информации команды и участвовать в командных мероприятиях, пожалуйста, <0>войдите в свою учетную запись.</0>"
+
+#: src/routes/(dp)/login/+page.svelte
+msgid "You are logged in as: <0/> <1/> You can log out by clicking your avatar in the top right."
+msgstr "Вы вошли как: <0/> <1/> Вы можете выйти, нажав на свой аватар в правом верхнем углу."
+
+#: src/lib/dp/components/forms/PlayerDataForm.svelte
+msgid "Display this data publicly on team website"
+msgstr "Отображать эти данные публично на веб-сайте команды"
+
+#: src/routes/(tib)/gamecenter/game-detail/[id]/+page.svelte
+msgid "Box Score for this game could not be loaded or is unavailable."
+msgstr "Таблица результатов для этой игры не может быть загружена или недоступна."
+
+#. placeholder {0}: error.message
+#: src/routes/(tib)/gamecenter/game-detail/[id]/+page.svelte
+msgid "error loading box score: {0}"
+msgstr "ошибка загрузки таблицы результатов: {0}"
+
+#: src/lib/tib/components/favorite/StreakGraphSection.svelte
+#: src/lib/tib/components/favorite/StreakGraphSection.svelte
+msgid "No data available."
+msgstr "Нет доступных данных."
+
+#: src/lib/dp/components/comments/CommentRow.svelte
+msgid "Error updating comment"
+msgstr ""
+
+#: src/lib/dp/components/comments/CommentSection.svelte
+msgid "Failed to add comment."
+msgstr ""
+
+#. placeholder {0}: email
+#: src/lib/dp/auth/PasswordRequestButton.svelte
+msgid "If we have your email ({0}) on file, you will receive a reset password request in your inbox."
+msgstr ""
+
+#: src/lib/dp/auth/PasswordRequestButton.svelte
+msgid "Error sending reset password request."
+msgstr ""
+
+#: src/lib/dp/auth/OAuthProviderButton.svelte
+msgid "There was an error processing your authentication request via external provider. Please double-check your signup key"
+msgstr ""
+
+#: src/lib/dp/components/forms/TeamMembersForm.svelte
+#: src/lib/dp/components/forms/TeamMembersForm.svelte
+msgid "Team members"
+msgstr ""
+
+#. placeholder {0}: model.first_name + " " + model.last_name
+#. placeholder {1}: team.name
+#: src/lib/dp/components/team/TeamMembersTableContent.svelte
+msgid "User \"{0}\" has been added as an admin for team \"{1}\""
+msgstr ""
+
+#: src/lib/dp/components/team/TeamMembersTableContent.svelte
+msgid "An error occurred while adding user as admin"
+msgstr ""
+
+#. placeholder {0}: model.first_name + " " + model.last_name
+#. placeholder {1}: team.name
+#: src/lib/dp/components/team/TeamMembersTableContent.svelte
+msgid "User \"{0}\" has been removed as admin for team \"{1}\""
+msgstr ""
+
+#: src/lib/dp/components/team/TeamMembersTableContent.svelte
+msgid "An error occurred while removing user as admin"
+msgstr ""
+
+#. placeholder {0}: model.first_name + " " + model.last_name
+#. placeholder {1}: team.name
+#: src/lib/dp/components/team/TeamMembersTableContent.svelte
+msgid "User \"{0}\" has been removed as member from team \"{1}\""
+msgstr ""
+
+#: src/lib/dp/components/team/TeamMembersTableContent.svelte
+msgid "An error occurred while removing user as team member"
+msgstr ""
+
+#: src/lib/dp/components/forms/UniformSetForm.svelte
+msgid ""
+"You can use the special identifiers <0/> and <1/> to get\n"
+"the Skylarks Home and Road Cap instead of a\n"
+"generic colored one."
+msgstr ""
+
+#: src/lib/dp/components/forms/ParticipationForm.svelte
+msgid "State <0>InMaybeOut</0>"
+msgstr ""
+
+#. placeholder {0}: modelName
+#: src/lib/dp/components/utils/DeleteButton.svelte
+msgid "Error deleting {0}."
+msgstr ""
+
+#: src/lib/dp/components/event/EventTypeBadge.svelte
+#: src/routes/(dp)/(protected)/account/team/[id]/+page.svelte
+msgid "Game"
+msgstr ""
+
+#: src/lib/dp/components/event/EventTypeBadge.svelte
+#: src/routes/(dp)/(protected)/account/team/[id]/+page.svelte
+msgid "Practice"
+msgstr ""
+
+#: src/lib/dp/components/player/TeamPlayerSection.svelte
+msgid "Visualization <0>NumberImage</0>"
+msgstr ""
+
+#: src/routes/(tib)/gamecenter/+page.svelte
+msgid "Previous"
+msgstr ""
+
+#: src/routes/(tib)/gamecenter/+page.svelte
+msgid "Current"
+msgstr ""
+
+#: src/routes/(dp)/(protected)/account/team/[id]/+page.svelte
+#: src/routes/(tib)/gamecenter/+page.svelte
+msgid "Next"
+msgstr ""
+
+#: src/routes/(dp)/(protected)/account/team/[id]/+page.svelte
+#: src/routes/(tib)/gamecenter/+page.svelte
+msgid "All"
+msgstr ""
+
+#: src/routes/(dp)/(protected)/account/team/[id]/+page.svelte
+msgid "Timeframe"
+msgstr ""
+
+#: src/routes/(dp)/(protected)/account/team/[id]/+page.svelte
+msgid "Sort"
+msgstr ""
+
+#: src/routes/(dp)/(protected)/account/team/[id]/+page.svelte
+msgid "Ascending"
+msgstr ""
+
+#: src/routes/(dp)/(protected)/account/team/[id]/+page.svelte
+msgid "Descending"
+msgstr ""
+
+#: src/routes/(dp)/(protected)/account/team/[id]/+page.svelte
+msgid "Other"
+msgstr ""
+
+#~ msgid "MÖP"
+#~ msgstr ""
+
+#: src/lib/dp/components/navigation/NavigationSheet.svelte
+#: src/routes/+layout.svelte
+msgid "Diamond Planner Logo"
+msgstr ""
+
+#~ msgid "MÖPP"
+#~ msgstr ""
+
+#: src/lib/dp/components/user/PlayerDataProfileSection.svelte
+msgid ""
+"You have the option to display your player data in your public\n"
+"profile on the website and apps."
+msgstr ""

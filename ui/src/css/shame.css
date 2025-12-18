@@ -1,0 +1,107 @@
+/**
+ * Tailwind variant styles that cannot be easily migrated.
+ * Nothing should ever get added to this file, only deleted.
+ */
+
+@media (hover: hover) {
+  .hover\:preset-tonal-error:hover {
+    background-color: var(--color-error-50-950);
+    color: var(--color-error-950-50);
+  }
+
+  .hover\:preset-tonal-primary:hover {
+    background-color: var(--color-primary-50-950);
+    color: var(--color-primary-950-50);
+  }
+
+  .hover\:preset-tonal-success:hover {
+    background-color: var(--color-success-50-950);
+    color: var(--color-success-950-50);
+  }
+
+  .hover\:preset-tonal-warning:hover {
+    background-color: var(--color-warning-50-950);
+    color: var(--color-warning-950-50);
+  }
+}
+
+.active\:preset-filled:active {
+  background-color: var(--color-surface-950-50);
+  color: var(--color-surface-50-950);
+}
+
+.active\:preset-filled-error-300-700:active {
+  background-color: var(--color-error-300-700);
+  color: var(--color-error-contrast-300-700);
+}
+
+@media (prefers-color-scheme: dark) {
+  .dark\:border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
+
+  .dark\:border-2 {
+    border-style: var(--tw-border-style);
+    border-width: 2px;
+  }
+
+  .dark\:border-surface-100 {
+    border-color: var(--color-surface-100);
+  }
+
+  .dark\:border-surface-200 {
+    border-color: var(--color-surface-200);
+  }
+
+  .dark\:border-surface-500 {
+    border-color: var(--color-surface-500);
+  }
+
+  .dark\:border-tertiary-600-400 {
+    border-color: light-dark(var(--color-tertiary-600), var(--color-tertiary-400));
+  }
+
+  .dark\:border-white {
+    border-color: var(--color-white);
+  }
+
+  .dark\:preset-filled-secondary-500 {
+    background-color: var(--color-secondary-500);
+    color: var(--color-secondary-contrast-500);
+  }
+
+  .dark\:preset-filled-surface-300-700 {
+    background-color: var(--color-surface-300-700);
+    color: var(--color-surface-contrast-300-700);
+  }
+
+  .dark\:preset-filled-surface-500 {
+    background-color: var(--color-surface-500);
+    color: var(--color-surface-contrast-500);
+  }
+
+  .dark\:bg-surface-700 {
+    background-color: var(--color-surface-700);
+  }
+
+  .dark\:bg-tertiary-700 {
+    background-color: var(--color-tertiary-700);
+  }
+
+  .dark\:text-error-400 {
+    color: var(--color-error-400);
+  }
+
+  .dark\:text-gray-400 {
+    color: var(--color-gray-400);
+  }
+
+  .dark\:text-success-500 {
+    color: var(--color-success-500);
+  }
+
+  .dark\:text-surface-contrast-500\! {
+    color: var(--color-surface-contrast-500) !important;
+  }
+}

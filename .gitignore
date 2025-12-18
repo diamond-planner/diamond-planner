@@ -211,7 +211,6 @@ pb_data
 pb_migrations
 node_modules
 /build
-/.svelte-kit
 /package
 .env
 !.env.dist
@@ -229,3 +228,5 @@ serve
 /src/locales/proxy.svelte.js
 /src/locales/*.compiled.main.svelte.js
 /craft/data/*.db*
+/ui/.svelte-kit/
+/ui/src/locales/.wuchale/
