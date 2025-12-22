@@ -364,7 +364,6 @@ func TestServiceEntryRules(t *testing.T) {
 			ExpectedContent: []string{`"admin_comment":"LGTM"`},
 			TestAppFactory:  setupTestApp,
 		},
-		// TODO: fix rule, failing!
 		{
 			Name:   "Board member must be an admin of the club",
 			Method: http.MethodPost,
@@ -380,8 +379,9 @@ func TestServiceEntryRules(t *testing.T) {
 				"club": "%s",
 				"board_member": "%s"
 			}`, alice.ID, clubA.ID, andreaAntelopeAdmin.ID)), // Andrea is not a Club admin
-			ExpectedStatus: http.StatusBadRequest,
-			TestAppFactory: setupTestApp,
+			ExpectedStatus:  http.StatusBadRequest,
+			ExpectedContent: []string{"Failed to create record."},
+			TestAppFactory:  setupTestApp,
 		},
 	}
 
