@@ -7,6 +7,7 @@ import (
 
 	"github.com/diamond-planner/diamond-planner/bsm"
 	"github.com/diamond-planner/diamond-planner/dp"
+	_ "github.com/diamond-planner/diamond-planner/migrations"
 	"github.com/subosito/gotenv"
 )
 

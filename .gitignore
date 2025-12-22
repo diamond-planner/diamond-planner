@@ -230,3 +230,4 @@ serve
 /craft/data/*.db*
 /ui/.svelte-kit/
 /ui/src/locales/.wuchale/
+/test_pb_data/auxiliary.db
