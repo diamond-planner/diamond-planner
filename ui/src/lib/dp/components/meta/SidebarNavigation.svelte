@@ -30,11 +30,9 @@
       sheetOpen = false;
     }
   }
-
-  const value = $state(["account", "teamClub", "admin"]);
 </script>
 
-<nav class="list-nav py-1 px-1 lg:px-4">
+<nav class="list-nav">
   {#if isUserAuthenticated}
     <AccordionItem>
       {#snippet lead()}
@@ -116,22 +114,39 @@
   {/if}
 </nav>
 
-<style lang="postcss">
-    a {
-        display: flex;
-        align-items: center;
-        margin: 0.3rem;
-        padding: 0.4rem;
-    }
+<style>
+  .list-nav {
+    padding-inline: var(--spacing);
+    padding-block: var(--spacing);
 
-    a:hover,
-    a:focus {
-        background-color: var(--color-primary-50-950);
-        color: var(--color-primary-950-50);
-        border-radius: var(--radius-container);
+    @media (min-width: 64rem) {
+      padding-inline: calc(var(--spacing) * 4);
     }
+  }
 
-    span {
-        margin-left: 0.5rem;
+  a {
+    display: flex;
+    align-items: center;
+    margin: 0.3rem;
+    padding: 0.4rem;
+  }
+
+  a:hover,
+  a:focus {
+    background-color: var(--color-primary-50-950);
+    color: var(--color-primary-950-50);
+    border-radius: var(--radius-container);
+  }
+
+  span {
+    margin-left: 0.5rem;
+  }
+
+  :global {
+    .list-nav {
+      .lucide-icon {
+        min-width: 24px;
+      }
     }
+  }
 </style>
