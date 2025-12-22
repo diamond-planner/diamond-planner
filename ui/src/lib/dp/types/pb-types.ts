@@ -251,6 +251,8 @@ export interface UsersCollection {
 		participations_via_user: ParticipationsCollection[];
 		announcements_via_author: AnnouncementsCollection[];
 		comments_via_user: CommentsCollection[];
+		serviceentries_via_member: ServiceentriesCollection[];
+		serviceentries_via_board_member: ServiceentriesCollection[];
 	};
 }
 
@@ -345,6 +347,7 @@ export interface ClubsResponse extends BaseCollectionResponse {
 	bsm_id: number;
 	acronym: string;
 	admins: Array<string>;
+	service_requirement: number;
 	created: string;
 	updated: string;
 }
@@ -355,6 +358,7 @@ export interface ClubsCreate extends BaseCollectionCreate {
 	bsm_id?: number;
 	acronym?: string;
 	admins: MaybeArray<string>;
+	service_requirement?: number;
 	created?: string | Date;
 	updated?: string | Date;
 }
@@ -369,6 +373,9 @@ export interface ClubsUpdate extends BaseCollectionUpdate {
 	admins?: MaybeArray<string>;
 	'admins+'?: MaybeArray<string>;
 	'admins-'?: MaybeArray<string>;
+	service_requirement?: number;
+	'service_requirement+'?: number;
+	'service_requirement-'?: number;
 	created?: string | Date;
 	updated?: string | Date;
 }
@@ -388,6 +395,7 @@ export interface ClubsCollection {
 		uniformsets_via_club: UniformsetsCollection[];
 		locations_via_club: LocationsCollection[];
 		announcements_via_club: AnnouncementsCollection[];
+		serviceentries_via_club: ServiceentriesCollection[];
 	};
 }
 
@@ -1116,6 +1124,67 @@ export interface CommentsCollection {
 	};
 }
 
+// ===== serviceentries =====
+
+export interface ServiceentriesResponse extends BaseCollectionResponse {
+	collectionName: 'serviceentries';
+	id: string;
+	service_date: string;
+	minutes: number;
+	member: string;
+	title: string;
+	description: string;
+	admin_comment: string;
+	board_member: string;
+	club: string;
+	created: string;
+	updated: string;
+}
+
+export interface ServiceentriesCreate extends BaseCollectionCreate {
+	id?: string;
+	service_date: string | Date;
+	minutes: number;
+	member: string;
+	title: string;
+	description?: string;
+	admin_comment?: string;
+	board_member?: string;
+	club: string;
+	created?: string | Date;
+	updated?: string | Date;
+}
+
+export interface ServiceentriesUpdate extends BaseCollectionUpdate {
+	id?: string;
+	service_date?: string | Date;
+	minutes?: number;
+	'minutes+'?: number;
+	'minutes-'?: number;
+	member?: string;
+	title?: string;
+	description?: string;
+	admin_comment?: string;
+	board_member?: string;
+	club?: string;
+	created?: string | Date;
+	updated?: string | Date;
+}
+
+export interface ServiceentriesCollection {
+	type: 'base';
+	collectionId: string;
+	collectionName: 'serviceentries';
+	response: ServiceentriesResponse;
+	create: ServiceentriesCreate;
+	update: ServiceentriesUpdate;
+	relations: {
+		member: UsersCollection;
+		board_member: UsersCollection;
+		club: ClubsCollection;
+	};
+}
+
 // ===== Schema =====
 
 export type Schema = {
@@ -1136,4 +1205,5 @@ export type Schema = {
 	locations: LocationsCollection;
 	announcements: AnnouncementsCollection;
 	comments: CommentsCollection;
+	serviceentries: ServiceentriesCollection;
 };
