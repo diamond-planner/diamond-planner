@@ -454,13 +454,13 @@
   .preset-tonal-surface {
     background-color: var(--color-surface-50-950);
     color: var(--color-surface-950-50);
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+    border-color: var(--color-surface-500);
 
     @media (prefers-color-scheme: dark) {
       background-color: var(--color-surface-950);
       color: var(--color-surface-contrast-900);
-      border-style: var(--tw-border-style);
-      border-width: 1px;
-      border-color: var(--color-surface-500);
     }
   }
 
