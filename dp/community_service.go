@@ -84,3 +84,7 @@ func (s *ServiceEntry) Club() string {
 func (s *ServiceEntry) SetClub(id string) {
 	s.Set("club", id)
 }
+
+func (s *ServiceEntry) HideAdminFields() {
+	s.Hide("admin_comment")
+}
