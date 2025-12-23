@@ -6,7 +6,7 @@
     IdCard,
     LockKeyhole,
     Shield,
-    SquareUserRound,
+    SquareUserRound, ToolCase,
     Users,
     UsersRound,
   } from "lucide-svelte";
@@ -57,6 +57,11 @@
         <a href="/account/playerprofile" onclick={sheetClose}>
           <IdCard/>
           <span>Player Profile</span>
+        </a>
+
+        <a href="/account/{authRecord.id}/communityservice" onclick={sheetClose}>
+          <ToolCase/>
+          <span>Community Service</span>
         </a>
       {/snippet}
     </AccordionItem>

@@ -147,7 +147,17 @@ func BindDPHooks(app core.App, client bsm.APIClient) {
 	})
 
 	app.OnServe().BindFunc(func(se *core.ServeEvent) error {
-		se.Router.GET("/api/stats/{user}", GetUserStats())
+		se.Router.GET("/api/stats/{user}",
+			GetUserStats()).
+			Bind(apis.RequireAuth())
+
+		return se.Next()
+	})
+
+	app.OnServe().BindFunc(func(se *core.ServeEvent) error {
+		se.Router.GET("/api/communityservice/{user}/{season}",
+			GetUserCommunityService()).
+			Bind(apis.RequireAuth())
 
 		return se.Next()
 	})

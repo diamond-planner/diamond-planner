@@ -9,6 +9,7 @@ import type {
   EventsResponse,
   LocationsResponse,
   ParticipationsResponse,
+  ServiceentriesResponse,
   TeamsResponse,
   UniformsetsResponse,
   UsersResponse,
@@ -121,3 +122,10 @@ export type ExpandedComment = Extension<
       }
     }
 >
+
+export type ExpandedServiceEntry = Extension<
+  ServiceentriesResponse, {
+  expand?: {
+    club?: ClubsResponse
+  }
+}>

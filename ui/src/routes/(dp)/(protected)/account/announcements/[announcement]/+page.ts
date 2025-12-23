@@ -1,6 +1,6 @@
 import {watchSingleRecord} from "$lib/dp/records/RecordOperations.ts";
 import type {ExpandedAnnouncement} from "$lib/dp/types/ExpandedResponse.ts";
-import type {PageLoad} from "../../../../../../../.svelte-kit/types/src/routes";
+import type {PageLoad} from "./$types";
 
 export const load = (async ({params, fetch, depends}) => {
   const announcement = await watchSingleRecord<ExpandedAnnouncement>(
