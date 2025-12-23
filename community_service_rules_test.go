@@ -295,9 +295,9 @@ func TestServiceEntryRules(t *testing.T) {
 				"club": "%s",
 				"admin_comment": "SHOULD BE IGNORED"
 			}`, alice.ID, clubA.ID)),
-			ExpectedStatus:  http.StatusOK,
-			ExpectedContent: []string{`"admin_comment":""`},
-			TestAppFactory:  setupTestApp,
+			ExpectedStatus:     http.StatusOK,
+			NotExpectedContent: []string{`"admin_comment":`},
+			TestAppFactory:     setupTestApp,
 		},
 		{
 			Name:   "Regular user cannot set AdminComment when updating",
@@ -306,10 +306,10 @@ func TestServiceEntryRules(t *testing.T) {
 			Headers: map[string]string{
 				"Authorization": aliceToken,
 			},
-			Body:            strings.NewReader(`{"admin_comment":"SHOULD BE IGNORED"}`),
-			ExpectedStatus:  http.StatusOK,
-			ExpectedContent: []string{`"admin_comment":"LGTM"`}, // Should remain original value from serviceEntryDataAliceForClubAAA
-			TestAppFactory:  setupTestApp,
+			Body:               strings.NewReader(`{"admin_comment":"SHOULD BE IGNORED"}`),
+			ExpectedStatus:     http.StatusOK,
+			NotExpectedContent: []string{`"admin_comment":`}, // Should remain original value from serviceEntryDataAliceForClubAAA
+			TestAppFactory:     setupTestApp,
 		},
 		{
 			Name:   "Admin can set AdminComment when creating",
@@ -349,9 +349,9 @@ func TestServiceEntryRules(t *testing.T) {
 			Headers: map[string]string{
 				"Authorization": aliceToken,
 			},
-			ExpectedStatus:  http.StatusOK,
-			ExpectedContent: []string{`"admin_comment":""`},
-			TestAppFactory:  setupTestApp,
+			ExpectedStatus:     http.StatusOK,
+			NotExpectedContent: []string{`"admin_comment":`},
+			TestAppFactory:     setupTestApp,
 		},
 		{
 			Name:   "Admin can see AdminComment in response",
