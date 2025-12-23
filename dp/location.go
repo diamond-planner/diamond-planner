@@ -2,6 +2,10 @@ package dp
 
 import "github.com/pocketbase/pocketbase/core"
 
+const (
+	LocationCollection = "locations"
+)
+
 var _ core.RecordProxy = (*Location)(nil)
 
 // Location RecordProxy for collection `locations`.
