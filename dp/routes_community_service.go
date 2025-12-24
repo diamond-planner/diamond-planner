@@ -48,7 +48,7 @@ func GetUserCommunityService() func(event *core.RequestEvent) error {
 			}
 		}
 
-		serviceData := getCommunityServiceData(*user, season, readableClubs)
+		serviceData, err := getCommunityServiceData(event.App, *user, season, readableClubs)
 
 		return event.JSON(http.StatusOK, serviceData)
 	}
