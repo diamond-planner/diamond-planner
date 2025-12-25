@@ -1349,10 +1349,6 @@
       max-width: 50%;
     }
 
-    .lg\:max-w-\[55\%\] {
-      max-width: 55%;
-    }
-
     .lg\:grid-cols-2 {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -1427,10 +1423,6 @@
 
     .xl\:w-24 {
       width: calc(var(--spacing) * 24);
-    }
-
-    .xl\:w-\[50\%\] {
-      width: 50%;
     }
 
     .xl\:grid-cols-3 {

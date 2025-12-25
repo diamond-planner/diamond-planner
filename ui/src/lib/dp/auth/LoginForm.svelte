@@ -69,38 +69,38 @@
 
 {#snippet login()}
   <label class="label">
-    <span class="">Your email</span>
+    <span>Your email</span>
     <input
-            class="input"
-            bind:value={form.email}
-            required
-            type="email"
-            placeholder="name@provider.com"
-            autocomplete="email"
+      class="input"
+      bind:value={form.email}
+      required
+      type="email"
+      placeholder="name@provider.com"
+      autocomplete="email"
     />
   </label>
 
   {#if !forgotPassword}
     <label class="label" transition:slide>
-      <span class="">Your password</span>
+      <span>Your password</span>
       <input
-              bind:value={form.password}
-              class="input"
-              required
-              type="password"
-              placeholder="**********"
-              minlength="8"
-              maxlength="72"
-              autocomplete="current-password"
+        bind:value={form.password}
+        class="input"
+        required
+        type="password"
+        placeholder="**********"
+        minlength="8"
+        maxlength="72"
+        autocomplete="current-password"
       />
     </label>
 
     <button
-            transition:slide
-            class="btn preset-tonal-primary border border-primary-500 block mt-4"
-            type="submit"
-            onclick={() => (signup = false)}
-            disabled={form.email === "" || form.password === ""}
+      transition:slide
+      class="btn preset-tonal-primary border border-primary-500 block mt-4"
+      type="submit"
+      onclick={() => (signup = false)}
+      disabled={form.email === "" || form.password === ""}
     >
       Login to your account
     </button>
@@ -108,8 +108,8 @@
 
   <div class="block md:flex gap-6 items-center justify-start my-6">
     <Switch
-            name="forgot password"
-            onCheckedChange={(e) => (forgotPassword = e.checked)}
+      name="forgot password"
+      onCheckedChange={(e) => (forgotPassword = e.checked)}
     >
       Forgot Password?
     </Switch>
@@ -117,9 +117,9 @@
     {#if forgotPassword}
       <div class="mt-2 md:mt-0" transition:fade>
         <PasswordRequestButton
-                email={form.email ?? ""}
-                disabled={form.email === ""}
-                classes="btn anchor p-0"
+          email={form.email ?? ""}
+          disabled={form.email === ""}
+          classes="btn anchor p-0"
         >
           Reset Password
         </PasswordRequestButton>
@@ -128,8 +128,8 @@
   </div>
 {/snippet}
 
-<div class="flex justify-center">
-  <div class="flex justify-center mt-3! mb-10! md:max-w-[60%] lg:max-w-[55%]">
+<div class="outer-wrapper">
+  <div class="inner-wrapper">
     <article>
       <header>
         <h1 class="h2">Sign in to Diamond Planner</h1>
@@ -139,20 +139,20 @@
         {#if passwordLogin}
           {#if signupAllowed}
             <Tabs.Root
-                    bind:value={tabSet}
-                    class="my-2"
+              bind:value={tabSet}
+              class="my-2"
             >
               <Tabs.List
-                      class="tabs-list preset-tonal-surface"
+                class="tabs-list preset-tonal-surface"
               >
                 <Tabs.Trigger
-                        value="login"
-                        class="tabs-trigger btn"
+                  value="login"
+                  class="tabs-trigger btn"
                 >Log In
                 </Tabs.Trigger>
                 <Tabs.Trigger
-                        value="signup"
-                        class="tabs-trigger btn"
+                  value="signup"
+                  class="tabs-trigger btn"
                 >Create Account
                 </Tabs.Trigger>
               </Tabs.List>
@@ -171,12 +171,12 @@
                   <label class="label">
                     <span class="">Your email</span>
                     <input
-                            class="input"
-                            bind:value={form.email}
-                            required
-                            type="email"
-                            placeholder="name@provider.com"
-                            autocomplete="email"
+                      class="input"
+                      bind:value={form.email}
+                      required
+                      type="email"
+                      placeholder="name@provider.com"
+                      autocomplete="email"
                     />
                   </label>
 
@@ -185,24 +185,24 @@
                     <label class="label">
                       <span class="">First Name</span>
                       <input
-                              class="input"
-                              bind:value={form.first_name}
-                              placeholder="John"
-                              required
-                              type="text"
-                              autocomplete="given-name"
+                        class="input"
+                        bind:value={form.first_name}
+                        placeholder="John"
+                        required
+                        type="text"
+                        autocomplete="given-name"
                       />
                     </label>
 
                     <label class="label">
                       <span class="">Last Name</span>
                       <input
-                              class="input"
-                              bind:value={form.last_name}
-                              placeholder="Doe"
-                              required
-                              type="text"
-                              autocomplete="family-name"
+                        class="input"
+                        bind:value={form.last_name}
+                        placeholder="Doe"
+                        required
+                        type="text"
+                        autocomplete="family-name"
                       />
                     </label>
                   </div>
@@ -212,28 +212,28 @@
                     <label class="label">
                       <span class="">Your password</span>
                       <input
-                              class="input"
-                              bind:value={form.password}
-                              required
-                              type="password"
-                              placeholder="**********"
-                              minlength="8"
-                              maxlength="72"
-                              autocomplete="new-password"
+                        class="input"
+                        bind:value={form.password}
+                        required
+                        type="password"
+                        placeholder="**********"
+                        minlength="8"
+                        maxlength="72"
+                        autocomplete="new-password"
                       />
                     </label>
 
                     <label class="label">
                       <span class="">Confirm password</span>
                       <input
-                              class="input"
-                              bind:value={form.passwordConfirm}
-                              required
-                              type="password"
-                              placeholder="confirm password"
-                              minlength="8"
-                              maxlength="72"
-                              autocomplete="new-password"
+                        class="input"
+                        bind:value={form.passwordConfirm}
+                        required
+                        type="password"
+                        placeholder="confirm password"
+                        minlength="8"
+                        maxlength="72"
+                        autocomplete="new-password"
                       />
                     </label>
                   </div>
@@ -241,14 +241,14 @@
                   <label class="label">
                     <span class="">Signup Key</span>
                     <input
-                            bind:value={form.signup_key}
-                            class="input"
-                            name="signup_key"
-                            placeholder="minimum 8 characters"
-                            minlength="8"
-                            required
-                            type="text"
-                            autocomplete="one-time-code"
+                      bind:value={form.signup_key}
+                      class="input"
+                      name="signup_key"
+                      placeholder="minimum 8 characters"
+                      minlength="8"
+                      required
+                      type="text"
+                      autocomplete="one-time-code"
                     />
                     <span class="block text-sm font-light">
                                           A valid signup key needs to be entered upon user account creation.
@@ -259,10 +259,10 @@
                   <input type="hidden" name="register" value={true}/>
 
                   <button
-                          class="btn preset-tonal-primary border border-primary-500 my-2"
-                          type="submit"
-                          onclick={() => (signup = true)}
-                          disabled={form.email === "" || form.password === "" || form.passwordConfirm === "" || form.signup_key === ""}
+                    class="btn preset-tonal-primary border border-primary-500 my-2"
+                    type="submit"
+                    onclick={() => (signup = true)}
+                    disabled={form.email === "" || form.password === "" || form.passwordConfirm === "" || form.signup_key === ""}
                   >
                     Register new account
                   </button>
@@ -323,17 +323,37 @@
 
 </div>
 
-<style lang="postcss">
-    .label {
-        margin-block: calc(var(--spacing) * 1);
-        @media (width >= 48rem /* 768px */
-        ) {
-            margin-block: calc(var(--spacing) * 2) /* 0.5rem = 8px */
-        ;
-        }
+<style>
+  .outer-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .inner-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-block-start: calc(var(--spacing) * 3) !important;
+    margin-block-end: calc(var(--spacing) * 10) !important;
+
+    @media (min-width: 48rem) {
+      max-width: 60%;
     }
 
-    header {
-        margin-bottom: 2em;
+    @media (min-width: 64rem) {
+      max-width: 55%;
     }
+  }
+
+  .label {
+    margin-block: calc(var(--spacing) * 1);
+    @media (width >= 48rem /* 768px */
+    ) {
+      margin-block: calc(var(--spacing) * 2) /* 0.5rem = 8px */
+    ;
+    }
+  }
+
+  header {
+    margin-bottom: 2em;
+  }
 </style>
