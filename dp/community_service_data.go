@@ -13,14 +13,14 @@ type UserServiceApp interface {
 }
 
 type CommunityServiceItem struct {
-	Club    Club
-	Entries []ServiceEntry
+	Club    Club           `json:"club"`
+	Entries []ServiceEntry `json:"entries"`
 }
 
 type CommunityServiceData struct {
-	User   User
-	Season int
-	Items  []CommunityServiceItem
+	User   User                   `json:"user"`
+	Season int                    `json:"season"`
+	Items  []CommunityServiceItem `json:"items"`
 }
 
 func getCommunityServiceData(app UserServiceApp, user User, season int, clubs []Club) (CommunityServiceData, error) {
