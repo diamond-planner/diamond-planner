@@ -2,6 +2,7 @@ package dp
 
 import (
 	"log/slog"
+	"slices"
 
 	"github.com/pocketbase/dbx"
 	"github.com/pocketbase/pocketbase/core"
@@ -23,7 +24,7 @@ type CommunityServiceData struct {
 	Items  []CommunityServiceItem `json:"items"`
 }
 
-func getCommunityServiceData(app UserServiceApp, user User, season int, clubs []Club) (CommunityServiceData, error) {
+func getCommunityServiceData(app UserServiceApp, authID string, user User, season int, clubs []Club) (CommunityServiceData, error) {
 	serviceData := CommunityServiceData{
 		User:   user,
 		Season: season,
@@ -52,10 +53,14 @@ func getCommunityServiceData(app UserServiceApp, user User, season int, clubs []
 			app.Logger().Error("Failed to load service entries", "clubID", club.Id, "error", err)
 			return serviceData, err
 		}
+
 		item.Entries = make([]ServiceEntry, len(records))
 		for i, record := range records {
 			entry := ServiceEntry{}
 			entry.SetProxyRecord(record)
+			if !slices.Contains(club.Admins(), authID) {
+				entry.HideAdminFields()
+			}
 			item.Entries[i] = entry
 		}
 		serviceData.Items = append(serviceData.Items, item)
