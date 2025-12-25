@@ -1,10 +1,16 @@
 import type {PageLoad} from './$types';
 import {client} from "$lib/dp/client.svelte.ts";
+import type {CommunityServiceData} from "$lib/dp/types/CommunityServiceData.ts";
 
-export const load: PageLoad = (async ({params, fetch}) => {
-  const communityServiceData = client.send(`/api/communityservice/${params.user}/${2025}`, {
+export const load: PageLoad = (async ({params, url, fetch}) => {
+  let season = url.searchParams.get("season");
+  if (!season) {
+    season = new Date().getFullYear().toString();
+  }
+
+  const communityServiceData = client.send<CommunityServiceData>(`/api/communityservice/${params.user}/${season}`, {
     fetch: fetch,
-    requestKey: `${params.user}-serviceentries`,
+    requestKey: `${params.user}-${season}-serviceentries`,
   });
 
   return {
