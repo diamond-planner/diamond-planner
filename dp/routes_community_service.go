@@ -1,6 +1,7 @@
 package dp
 
 import (
+	"errors"
 	"net/http"
 	"slices"
 	"strconv"
@@ -28,12 +29,14 @@ func GetUserCommunityService() func(event *core.RequestEvent) error {
 
 		var season int
 		seasonParam := event.Request.PathValue("season")
-		if seasonParam == "" {
+		if seasonParam != "" {
 			season, err = strconv.Atoi(seasonParam)
 			if err != nil {
 				event.App.Logger().Error("failed to parse season: %v", "error", err)
 				return err
 			}
+		} else {
+			return event.BadRequestError("season parameter is required", errors.New("season parameter is required"))
 		}
 
 		var readableClubs []Club

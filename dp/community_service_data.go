@@ -38,7 +38,7 @@ func getCommunityServiceData(app UserServiceApp, user User, season int, clubs []
 		item := CommunityServiceItem{Club: club}
 		records, err := app.FindRecordsByFilter(
 			ServiceEntryCollection,
-			"club = {:clubID} && user = {:userID} && service_date >= {:start} && service_date <= {:end}",
+			"club = {:clubID} && member = {:userID} && service_date >= {:start} && service_date <= {:end}",
 			"-service_date",
 			0,
 			0,
