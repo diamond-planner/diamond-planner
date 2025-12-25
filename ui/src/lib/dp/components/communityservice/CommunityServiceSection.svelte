@@ -1,11 +1,11 @@
 <script lang="ts">
-  import type {ExpandedServiceEntry} from "$lib/dp/types/ExpandedResponse.ts";
+  import type {CommunityServiceData} from "$lib/dp/types/CommunityServiceData.ts";
 
   interface Props {
-    serviceEntries: ExpandedServiceEntry[]
+    serviceEntryData: CommunityServiceData;
   }
 
-  let {serviceEntries}: Props = $props();
+  let {serviceEntryData}: Props = $props();
 </script>
 
-{JSON.stringify(serviceEntries)}
+{JSON.stringify(serviceEntryData)}
