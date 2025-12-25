@@ -67,7 +67,7 @@
   {/if}
 </h3>
 <form class="mt-4 space-y-3" onsubmit={submitForm}>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-2 lg:gap-3 xl:gap-4 2xl:gap-5">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-2 lg:gap-3 xl:gap-4">
     {#if !isNewSeries}
       <span class="md:col-span-2 text-sm font-light block">
         When editing an event series, only select fields can be changed because editing past events would affect

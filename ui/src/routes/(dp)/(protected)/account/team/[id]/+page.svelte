@@ -119,7 +119,7 @@
     </label>
   </div>
 
-  <div class="events-grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 lg:gap-4 2xl:gap-5">
+  <div class="events-grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 lg:gap-4">
     {#each $events.items as event (event.id)}
       <div class="">
         <EventTeaser {event} link={true}/>

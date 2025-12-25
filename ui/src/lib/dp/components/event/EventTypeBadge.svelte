@@ -21,7 +21,6 @@ function getDisplayString(): string {
         class="badge"
         class:preset-filled-primary-500={type === "game"}
         class:preset-filled-secondary-500={type === "practice"}
-        class:dark:border={type === "practice"}
         class:preset-filled-tertiary-500={type === "misc"}
 >
 {getDisplayString()}

@@ -1,5 +1,4 @@
 <script lang="ts">
-  import {AlertCircle, Info} from "lucide-svelte";
   import type {AnnouncementsResponse} from "$lib/dp/types/pb-types.ts";
 
   type Priority = AnnouncementsResponse["priority"]
@@ -13,7 +12,7 @@
   const badgeClass = $derived.by(() => {
     switch (priority) {
       case "info":
-        return "preset-outlined-secondary-500 dark:border-white";
+        return "preset-outlined-secondary-500 badge-info";
       case "warning":
         return "preset-outlined-warning-500";
       case "danger":
@@ -22,7 +21,7 @@
   });
 </script>
 
-<div class="col-span-1 justify-self-end">
+<div class="priority-badge-container">
   <span class="badge {badgeClass}">
     {#if priority === "info"}
       Info
@@ -33,3 +32,18 @@
     {/if}
   </span>
 </div>
+
+<style>
+  .priority-badge-container {
+    justify-self: flex-end;
+    grid-column: span 1 / span 1;
+  }
+
+  :global {
+    .priority-badge-container {
+      .badge.badge-info {
+        border-color: white;
+      }
+    }
+  }
+</style>

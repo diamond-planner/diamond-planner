@@ -128,7 +128,7 @@
                     dto={ghostResponse}
                     eventID={event.id}
                     {isAdmin}
-                    classes="chip preset-outlined dark:border dark:border-surface-200"
+                    classes="chip preset-outlined"
             />
           </div>
         {/each}

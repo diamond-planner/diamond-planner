@@ -87,7 +87,7 @@
   {/if}
 </div>
 
-<div class={["w-full card p-2 rounded-base", isLoggedInUser ? "preset-tonal-primary" : "preset-tonal-surface"]}
+<div class={["comment-container card rounded-base", isLoggedInUser ? "preset-tonal-primary" : "preset-tonal-surface"]}
      data-testid="comment-container">
   <div class="flex justify-between items-center">
     <p class="font-bold text-wrap">{userFullName}</p>
@@ -114,3 +114,10 @@
     </div>
   {/if}
 </div>
+
+<style>
+  .comment-container {
+    width: 100%;
+    padding: calc(var(--spacing) * 2);
+  }
+</style>
