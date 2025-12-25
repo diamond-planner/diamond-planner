@@ -5,6 +5,7 @@
   import ProgressRing from "$lib/dp/components/utils/ProgressRing.svelte";
   import type {PersonalAttendanceStatsItem} from "$lib/dp/types/PersonalAttendanceStats.ts";
   import {range} from "$lib/dp/utility/range.ts";
+  import SeasonSelector from "$lib/dp/components/utils/SeasonSelector.svelte";
 
   let {data} = $props();
 
@@ -22,35 +23,19 @@
       noScroll: true,
     });
   };
-
-  $effect.pre(() => {
-    console.log(selectedSeason);
-    reloadWithQuery();
-  });
 </script>
 
 <h1 class="h1">Stats for {user?.first_name} {user?.last_name}</h1>
 
-<div
-        class="flex flex-wrap gap-4 lg:gap-8 preset-tonal-surface justify-between px-4 py-3 rounded-base"
->
-  <label class="label flex items-center gap-2 grow justify-between md:grow-0">
-    Season
-    <select bind:value={selectedSeason} class="select">
-      {#each seasonOptions as option}
-        <option value="{option}">{option}</option>
-      {/each}
-    </select>
-  </label>
-</div>
+<SeasonSelector bind:selectedSeason={selectedSeason} onChangeCallback={reloadWithQuery} seasonOptions={seasonOptions}/>
 
 {#snippet statsSection(statsItem: PersonalAttendanceStatsItem)}
   <h2 class="h2 my-4">{statsItem.teamName}</h2>
-  <section class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-3 mb-3">
+  <section>
     <StatsByTypePieChart statsItem={statsItem}/>
   </section>
 
-  <section class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-3 mb-3">
+  <section>
     {#each statsItem.attendanceTotals as attendance}
       <AttendanceTotalStatsBlock
               season={statsItem.season}
@@ -77,7 +62,7 @@
 {:then teamStatsItems}
 
   {#each teamStatsItems as teamStatsItem}
-    <div class="mt-8! xl:mt-9!">
+    <div class="stats-section-block">
       {@render statsSection(teamStatsItem)}
     </div>
   {/each}
@@ -85,3 +70,24 @@
 {:catch error}
   <p>error loading: {error.message}</p>
 {/await}
+
+<style>
+  section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: calc(var(--spacing) * 3);
+    margin-block-end: calc(var(--spacing) * 3);
+
+    @media (min-width: 64rem) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 80rem) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .stats-section-block {
+    margin-block-start: calc(var(--spacing) * 8) !important;
+  }
+</style>
