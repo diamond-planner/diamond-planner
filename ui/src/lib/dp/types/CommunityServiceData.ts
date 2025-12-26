@@ -2,7 +2,8 @@ import type {ClubsResponse, ServiceentriesResponse, UsersResponse} from "$lib/dp
 
 export type CommunityServiceItem = {
   club: ClubsResponse
-  entries: ServiceentriesResponse
+  current_minutes: number
+  entries: ServiceentriesResponse[]
 }
 
 export type CommunityServiceData = {

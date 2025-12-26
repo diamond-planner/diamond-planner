@@ -14,8 +14,9 @@ type UserServiceApp interface {
 }
 
 type CommunityServiceItem struct {
-	Club    Club           `json:"club"`
-	Entries []ServiceEntry `json:"entries"`
+	Club           Club           `json:"club"`
+	CurrentMinutes int            `json:"current_minutes"`
+	Entries        []ServiceEntry `json:"entries"`
 }
 
 type CommunityServiceData struct {
@@ -36,7 +37,10 @@ func getCommunityServiceData(app UserServiceApp, authID string, user User, seaso
 	}
 
 	for _, club := range clubs {
-		item := CommunityServiceItem{Club: club}
+		item := CommunityServiceItem{
+			Club:           club,
+			CurrentMinutes: 0,
+		}
 		records, err := app.FindRecordsByFilter(
 			ServiceEntryCollection,
 			"club = {:clubID} && member = {:userID} && service_date >= {:start} && service_date <= {:end}",
@@ -61,6 +65,7 @@ func getCommunityServiceData(app UserServiceApp, authID string, user User, seaso
 			if !slices.Contains(club.Admins(), authID) {
 				entry.HideAdminFields()
 			}
+			item.CurrentMinutes += entry.Minutes()
 			item.Entries[i] = entry
 		}
 		serviceData.Items = append(serviceData.Items, item)
