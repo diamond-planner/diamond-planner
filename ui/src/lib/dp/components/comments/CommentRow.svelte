@@ -92,7 +92,7 @@
   <div class="flex justify-between items-center">
     <p class="font-bold text-wrap">{userFullName}</p>
 
-    <div class={["text-sm font-light", isLoggedInUser ? "" : "text-gray-600 dark:text-gray-400"]}>
+    <div class={["date-box", isLoggedInUser ? "" : "by-current-user"]}>
       {DateTimeUtility.dateTimeFormatShort.format(new Date(comment.created))}
     </div>
   </div>
@@ -119,5 +119,15 @@
   .comment-container {
     width: 100%;
     padding: calc(var(--spacing) * 2);
+
+    .date-box {
+      font-weight: var(--font-weight-light);
+      font-size: var(--text-sm);
+      line-height: var(--tw-leading, var(--text-sm--line-height));
+    }
+
+    .by-current-user {
+      color: light-dark(var(--color-gray-600), var(--color-gray-400))
+    }
   }
 </style>

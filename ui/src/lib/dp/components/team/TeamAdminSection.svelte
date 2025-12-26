@@ -29,9 +29,7 @@
 
 <h2 class="h3">Admin Section</h2>
 
-<div
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 lg:gap-3"
->
+<div class="outer-grid">
   <div class="card admin-card preset-outlined-surface-500">
     <div>
       <header class="card-header">
@@ -84,9 +82,9 @@
     <footer class="card-footer">
       <div class="flex flex-col gap-2 lg:gap-3">
         <EventSeriesView
-                buttonClasses="btn preset-tonal-primary"
-                {eventSeries}
-                {team}
+          buttonClasses="btn preset-tonal-primary"
+          {eventSeries}
+          {team}
         />
       </div>
     </footer>
@@ -110,10 +108,10 @@
       <div class="flex flex-col gap-2 lg:gap-3">
 
         <EventForm
-                buttonClasses="btn preset-tonal-tertiary border border-tertiary-500"
-                clubID={team?.club ?? ""}
-                event={null}
-                teamID={team.id}
+          buttonClasses="btn preset-tonal-tertiary border border-tertiary-500"
+          clubID={team?.club ?? ""}
+          event={null}
+          teamID={team.id}
         >
           {#snippet triggerContent()}
             <CalendarPlus/>
@@ -143,11 +141,11 @@
           <header class="mx-2">Danger Zone</header>
 
           <DeleteButton
-                  id={team.id}
-                  modelName="Team"
-                  action={teamDeleteAction}
-                  classes="preset-tonal-error border border-error-500 mx-1"
-                  buttonText="Delete Team"
+            id={team.id}
+            modelName="Team"
+            action={teamDeleteAction}
+            classes="preset-tonal-error border border-error-500 mx-1"
+            buttonText="Delete Team"
           />
         </div>
       </footer>
@@ -156,9 +154,29 @@
 </div>
 
 <style lang="postcss">
-    .admin-card {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+  .admin-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .outer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: calc(var(--spacing) * 2);
+    margin-block-end: calc(var(--spacing) * 6);
+
+    @media (min-width: 48rem) {
+      grid-template-columns: 1fr 1fr;
     }
+
+    @media (min-width: 64rem) {
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: calc(var(--spacing) * 3);
+    }
+
+    @media (min-width: 80rem) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
 </style>

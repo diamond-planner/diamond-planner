@@ -13,7 +13,7 @@
 
 <div>
   {#if $store.totalItems > 0}
-    <ul class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5 mb-6">
+    <ul>
       {#each $store.items as announcement (announcement.id)}
         <li>
           <AnnouncementCard {announcement}/>
@@ -26,3 +26,20 @@
     <p>No announcements available.</p>
   {/if}
 </div>
+
+<style>
+  ul {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: calc(var(--spacing) * 5);
+    margin-block-end: calc(var(--spacing) * 6);
+
+    @media (min-width: 64rem) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (min-width: 80rem) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+</style>

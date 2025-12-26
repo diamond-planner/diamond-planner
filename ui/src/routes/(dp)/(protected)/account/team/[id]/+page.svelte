@@ -82,7 +82,7 @@
     class="flex flex-wrap gap-4 preset-tonal-surface justify-between px-4 py-3 rounded-base text-sm lg:text-base"
   >
     <label
-      class="flex items-center gap-2 grow justify-between xl:justify-start md:grow-0"
+      class="filter-label"
     >
       <span>Timeframe</span>
       <Tabs.Root bind:value={showEvents}>
@@ -96,7 +96,7 @@
       </Tabs.Root>
     </label>
 
-    <label class="flex items-center gap-2 justify-between xl:justify-start grow md:grow-0">
+    <label class="filter-label">
       <span>Sort</span>
       <Tabs.Root bind:value={sorting}>
         <Tabs.List class="tabs-list flex-wrap event-segment-container p-1!">
@@ -106,7 +106,7 @@
       </Tabs.Root>
     </label>
 
-    <label class="flex items-center gap-2 justify-between xl:justify-start grow md:grow-0">
+    <label class=" filter-label">
       <span>Type</span>
       <Tabs.Root bind:value={showTypes}>
         <Tabs.List class="tabs-list flex-wrap event-segment-container p-1! gap-1">
@@ -119,7 +119,7 @@
     </label>
   </div>
 
-  <div class="events-grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 lg:gap-4">
+  <div class="events-grid">
     {#each $events.items as event (event.id)}
       <div class="">
         <EventTeaser {event} link={true}/>
@@ -169,6 +169,32 @@
   .events-grid {
     margin-block: calc(var(--spacing) * 4);
     display: grid;
+    grid-template-columns: 1fr;
+    gap: calc(var(--spacing) * 4);
+
+    @media (min-width: 48rem) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (min-width: 80rem) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  .filter-label {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 2);
+    justify-content: space-between;
+    flex-grow: 1;
+
+    @media (min-width: 48rem) {
+      flex-grow: 0;
+    }
+
+    @media (min-width: 80rem) {
+      justify-content: flex-start;
+    }
   }
 
   header {

@@ -12,7 +12,7 @@
 
 <h1 class="h1">My Dashboard</h1>
 
-<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-3 mb-6">
+<div class="top-grid">
   <UserDataCard model={authRecord}/>
 
   <PlayerProfileClubsSection clubs={data.clubs}/>
@@ -31,7 +31,22 @@
 </div>
 
 <style>
-    h2 {
-        margin-block: calc(var(--spacing) * 4);
+  h2 {
+    margin-block: calc(var(--spacing) * 4);
+  }
+
+  .top-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: calc(var(--spacing) * 3);
+    margin-block-end: calc(var(--spacing) * 6);
+
+    @media (min-width: 64rem) {
+      grid-template-columns: 1fr 1fr;
     }
+
+    @media (min-width: 80rem) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
 </style>

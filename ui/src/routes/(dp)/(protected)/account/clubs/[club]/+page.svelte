@@ -37,7 +37,7 @@
 
 <h1 class="h1">{club.name}</h1>
 
-<section class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-3 mb-3">
+<section class="club-page-grid">
   <ClubDetailCard {club}/>
 </section>
 
@@ -64,7 +64,7 @@
     <h2 class="h2 mb-3">Club Teams</h2>
   </header>
 
-  <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5 mb-3">
+  <div class="club-page-grid">
     {#each teams as team (team.id)}
       <TeamListTeaser {team} link={true}/>
     {/each}
@@ -89,7 +89,7 @@
     <h2 class="h2 mb-3">Uniform Sets</h2>
   </header>
 
-  <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5 mb-3">
+  <div class="club-page-grid">
     {#each uniformSets as uniformSet}
       <UniformSetInfoCard {uniformSet}/>
     {/each}
@@ -135,9 +135,7 @@
       <h2 class="h3 mb-4">Admin Section</h2>
     </header>
 
-    <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 lg:gap-3"
-    >
+    <div class="club-page-grid">
       <article class="card admin-card preset-outlined-surface-500">
         <header class="card-header">
           <h3 class="h4 font-semibold">Club deletion</h3>
@@ -173,6 +171,21 @@
 
     p:first-child {
       margin-block-end: calc(var(--spacing) * 2);
+    }
+  }
+
+  .club-page-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: calc(var(--spacing) * 5);
+    margin-block-end: calc(var(--spacing) * 4);
+
+    @media (min-width: 64rem) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (min-width: 80rem) {
+      grid-template-columns: 1fr 1fr 1fr;
     }
   }
 </style>
