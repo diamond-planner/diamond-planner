@@ -30,9 +30,21 @@
 {/each}
 
 <style>
+  .club-services {
+    margin-block: calc(var(--spacing) * 3);
+  }
+
   .entry-cards {
     display: grid;
     grid-template-columns: 1fr;
     gap: calc(var(--spacing) * 3);
+
+    @media (min-width: 48rem) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 80rem) {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 </style>
