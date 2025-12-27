@@ -80,7 +80,7 @@
 
   .entry-card-header {
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: space-between;
   }
 
