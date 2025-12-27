@@ -96,7 +96,7 @@
     </header>
 
     <form class="mt-4 space-y-3" onsubmit={submitForm}>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 xl:gap-4">
+      <div class="edit-form-grid">
         <input
                 autocomplete="off"
                 bind:value={form.id}

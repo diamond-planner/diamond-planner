@@ -3,7 +3,7 @@
   import {invalidate} from "$app/navigation";
   import TabsRadioGroup from "$lib/dp/components/formElements/TabsRadioGroup.svelte";
   import Switch from "$lib/dp/components/formElements/Switch.svelte";
-  //@ts-expect-error
+  //@ts-ignore
   import * as Sheet from "$lib/dp/components/modal/sheet";
   import {client} from "$lib/dp/client.svelte.js";
   import {DateTimeUtility} from "$lib/dp/service/DateTimeUtility.js";
@@ -12,6 +12,7 @@
   import type {ExpandedEvent} from "$lib/dp/types/ExpandedResponse.ts";
   import type {LocationsResponse, UniformsetsResponse} from "$lib/dp/types/pb-types.ts";
   import Flatpickr from "$lib/dp/components/formElements/Flatpickr.svelte";
+  import {Collection} from "$lib/dp/enum/Collection.ts";
 
   interface Props {
     event: ExpandedEvent | null;
@@ -50,12 +51,12 @@
       }
   );
 
-  const attireOptions = client.collection("uniformsets").getFullList<UniformsetsResponse>({
+  const attireOptions = client.collection(Collection.UniformSets).getFullList<UniformsetsResponse>({
     filter: `club = "${clubID}"`,
     requestKey: `uniformsets-${clubID}`,
   });
 
-  const locationOptions = client.collection("locations").getFullList<LocationsResponse>({
+  const locationOptions = client.collection(Collection.Locations).getFullList<LocationsResponse>({
     filter: `club = "${clubID}"`,
     requestKey: `location-options-${clubID}`,
   });
@@ -100,7 +101,7 @@
     </header>
 
     <form class="mt-4 space-y-3" onsubmit={submitForm}>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-2 lg:gap-3 xl:gap-4">
+      <div class="edit-form-grid">
         <input
                 autocomplete="off"
                 bind:value={form.id}

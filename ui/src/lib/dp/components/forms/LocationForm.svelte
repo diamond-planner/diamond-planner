@@ -85,7 +85,7 @@
     </header>
 
     <form onsubmit={submitForm}>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="edit-form-grid">
         <div>
           <label class="" for="address_addon">Address Addon*</label>
           <input
