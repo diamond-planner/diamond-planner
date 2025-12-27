@@ -3,12 +3,13 @@
   import {invalidate} from "$app/navigation";
   import TabsRadioGroup from "$lib/dp/components/formElements/TabsRadioGroup.svelte";
   import MultiSelectCombobox from "$lib/dp/components/formElements/MultiSelectCombobox.svelte";
-  //@ts-expect-error
+  //@ts-ignore
   import * as Sheet from "$lib/dp/components/modal/sheet";
   import {authSettings, client} from "$lib/dp/client.svelte.js";
   import {toastController} from "$lib/dp/service/ToastController.svelte.ts";
   import type {CustomAuthModel, ExpandedTeam} from "$lib/dp/types/ExpandedResponse.ts";
   import type {ClubsResponse, UsersResponse} from "$lib/dp/types/pb-types.ts";
+  import {Collection} from "$lib/dp/enum/Collection.ts";
 
   interface Props {
     club: ClubsResponse;
@@ -37,7 +38,7 @@
 
   let selectedAdmins: UsersResponse[] = $state(form?.expand?.admins ?? []);
 
-  const allTeamMembers = client.collection("users").getFullList<UsersResponse>({
+  const allTeamMembers = client.collection(Collection.Users).getFullList<UsersResponse>({
     filter: `teams ?~ '${team?.id}'`,
     requestKey: `allTeamMembers-${team?.id}`,
   });
@@ -53,12 +54,12 @@
 
     try {
       if (form.id) {
-        result = await client.collection("teams").update<ExpandedTeam>(form.id, form);
+        result = await client.collection(Collection.Teams).update<ExpandedTeam>(form.id, form);
       } else {
         // a user creating a team becomes its first admin
         form.admins.push(authRecord?.id);
 
-        result = await client.collection("teams").create<ExpandedTeam>(form);
+        result = await client.collection(Collection.Teams).create<ExpandedTeam>(form);
       }
     } catch {
       toastController.triggerGenericFormErrorMessage("Team");

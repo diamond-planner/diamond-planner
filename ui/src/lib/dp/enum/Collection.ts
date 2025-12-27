@@ -3,4 +3,5 @@ export enum Collection {
   ServiceEntries = "serviceentries",
   UniformSets = "uniformsets",
   Locations = "locations",
+  Teams = "teams",
 }
