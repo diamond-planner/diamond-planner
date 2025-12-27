@@ -13,6 +13,7 @@
     action: (id: string) => void;
     classes?: string;
     buttonText?: string;
+    iconSize?: number | string;
   }
 
   const {
@@ -21,6 +22,7 @@
     action,
     classes = "btn-sm btn-icon preset-tonal-error border border-error-500",
     buttonText = "",
+    iconSize = 24,
     ...restProps
   }: Props = $props();
 
@@ -49,7 +51,7 @@
 
 <Dialog closeButtonClasses="sr-only" triggerClasses="btn {classes}" triggerProps={restProps}>
   {#snippet triggerContent()}
-    <Trash/>
+    <Trash size={iconSize}/>
     {#if buttonText}
       <span>{buttonText}</span>
     {/if}
