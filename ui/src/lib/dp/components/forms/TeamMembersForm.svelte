@@ -1,6 +1,6 @@
 <script lang="ts">
   import {invalidateAll} from "$app/navigation";
-  import MultiSelectCombobox from "$lib/dp/components/form/MultiSelectCombobox.svelte";
+  import MultiSelectCombobox from "$lib/dp/components/formElements/MultiSelectCombobox.svelte";
   import {client, manualAuthRefresh} from "$lib/dp/client.svelte.ts";
   import {toastController} from "$lib/dp/service/ToastController.svelte.ts";
   import type {ExpandedTeam} from "$lib/dp/types/ExpandedResponse.ts";

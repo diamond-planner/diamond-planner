@@ -1,8 +1,8 @@
 <script lang="ts">
   import {Plus, SquarePen} from "lucide-svelte";
   import {invalidate} from "$app/navigation";
-  import TabsRadioGroup from "$lib/dp/components/form/TabsRadioGroup.svelte";
-  import MultiSelectCombobox from "$lib/dp/components/form/MultiSelectCombobox.svelte";
+  import TabsRadioGroup from "$lib/dp/components/formElements/TabsRadioGroup.svelte";
+  import MultiSelectCombobox from "$lib/dp/components/formElements/MultiSelectCombobox.svelte";
   //@ts-expect-error
   import * as Sheet from "$lib/dp/components/modal/sheet";
   import {authSettings, client} from "$lib/dp/client.svelte.js";

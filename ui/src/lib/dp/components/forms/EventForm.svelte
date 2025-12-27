@@ -1,8 +1,8 @@
 <script lang="ts">
   import type {Snippet} from "svelte";
   import {invalidate} from "$app/navigation";
-  import TabsRadioGroup from "$lib/dp/components/form/TabsRadioGroup.svelte";
-  import Switch from "$lib/dp/components/form/Switch.svelte";
+  import TabsRadioGroup from "$lib/dp/components/formElements/TabsRadioGroup.svelte";
+  import Switch from "$lib/dp/components/formElements/Switch.svelte";
   //@ts-expect-error
   import * as Sheet from "$lib/dp/components/modal/sheet";
   import {client} from "$lib/dp/client.svelte.js";
@@ -11,7 +11,7 @@
   import type {Extension} from "$lib/dp/types/ExpandedResponse.js";
   import type {ExpandedEvent} from "$lib/dp/types/ExpandedResponse.ts";
   import type {LocationsResponse, UniformsetsResponse} from "$lib/dp/types/pb-types.ts";
-  import Flatpickr from "$lib/dp/components/form/Flatpickr.svelte";
+  import Flatpickr from "$lib/dp/components/formElements/Flatpickr.svelte";
 
   interface Props {
     event: ExpandedEvent | null;

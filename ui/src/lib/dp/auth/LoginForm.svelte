@@ -1,7 +1,7 @@
 <script lang="ts">
   import {fade, slide} from "svelte/transition";
   import {goto} from "$app/navigation";
-  import Switch from "$lib/dp/components/form/Switch.svelte";
+  import Switch from "$lib/dp/components/formElements/Switch.svelte";
   import OAuthProviderButton from "$lib/dp/auth/OAuthProviderButton.svelte";
   import PasswordRequestButton from "$lib/dp/auth/PasswordRequestButton.svelte";
   import {toastController} from "$lib/dp/service/ToastController.svelte.ts";

@@ -1,6 +1,6 @@
 <script lang="ts">
   import {invalidate} from "$app/navigation";
-  import Flatpickr from "$lib/dp/components/form/Flatpickr.svelte";
+  import Flatpickr from "$lib/dp/components/formElements/Flatpickr.svelte";
   import {client} from "$lib/dp/client.svelte.js";
   import {DateTimeUtility} from "$lib/dp/service/DateTimeUtility.js";
   import {toastController} from "$lib/dp/service/ToastController.svelte.ts";

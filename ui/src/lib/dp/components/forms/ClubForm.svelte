@@ -1,7 +1,7 @@
 <script lang="ts">
   import {ClipboardEdit, Plus} from "lucide-svelte";
   import {invalidateAll} from "$app/navigation";
-  import MultiSelectCombobox from "$lib/dp/components/form/MultiSelectCombobox.svelte";
+  import MultiSelectCombobox from "$lib/dp/components/formElements/MultiSelectCombobox.svelte";
   //@ts-expect-error
   import * as Sheet from "$lib/dp/components/modal/sheet";
   import {authSettings, client} from "$lib/dp/client.svelte.js";

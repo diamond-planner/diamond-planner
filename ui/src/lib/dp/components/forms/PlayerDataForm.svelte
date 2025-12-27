@@ -1,10 +1,10 @@
 <script lang="ts">
   import {SquarePen} from "lucide-svelte";
-  import TabsRadioGroup from "$lib/dp/components/form/TabsRadioGroup.svelte";
-  import Switch from "$lib/dp/components/form/Switch.svelte";
+  import TabsRadioGroup from "$lib/dp/components/formElements/TabsRadioGroup.svelte";
+  import Switch from "$lib/dp/components/formElements/Switch.svelte";
   //@ts-expect-error
   import * as Sheet from "$lib/dp/components/modal/sheet";
-  import TagsInput from "$lib/dp/components/form/TagsInput.svelte";
+  import TagsInput from "$lib/dp/components/formElements/TagsInput.svelte";
   import {authSettings, client} from "$lib/dp/client.svelte.js";
   import {toastController} from "$lib/dp/service/ToastController.svelte.ts";
   import {
