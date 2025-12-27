@@ -1,6 +1,6 @@
 <script lang="ts">
   import type {CommunityServiceData} from "$lib/dp/types/CommunityServiceData.ts";
-  import PersonalCommunityServiceCard from "$lib/dp/components/communityservice/PersonalCommunityServiceCard.svelte";
+  import CommunityServiceItemCard from "$lib/dp/components/communityservice/CommunityServiceItemCard.svelte";
   import TargetVisualizer from "$lib/dp/components/communityservice/TargetVisualizer.svelte";
   import {toHours} from "$lib/dp/utility/toHours.ts";
   import {Plus} from "lucide-svelte";
@@ -26,7 +26,7 @@
 
     <div class="entry-cards">
       {#each item?.entries as entry(entry.id)}
-        <PersonalCommunityServiceCard {entry}/>
+        <CommunityServiceItemCard {entry}/>
       {/each}
     </div>
 
