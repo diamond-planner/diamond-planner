@@ -18,7 +18,7 @@
 
   interface Props {
     serviceEntry: ExpandedServiceEntry | null;
-    club?: ClubsResponse;
+    club: ClubsResponse;
   }
 
   let {serviceEntry, club}: Props = $props();
@@ -47,20 +47,20 @@
     service_date: "",
     minutes: 0,
     member: authRecord.id,
-    club: club?.id ?? "",
+    club: club.id,
     title: "",
     description: "",
     board_member: "",
   });
 
-  const isAdmin = $derived(serviceEntry?.expand?.club?.admins.includes(authRecord.id));
+  const isAdmin = $derived(club?.admins.includes(authRecord.id));
 
   const possibleClubs = client.collection(Collection.Clubs).getFullList<ClubsResponse>({
     requestKey: null,
   });
 
   const allClubMembers = client.collection(Collection.Users).getFullList<UsersResponse>({
-    filter: `club ?~ '${serviceEntry?.club}'`,
+    filter: `club ?~ '${club.id}'`,
     requestKey: null,
   });
 
@@ -175,7 +175,7 @@
       required
     >
       {#await allClubMembers then members}
-        {#each members.filter((element) => serviceEntry?.expand?.club?.admins.includes(element.id)) as member}
+        {#each members.filter((element) => club?.admins.includes(element.id)) as member}
           <option value={member.id}>{member.first_name} {member.last_name}</option>
         {/each}
       {/await}

@@ -29,24 +29,24 @@
         <PersonalCommunityServiceCard {entry}/>
       {/each}
     </div>
+
+    <Dialog triggerClasses="btn preset-tonal-secondary border">
+
+      {#snippet triggerContent()}
+        <Plus/>
+        Create new
+      {/snippet}
+
+      {#snippet title()}
+        <header>
+          <h2 class="h4">Create new Community Service Entry</h2>
+        </header>
+      {/snippet}
+
+      <ServiceEntryForm serviceEntry={null} club={item.club}/>
+    </Dialog>
   </div>
 {/each}
-
-<Dialog triggerClasses="btn preset-tonal-secondary border">
-
-  {#snippet triggerContent()}
-    <Plus/>
-    Create new
-  {/snippet}
-
-  {#snippet title()}
-    <header>
-      <h2 class="h4">Create new Community Service Entry</h2>
-    </header>
-  {/snippet}
-
-  <ServiceEntryForm serviceEntry={null} club={undefined}/>
-</Dialog>
 
 <style>
   .club-services {
@@ -57,6 +57,7 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: calc(var(--spacing) * 3);
+    margin-block-end: calc(var(--spacing) * 4);
 
     @media (min-width: 48rem) {
       grid-template-columns: repeat(2, 1fr);
