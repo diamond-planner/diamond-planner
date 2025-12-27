@@ -134,7 +134,7 @@
           />
         {/if}
 
-        <label class="label md:col-span-2">
+        <label class="label field-wide">
           <span>Title</span>
           <input
                   bind:value={form.title}
@@ -145,13 +145,13 @@
           />
         </label>
 
-        <label class="label md:col-span-2">
+        <label class="label field-wide">
           Announcement Text
           <textarea bind:value={form.bodytext} class="textarea" name="desc" required rows="10"
           ></textarea>
         </label>
 
-        <fieldset class="md:col-span-2 border border-surface-200-800 p-3 rounded-base">
+        <fieldset class="field-wide border border-surface-200-800 p-3 rounded-base">
           <legend class="legend mb-3">Priority</legend>
           {#each ["info", "warning", "danger"] as prio}
             <label class="label priority-radio-label flex items-center gap-2 my-1">
@@ -169,7 +169,7 @@
           {/each}
         </fieldset>
 
-        <fieldset class="md:col-span-2 border border-surface-200-800 p-3 rounded-base">
+        <fieldset class="field-wide border border-surface-200-800 p-3 rounded-base">
           <legend class="legend mb-3">Link Settings</legend>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-2">

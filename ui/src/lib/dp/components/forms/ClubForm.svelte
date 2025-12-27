@@ -164,7 +164,7 @@
         </label>
 
         {#if form.id /* we are editing and might want to change admins */}
-          <label class="label space-y-3 md:col-span-2">
+          <label class="label space-y-3 field-wide">
             <span>Club Admins</span><br>
 
             {#await allUsersForClub then users}

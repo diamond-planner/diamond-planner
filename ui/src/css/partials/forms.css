@@ -41,9 +41,8 @@
     --tw-ring-inset: inset;
     --tw-ring-color: var(--color-surface-200-800);
     --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 var(--default-ring-width) var(--tw-ring-color, currentColor);
-    box-shadow:
-      var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow),
-      var(--tw-ring-shadow), var(--tw-shadow);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow),
+    var(--tw-ring-shadow), var(--tw-shadow);
 
     /* Child Edges */
 
@@ -196,9 +195,8 @@
     --tw-ring-inset: inset;
     --tw-ring-color: var(--color-surface-200-800);
     --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 var(--default-ring-width) var(--tw-ring-color, currentColor);
-    box-shadow:
-      var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow),
-      var(--tw-ring-shadow), var(--tw-shadow);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow),
+    var(--tw-ring-shadow), var(--tw-shadow);
 
     &::placeholder {
       color: light-dark(var(--color-gray-500), var(--color-gray-400));
@@ -415,9 +413,8 @@
     --tw-ring-inset: inset;
     --tw-ring-color: var(--color-surface-200-800);
     --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 var(--default-ring-width) var(--tw-ring-color, currentColor);
-    box-shadow:
-      var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow),
-      var(--tw-ring-shadow), var(--tw-shadow);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow),
+    var(--tw-ring-shadow), var(--tw-shadow);
 
     &:active {
       --tw-ring-color: var(--color-primary-500);
@@ -508,9 +505,8 @@
     --tw-ring-inset: inset;
     --tw-ring-color: var(--color-surface-200-800);
     --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 var(--default-ring-width) var(--tw-ring-color, currentColor);
-    box-shadow:
-      var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow),
-      var(--tw-ring-shadow), var(--tw-shadow);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow),
+    var(--tw-ring-shadow), var(--tw-shadow);
 
     &:active {
       --tw-ring-color: var(--color-primary-500);
@@ -542,6 +538,10 @@
 
     @media (min-width: 48rem) {
       grid-template-columns: repeat(2, 1fr);
+
+      .field-wide {
+        grid-column: span 2 / span 2;
+      }
     }
 
     @media (min-width: 64rem) {

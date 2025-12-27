@@ -182,7 +182,7 @@
           />
         </div>
 
-        <div class="md:col-span-2">
+        <div class="field-wide">
           <label class="label" for="internal_name">Internal Name</label>
           <input
                   bind:value={form.internal_name}
@@ -223,7 +223,7 @@
           />
         </div>
 
-        <label class="md:col-span-2">
+        <label class="field-wide">
           Coordinate Map
           <span class="text-sm font-light block">Select a location on the map to set coordinates automatically</span>
           <LeafletMapCoordinatePicker bind:latitude={form.latitude} bind:longitude={form.longitude}/>

@@ -162,6 +162,7 @@
                 label="Age Group"
                 name="age_group"
                 options={["adults", "minors"]}
+                listClass="tabs-list input col-span-2"
         />
 
         <label class="label col-span-2">
@@ -174,7 +175,7 @@
           ></textarea>
         </label>
 
-        <label class="label space-y-3 md:col-span-2">
+        <label class="label space-y-3 field-wide">
           <span>Team Admins</span><br>
 
           {#await allTeamMembers then users}

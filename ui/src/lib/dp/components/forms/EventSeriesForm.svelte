@@ -69,7 +69,7 @@
 <form class="mt-4 space-y-3" onsubmit={submitForm}>
   <div class="edit-form-grid">
     {#if !isNewSeries}
-      <span class="md:col-span-2 text-sm font-light block">
+      <span class="field-wide text-sm font-light block">
         When editing an event series, only select fields can be changed because editing past events would affect
         participation statistics. If you want to change a long-running practice series, end the previous one by
         setting the end date accordingly and create a new series.
@@ -86,7 +86,7 @@
     />
 
     {#if isNewSeries}
-      <label class="label md:col-span-2">
+      <label class="label field-wide">
         Series First Occurrence
         <Flatpickr
                 bind:value={form.series_start}
@@ -96,14 +96,14 @@
         />
       </label>
 
-      <span class="md:col-span-2 text-sm font-light block preset-outlined-primary-500 p-2 my-1 rounded-container">
+      <span class="field-wide text-sm font-light block preset-outlined-primary-500 p-2 my-1 rounded-container">
       This is the first event in your new series. It will have the exact start time you enter here.<br>
       The next events are then created <em>RECURRING INTERVAL</em> days after the previous one and all will have
       the end time set to <em>DURATION</em> minutes after their start time.
     </span>
     {/if}
 
-    <label class="label md:col-span-2">
+    <label class="label field-wide">
       Series End
       <Flatpickr
               bind:value={form.series_end}
@@ -114,7 +114,7 @@
       <span class="text-sm font-light block">No events will be created after this date.</span>
     </label>
 
-    <label class="label md:col-span-2 mt-3 md:mt-0">
+    <label class="label field-wide mt-3 md:mt-0">
       Title
       <input
               bind:value={form.title}

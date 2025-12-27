@@ -165,14 +165,14 @@
 
         <span></span>
 
-        <label class="label md:col-span-2">
+        <label class="label field-wide">
           Description
           <textarea bind:value={form.desc} class="textarea" data-testid="event-form-textarea-desc"
                     name="desc"
           ></textarea>
         </label>
 
-        <label class="label md:col-span-2">
+        <label class="label field-wide">
           Location
           <select
                   bind:value={form.location}
@@ -196,7 +196,7 @@
         />
 
         {#await attireOptions then options}
-          <label class="label md:col-span-2">
+          <label class="label field-wide">
             Uniform Set
             <select class="select" bind:value={form.attire} data-testid="event-form-select-attire">
               {#each options as option}

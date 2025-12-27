@@ -22,7 +22,7 @@ let {
   options,
   value = $bindable(),
   class: klass = "",
-  listClass = "md:col-span-2 tabs-list input",
+  listClass = "tabs-list input",
   triggerClass = "tabs-trigger btn",
 }: Props<string> = $props()
 

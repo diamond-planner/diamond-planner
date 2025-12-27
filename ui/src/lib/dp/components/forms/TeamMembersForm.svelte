@@ -57,7 +57,7 @@
             type="hidden"
     />
 
-    <label class="label space-y-3 md:col-span-2">
+    <label class="label space-y-3 field-wide">
       <span>Selected Users:</span><br>
 
       {#if selectedUsers.length === 0}
