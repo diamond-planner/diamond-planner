@@ -3,6 +3,9 @@
   import PersonalCommunityServiceCard from "$lib/dp/components/communityservice/PersonalCommunityServiceCard.svelte";
   import TargetVisualizer from "$lib/dp/components/communityservice/TargetVisualizer.svelte";
   import {toHours} from "$lib/dp/utility/toHours.ts";
+  import {Plus} from "lucide-svelte";
+  import ServiceEntryForm from "$lib/dp/components/forms/ServiceEntryForm.svelte";
+  import Dialog from "$lib/dp/components/modal/Dialog.svelte";
 
   interface Props {
     serviceEntryData: CommunityServiceData;
@@ -28,6 +31,22 @@
     </div>
   </div>
 {/each}
+
+<Dialog triggerClasses="btn preset-tonal-secondary border">
+
+  {#snippet triggerContent()}
+    <Plus/>
+    Create new
+  {/snippet}
+
+  {#snippet title()}
+    <header>
+      <h2 class="h4">Create new Community Service Entry</h2>
+    </header>
+  {/snippet}
+
+  <ServiceEntryForm serviceEntry={null} club={undefined}/>
+</Dialog>
 
 <style>
   .club-services {

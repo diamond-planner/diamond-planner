@@ -13,7 +13,9 @@
   {#if showTarget}
     <dl>
       <dt>Target:</dt>
-      <dd class="visualized chip preset-tonal">{current} / {target}</dd>
+      <dd class="visualized chip preset-tonal">
+        {current.toFixed(1)} / {target.toFixed(1)}
+      </dd>
     </dl>
   {:else }
     <p class="visualized chip preset-tonal">{current}</p>

@@ -1,6 +1,7 @@
 package dp
 
 import (
+	"fmt"
 	"log/slog"
 	"slices"
 
@@ -11,6 +12,7 @@ import (
 type UserServiceApp interface {
 	FindRecordsByFilter(collectionModelOrIdentifier any, filter string, sort string, limit int, offset int, params ...dbx.Params) ([]*core.Record, error)
 	Logger() *slog.Logger
+	ExpandRecords(records []*core.Record, expands []string, optFetchFunc core.ExpandFetchFunc) map[string]error
 }
 
 type CommunityServiceItem struct {
@@ -56,6 +58,10 @@ func getCommunityServiceData(app UserServiceApp, authID string, user User, seaso
 		if err != nil {
 			app.Logger().Error("Failed to load service entries", "clubID", club.Id, "error", err)
 			return serviceData, err
+		}
+		errs := app.ExpandRecords(records, []string{"club"}, nil)
+		if len(errs) > 0 {
+			return serviceData, fmt.Errorf("failed to expand: %v", errs)
 		}
 
 		item.Entries = make([]ServiceEntry, len(records))

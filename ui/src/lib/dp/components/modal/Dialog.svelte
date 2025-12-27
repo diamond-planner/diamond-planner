@@ -1,11 +1,11 @@
 <script lang="ts">
-import type { Snippet } from "svelte"
-import { Dialog, type WithoutChild } from "bits-ui"
-import { fly } from "svelte/transition"
-import { cubicInOut } from "svelte/easing"
-import { X } from "lucide-svelte"
+  import type {Snippet} from "svelte";
+  import {Dialog, type WithoutChild} from "bits-ui";
+  import {fly} from "svelte/transition";
+  import {cubicInOut} from "svelte/easing";
+  import {X} from "lucide-svelte";
 
-/**
+  /**
  * Modal dialog based on headless bits-ui building blocks.
  * Replacement for Skeleton modal.
  */

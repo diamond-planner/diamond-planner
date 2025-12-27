@@ -1,12 +1,14 @@
 <script lang="ts">
-  import type {ServiceentriesResponse} from "$lib/dp/types/pb-types.ts";
   import {toHours} from "$lib/dp/utility/toHours.ts";
   import {DateTimeUtility} from "$lib/dp/service/DateTimeUtility.ts";
   import {appLocale} from "$lib/dp/locale.svelte.ts";
-  import {CalendarDaysIcon} from "lucide-svelte";
+  import {CalendarDaysIcon, SquarePen} from "lucide-svelte";
+  import ServiceEntryForm from "$lib/dp/components/forms/ServiceEntryForm.svelte";
+  import type {ExpandedServiceEntry} from "$lib/dp/types/ExpandedResponse.ts";
+  import Dialog from "$lib/dp/components/modal/Dialog.svelte";
 
   interface Props {
-    entry: ServiceentriesResponse;
+    entry: ExpandedServiceEntry;
   }
 
   let {entry}: Props = $props();
@@ -16,7 +18,7 @@
 <article class="card preset-tonal-surface shadow-lg">
   <div class="entry-card-header">
     <h3 class="h5">{entry.title}</h3>
-    <p class="entry-minutes chip preset-tonal-primary">{toHours(entry.minutes)}</p>
+    <p class="entry-minutes chip preset-tonal-primary">{toHours(entry.minutes).toFixed(1)}</p>
   </div>
 
   <time class="service-date" datetime="{entry.service_date}">
@@ -28,7 +30,24 @@
 
   <details>
     <summary>Details</summary>
-    <p>{entry.description}</p>
+    <div class="details-content-wrapper">
+      <p>{entry.description}</p>
+
+      <Dialog triggerClasses="btn btn-sm preset-tonal-secondary border">
+
+        {#snippet triggerContent()}
+          <SquarePen size="14"/>
+        {/snippet}
+
+        {#snippet title()}
+          <header>
+            <h2 class="h4">Edit Community Service Entry "{entry.title}"</h2>
+          </header>
+        {/snippet}
+
+        <ServiceEntryForm serviceEntry={entry} club={entry?.expand?.club}/>
+      </Dialog>
+    </div>
   </details>
 </article>
 
@@ -60,5 +79,11 @@
   .entry-minutes {
     font-size: var(--text-lg);
     font-weight: var(--font-weight-bold);
+  }
+
+  .details-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
   }
 </style>
