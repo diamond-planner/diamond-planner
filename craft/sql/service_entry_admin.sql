@@ -1,4 +1,10 @@
-SELECT users.id, users.email, clubs.service_requirement AS target, SUM(entries.minutes) AS totalMinutes
+SELECT
+    users.id,
+    users.email,
+    concat(users.first_name, ' ', users.last_name) AS name,
+    clubs.service_requirement AS target,
+    SUM(entries.minutes) AS total_minutes,
+    CASE WHEN SUM(entries.minutes) >= clubs.service_requirement THEN 1 ELSE 0 END AS target_met
 FROM serviceentries AS entries
          INNER JOIN users ON users.id = entries.member
          INNER JOIN clubs ON clubs.id = entries.club
