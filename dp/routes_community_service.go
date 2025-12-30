@@ -51,7 +51,10 @@ func GetUserCommunityService() func(event *core.RequestEvent) error {
 			}
 		}
 
-		serviceData, err := getCommunityServiceData(event.App, event.Auth.Id, *user, season, readableClubs)
+		serviceData, err := getCommunityServiceDataForUser(event.App, event.Auth.Id, *user, season, readableClubs)
+		if err != nil {
+			return event.InternalServerError("", err)
+		}
 
 		return event.JSON(http.StatusOK, serviceData)
 	}

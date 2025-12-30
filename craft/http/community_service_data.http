@@ -1,0 +1,3 @@
+### GET Club Service Data
+GET {{url}}/api/club/{{clubID}}/admin/communityservice?season=2025
+Authorization:  {{clubAdminToken}}

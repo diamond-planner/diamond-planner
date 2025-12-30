@@ -162,6 +162,14 @@ func BindDPHooks(app core.App, client bsm.APIClient) {
 		return se.Next()
 	})
 
+	app.OnServe().BindFunc(func(se *core.ServeEvent) error {
+		clubAdminGroup := se.Router.Group("/api/club/{club}/admin")
+
+		clubAdminGroup.Bind(RequireClubAdminAccess())
+		clubAdminGroup.GET("/communityservice", GetClubCommunityService())
+		return se.Next()
+	})
+
 	//------------------- Cronjobs -------------------------//
 
 	if os.Getenv("APPLICATION_CONTEXT") != "Development" {
