@@ -19,9 +19,9 @@
     "lint": "biome lint --write",
     "check": "biome check --write"
   },
-  "devDependencies": {
+  "dependencies": {
     "@biomejs/biome": "2.3.8",
-    "@dotenvx/dotenvx": "^1.51.2",
+    "@dotenvx/dotenvx": "^1.51.4",
     "@playwright/test": "^1.57.0",
     "@sveltejs/adapter-static": "^3.0.10",
     "@sveltejs/kit": "^2.49.2",
@@ -31,7 +31,7 @@
     "@types/node": "24.10.1",
     "@vincjo/datatables": "^1.14.10",
     "@wuchale/svelte": "^0.17.9",
-    "@wuchale/vite-plugin": "^0.15.6",
+    "@wuchale/vite-plugin": "^0.15.7",
     "apexcharts": "^4.7.0",
     "bits-ui": "^2.14.4",
     "bsm.js": "^0.3.0",
@@ -39,24 +39,19 @@
     "leaflet": "^1.9.4",
     "lucide-svelte": "^0.556.0",
     "pocketbase": "^0.26.5",
-    "svelte": "^5.46.0",
+    "svelte": "^5.46.1",
     "svelte-check": "^4.3.5",
     "svelte-persisted-state": "^1.2.0",
     "tslib": "^2.8.1",
     "typescript": "^5.9.3",
     "vite": "^7.3.0",
     "vitest": "^3.2.4",
-    "wuchale": "^0.18.9"
+    "wuchale": "^0.18.11"
   },
   "type": "module",
   "overrides": {
     "typed-pocketbase": {
       "pocketbase": "$pocketbase"
     }
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild"
-    ]
   }
 }
