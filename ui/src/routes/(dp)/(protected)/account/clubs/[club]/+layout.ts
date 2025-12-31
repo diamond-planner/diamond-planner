@@ -6,7 +6,7 @@ import type {
   ExpandedTeam,
   ExpandedUniformSet,
 } from "$lib/dp/types/ExpandedResponse.ts";
-import type {PageLoad} from "../../../../../../../.svelte-kit/types/src/routes";
+import type {LayoutLoad} from "./$types";
 
 export const load = (async ({fetch, params, depends, url}) => {
   const club = await client.collection("clubs").getOne<ExpandedClub>(params.club, {
@@ -51,4 +51,4 @@ export const load = (async ({fetch, params, depends, url}) => {
     uniformSets: uniformSets,
     announcementStore: announcements,
   };
-}) satisfies PageLoad;
+}) satisfies LayoutLoad;

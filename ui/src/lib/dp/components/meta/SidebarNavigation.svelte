@@ -1,14 +1,16 @@
 <script lang="ts">
   import {
+    BookHeart,
     ChartColumnStacked,
     ChartLine,
     CircleUserRound,
+    House,
     IdCard,
     LockKeyhole,
     Shield,
-    SquareUserRound, ToolCase,
+    SquareUserRound,
+    ToolCase,
     Users,
-    UsersRound,
   } from "lucide-svelte";
   import AccordionItem from "$lib/dp/components/modal/AccordionItem.svelte";
   import {authSettings} from "$lib/dp/client.svelte.js";
@@ -66,56 +68,60 @@
       {/snippet}
     </AccordionItem>
 
-    <hr class="hr"/>
+    {#each clubs as club (club.id)}
+      <hr class="hr"/>
+      <AccordionItem panelPadding="py-0 px-4">
+        {#snippet lead()}
+          <Shield/>
+        {/snippet}
 
-    <AccordionItem panelPadding="py-0 px-4">
-      {#snippet lead()}
-        <UsersRound/>
-      {/snippet}
+        {#snippet control()}
+          <span>{club.name} ({club.acronym})</span>
+        {/snippet}
 
-      {#snippet control()}
-        <span>My Clubs & Teams</span>
-      {/snippet}
-
-      {#snippet panel()}
-        {#each clubs as club (club.id)}
+        {#snippet panel()}
           <a href="/account/clubs/{club.id}" onclick={sheetClose}>
-            <Shield/>
-            <span>{club.name} ({club.acronym})</span>
+            <House/>
+            <span>Club Main Page</span>
           </a>
-        {/each}
 
-        {#if teams?.length > 0}
-          <hr class="hr"/>
+          {#if teams?.length > 0}
 
-          {#each teams as team (team.id)}
-            <a href="/account/team/{team.id}" onclick={sheetClose}>
-              <Users/>
-              <span>{team.name} ({team?.expand?.club?.acronym}) </span>
+            {#each teams.filter(team => team.club === club.id) as team (team.id)}
+              <a href="/account/team/{team.id}" onclick={sheetClose}>
+                <Users/>
+                <span>{team.name} ({team?.expand?.club?.acronym}) </span>
+              </a>
+            {/each}
+          {/if}
+        {/snippet}
+      </AccordionItem>
+
+      {#if club.admins.includes(authRecord?.id)}
+        <hr class="hr"/>
+        <AccordionItem panelPadding="py-0 px-4">
+          {#snippet lead()}
+            <LockKeyhole/>
+          {/snippet}
+
+          {#snippet control()}
+            Club Administration
+          {/snippet}
+
+          {#snippet panel()}
+            <a href="/account/clubs/{club.id}/admin/attendance" onclick={sheetClose}>
+              <ChartColumnStacked/>
+              <span>Attendance Dashboard</span>
             </a>
-          {/each}
-        {/if}
-      {/snippet}
-    </AccordionItem>
 
-    <hr class="hr"/>
-
-    <AccordionItem panelPadding="py-0 px-4">
-      {#snippet lead()}
-        <LockKeyhole/>
-      {/snippet}
-
-      {#snippet control()}
-        Administration
-      {/snippet}
-
-      {#snippet panel()}
-        <a href="/stats/admin" onclick={sheetClose}>
-          <ChartColumnStacked/>
-          <span>Admin Dashboard</span>
-        </a>
-      {/snippet}
-    </AccordionItem>
+            <a href="/account/clubs/{club.id}/admin/communityservice" onclick={sheetClose}>
+              <BookHeart/>
+              <span>Community Service</span>
+            </a>
+          {/snippet}
+        </AccordionItem>
+      {/if}
+    {/each}
   {/if}
 </nav>
 

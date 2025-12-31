@@ -38,7 +38,7 @@
         <div class="item-row">
           <ShieldHalf/>
           <div>
-            <dd>{team?.expand?.club.name}</dd>
+            <dd>{team?.expand?.club?.name}</dd>
             <dt class="text-sm font-light">Club</dt>
           </div>
         </div>
