@@ -27,9 +27,14 @@
 {#await data.set}
   <ProgressRing/>
 {:then set}
-  <p class="h5">for {set.user.first_name} {set.user.last_name} ({set.season})</p>
+  <p class="h5">for {set.user.first_name} {set.user.last_name}</p>
   <section class="service-section">
     <SeasonSelector bind:selectedSeason={selectedSeason} onChangeCallback={reloadWithQuery} seasonOptions={seasonOptions}/>
+    <p>
+      Each club can set a community service target for its members. Members are expected to provide this amount
+      of voluntary working hours each calendar year. You can report your community service hours
+      here, as well as view your previously sent hours and compare with the target.
+    </p>
     <CommunityServiceSection serviceEntryData={set}/>
   </section>
 
