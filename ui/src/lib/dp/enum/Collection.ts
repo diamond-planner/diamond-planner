@@ -5,4 +5,5 @@ export enum Collection {
   Locations = "locations",
   Teams = "teams",
   Clubs = "clubs",
+  Announcements = "announcements",
 }

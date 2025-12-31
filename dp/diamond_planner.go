@@ -163,7 +163,7 @@ func BindDPHooks(app core.App, client bsm.APIClient) {
 	})
 
 	app.OnServe().BindFunc(func(se *core.ServeEvent) error {
-		clubAdminGroup := se.Router.Group("/api/club/{club}/admin")
+		clubAdminGroup := se.Router.Group("/api/clubs/{club}/admin")
 
 		clubAdminGroup.Bind(RequireClubAdminAccess())
 		clubAdminGroup.GET("/communityservice", GetClubCommunityService())

@@ -7,21 +7,22 @@ import type {
   ExpandedUniformSet,
 } from "$lib/dp/types/ExpandedResponse.ts";
 import type {LayoutLoad} from "./$types";
+import {Collection} from "$lib/dp/enum/Collection.ts";
 
 export const load = (async ({fetch, params, depends, url}) => {
-  const club = await client.collection("clubs").getOne<ExpandedClub>(params.club, {
+  const club = await client.collection(Collection.Clubs).getOne<ExpandedClub>(params.club, {
     expand: "admins",
     fetch: fetch,
   });
 
-  const teams = await client.collection("teams").getFullList<ExpandedTeam>({
+  const teams = await client.collection(Collection.Teams).getFullList<ExpandedTeam>({
     filter: `club.id = "${club.id}"`,
     fetch: fetch,
     expand: "club,admins",
     sort: "+name",
   });
 
-  const uniformSets = await client.collection("uniformsets").getFullList<ExpandedUniformSet>({
+  const uniformSets = await client.collection(Collection.UniformSets).getFullList<ExpandedUniformSet>({
     filter: `club.id = "${club.id}"`,
     fetch: fetch,
     expand: "club",
@@ -31,7 +32,7 @@ export const load = (async ({fetch, params, depends, url}) => {
   const page = Number(pageQuery);
 
   const announcements = await watchWithPagination<ExpandedAnnouncement>(
-      "announcements",
+      Collection.Announcements,
       {
         filter: `club.id = "${club.id}"`,
         sort: "-updated",
