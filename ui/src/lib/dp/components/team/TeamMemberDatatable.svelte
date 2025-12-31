@@ -17,29 +17,29 @@
   let {data, team, rowsPerPage = 25, showAdminSection = false}: Props = $props();
 
   const handler = $derived(
-      new DataHandler<CustomAuthModel>(data, {
-        rowsPerPage: rowsPerPage,
-      })
+    new DataHandler<CustomAuthModel>(data, {
+      rowsPerPage: rowsPerPage,
+    })
   );
 </script>
 
-<div class=" overflow-x-auto space-y-4 table-wrap">
+<div class="table-wrap">
   <!-- Header -->
-  <header class="md:flex space-y-2 md:space-y-0 justify-between gap-4">
+  <header class="table-header">
     <Search {handler}/>
 
     <RowsPerPage {handler}/>
   </header>
 
   <!-- Table -->
-  <table class="table table-compact w-full">
+  <table class="table table-compact">
     <TeamMembersTableContent {handler} {showAdminSection} {team}/>
 
     <tfoot></tfoot>
   </table>
 
   <!-- Footer -->
-  <footer class="flex justify-between">
+  <footer class="table-footer">
     <RowCount {handler}/>
     <Pagination {handler}/>
   </footer>

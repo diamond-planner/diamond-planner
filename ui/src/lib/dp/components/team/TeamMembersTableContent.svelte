@@ -1,6 +1,6 @@
 <script lang="ts">
   import type {DataHandler} from "@vincjo/datatables";
-  import {CircleCheck, Lock, LockOpen, Trash} from "lucide-svelte";
+  import {CircleCheck, CircleMinus, Lock, LockOpen, Trash} from "lucide-svelte";
   import {invalidateAll} from "$app/navigation";
   import Avatar from "$lib/dp/components/utils/Avatar.svelte";
   import Dialog from "$lib/dp/components/modal/Dialog.svelte";
@@ -82,7 +82,7 @@
 </script>
 
 <thead>
-<tr class="sticky preset-tonal-surface dark:preset-filled-surface-300-700">
+<tr class="sticky preset-filled-surface-200-800">
   <ThSort {handler} orderBy="last_name">Name</ThSort>
   <ThSort {handler} orderBy="verified">Status</ThSort>
   <ThSort {handler} orderBy="number">Number</ThSort>
@@ -102,9 +102,9 @@
     <td>
       <div class="flex items-center gap-2">
         <Avatar
-                src={client.files.getURL(row, row.avatar)}
-                fallback={`${row.first_name.charAt(0)?.toUpperCase()}${row.last_name.charAt(0)?.toUpperCase()}`}
-                --size="2.75rem"
+          src={client.files.getURL(row, row.avatar)}
+          fallback={`${row.first_name.charAt(0)?.toUpperCase()}${row.last_name.charAt(0)?.toUpperCase()}`}
+          --size="2.75rem"
         />
         <div>
           <span>{row.first_name} {row.last_name}</span>
@@ -118,32 +118,15 @@
     </td>
 
     <td>
-      <div class="flex gap-1">
+      <div class="checkmark-container">
         {#if row.verified}
           <div>
-            <CircleCheck
-                    class="text-success-600 dark:text-success-500"
-            />
+            <CircleCheck color="var(--color-success-500)"/>
           </div>
           <div>Verified</div>
         {:else}
           <div>
-            <!-- Icon for some reason not in lib -->
-            <svg
-                    class="w-5 h-5 text-error-600-400"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-            >
-              <path
-                      fill-rule="evenodd"
-                      d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm5.757-1a1 1 0 1 0 0 2h8.486a1 1 0 1 0 0-2H7.757Z"
-                      clip-rule="evenodd"
-              />
-            </svg>
+            <CircleMinus size="22" color="var(--color-error-500)"/>
           </div>
           <div>Unverified</div>
         {/if}
@@ -227,3 +210,11 @@
   </tr>
 {/if}
 </tbody>
+
+<style>
+  .checkmark-container {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing);
+  }
+</style>

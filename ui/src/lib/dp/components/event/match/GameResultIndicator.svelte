@@ -17,9 +17,9 @@
 
 <div class="text-lg font-semibold">
   {#if matchState === MatchState.won}
-    <span class="text-success-700 dark:text-success-500">W</span>
+    <span class="text-success-700">W</span>
   {:else if matchState === MatchState.lost}
-    <span class="text-error-600 dark:text-error-400">L</span>
+    <span class="text-error-600">L</span>
   {:else if matchState === MatchState.derby}
     <span class="text-primary-600-400 text-2xl">♥</span>
   {:else if matchState === MatchState.final}

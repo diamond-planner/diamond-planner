@@ -5,7 +5,7 @@ import type {ClubCommunityServiceRow} from "$lib/dp/types/ClubCommunityServiceRo
 export const load: PageLoad = (async ({fetch, params, depends, parent}) => {
   const rows = client.send<ClubCommunityServiceRow>(`/api/clubs/${params.club}/admin/communityservice`, {
     fetch: fetch,
-  })
+  });
   const parentData = await parent();
 
   depends("communityservice:admin");
