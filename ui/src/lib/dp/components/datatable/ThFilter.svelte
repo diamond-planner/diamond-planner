@@ -1,21 +1,29 @@
 <script lang="ts">
-import type { DataHandler } from "@vincjo/datatables"
-interface Props {
-  handler: DataHandler
-  filterBy: string
-}
+  import type {TableHandler} from "@vincjo/datatables";
 
-let { handler, filterBy }: Props = $props()
-let value: string = $state("")
+  interface Props {
+    handler: TableHandler;
+    filterBy: string;
+  }
+
+  let {handler, filterBy}: Props = $props();
+  const filter = $derived(handler.createFilter(filterBy));
 </script>
 
 <th>
-    <input
-            class="input text-sm w-full preset-outlined-primary-500"
-            type="text"
-            bind:value
-            oninput={() => {
-			if (filterBy) handler.filter(value, filterBy);
+  <input
+    class="input preset-outlined-primary-500"
+    type="text"
+    bind:value={filter.value}
+    oninput={() => {
+			if (filterBy) filter.set();
 		}}
-    />
+  />
 </th>
+
+<style>
+  input {
+    font-size: var(--text-sm);
+    width: 100%;
+  }
+</style>

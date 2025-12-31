@@ -36,8 +36,8 @@ importers:
         specifier: 24.10.1
         version: 24.10.1
       '@vincjo/datatables':
-        specifier: ^1.14.10
-        version: 1.14.10(svelte@5.46.1)
+        specifier: ^2.8.0
+        version: 2.8.0(svelte@5.46.1)
       '@wuchale/svelte':
         specifier: ^0.17.9
         version: 0.17.9
@@ -565,10 +565,10 @@ packages:
   '@types/node@24.10.1':
     resolution: {integrity: sha512-GNWcUTRBgIRJD5zj+Tq0fKOJ5XZajIiBroOF0yvj2bSU1WvNdYS/dn9UxwsujGW4JX06dnHyjV2y9rRaybH0iQ==}
 
-  '@vincjo/datatables@1.14.10':
-    resolution: {integrity: sha512-gtojSC/LKDHbh2ZGZeaAQ+lLltcmcSDDLkecgb9WpG7lHmd4b/1HUTtFWAJt43TnaK8SrciGugh9VRRZN53bpw==}
+  '@vincjo/datatables@2.8.0':
+    resolution: {integrity: sha512-+Qa9E+Xd+xAOKnYEy7Hgq246sLzwq4GjrwLyWHVi9tbvLNXh4mLMObwy962hc6DYgFP4JRd+Y9PVnDlgSpphxw==}
     peerDependencies:
-      svelte: ^3.56.0 || ^4.0.0 || ^5.0.0-next.120
+      svelte: ^5.16.0
 
   '@vitest/expect@3.2.4':
     resolution: {integrity: sha512-Io0yyORnB6sikFlt8QW5K7slY4OjqNX9jmJQ02QDda8lyM6B5oNgVWoSoKPac8/kgnCUzuHQKrSLtu/uOqqrig==}
@@ -1551,7 +1551,7 @@ snapshots:
     dependencies:
       undici-types: 7.16.0
 
-  '@vincjo/datatables@1.14.10(svelte@5.46.1)':
+  '@vincjo/datatables@2.8.0(svelte@5.46.1)':
     dependencies:
       svelte: 5.46.1
 

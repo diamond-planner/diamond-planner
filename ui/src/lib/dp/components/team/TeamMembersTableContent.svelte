@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type {DataHandler} from "@vincjo/datatables";
+  import type {TableHandler} from "@vincjo/datatables";
   import {CircleCheck, CircleMinus, Lock, LockOpen, Trash} from "lucide-svelte";
   import {invalidateAll} from "$app/navigation";
   import Avatar from "$lib/dp/components/utils/Avatar.svelte";
@@ -13,7 +13,7 @@
   import ThSort from "$lib/dp/components/datatable/ThSort.svelte";
 
   interface Props {
-    handler: DataHandler<CustomAuthModel>;
+    handler: TableHandler<CustomAuthModel>;
     team: ExpandedTeam;
     showAdminSection?: boolean;
   }
@@ -78,7 +78,7 @@
     closeModal();
   }
 
-  const rows = $derived(handler.getRows());
+  const rows = $derived(handler.rows);
 </script>
 
 <thead>
@@ -97,7 +97,7 @@
 </thead>
 
 <tbody>
-{#each $rows as row}
+{#each rows as row}
   <tr class="align-middle">
     <td>
       <div class="flex items-center gap-2">
@@ -204,7 +204,7 @@
   </tr>
 {/each}
 
-{#if $rows.length === 0}
+{#if rows.length === 0}
   <tr>
     <th class="py-4" colspan="8">No team members to display.</th>
   </tr>

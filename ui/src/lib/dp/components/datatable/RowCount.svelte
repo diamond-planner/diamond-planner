@@ -1,20 +1,29 @@
 <script lang="ts">
-import type { DataHandler } from "@vincjo/datatables"
+  import type {TableHandler} from "@vincjo/datatables";
 
-interface Props {
-  handler: DataHandler
-}
+  interface Props {
+    handler: TableHandler;
+  }
 
-let { handler }: Props = $props()
-const rowCount = handler.getRowCount()
+  let {handler}: Props = $props();
+  const rowCount = $derived(handler.rowCount);
 </script>
 
-<aside class="text-sm leading-8 mr-6">
-  {#if $rowCount.total > 0}
-    <b>{$rowCount.start}</b>
-    - <b>{$rowCount.end}</b>
-    / <b>{$rowCount.total}</b>
+<aside>
+  {#if rowCount.total > 0}
+    <b>{rowCount.start}</b>
+    - <b>{rowCount.end}</b>
+    / <b>{rowCount.total}</b>
   {:else}
     No Elements found.
   {/if}
 </aside>
+
+<style>
+  aside {
+    font-size: var(--text-sm);
+    margin-inline-end: calc(var(--spacing) * 6);
+    --tw-leading: calc(var(--spacing) * 8);
+    line-height: calc(var(--spacing) * 8);
+  }
+</style>

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {DataHandler} from "@vincjo/datatables";
+  import {TableHandler} from "@vincjo/datatables";
   import Pagination from "$lib/dp/components/datatable/Pagination.svelte";
   import RowCount from "$lib/dp/components/datatable/RowCount.svelte";
   import RowsPerPage from "$lib/dp/components/datatable/RowsPerPage.svelte";
@@ -17,7 +17,7 @@
   let {data, team, rowsPerPage = 25, showAdminSection = false}: Props = $props();
 
   const handler = $derived(
-    new DataHandler<CustomAuthModel>(data, {
+    new TableHandler<CustomAuthModel>(data, {
       rowsPerPage: rowsPerPage,
     })
   );

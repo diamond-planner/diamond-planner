@@ -89,14 +89,6 @@
     background-color: var(--color-tertiary-700);
   }
 
-  .dark\:text-error-400 {
-    color: var(--color-error-400);
-  }
-
-  .dark\:text-success-500 {
-    color: var(--color-success-500);
-  }
-
   .dark\:text-surface-contrast-500\! {
     color: var(--color-surface-contrast-500) !important;
   }
