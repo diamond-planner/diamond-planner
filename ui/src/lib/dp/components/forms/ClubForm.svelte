@@ -1,13 +1,14 @@
 <script lang="ts">
-  import {ClipboardEdit, Plus} from "lucide-svelte";
+  import {ClipboardPen, Plus} from "lucide-svelte";
   import {invalidateAll} from "$app/navigation";
   import MultiSelectCombobox from "$lib/dp/components/formElements/MultiSelectCombobox.svelte";
-  //@ts-expect-error
+  //@ts-ignore
   import * as Sheet from "$lib/dp/components/modal/sheet";
   import {authSettings, client} from "$lib/dp/client.svelte.js";
   import {toastController} from "$lib/dp/service/ToastController.svelte.ts";
   import type {CustomAuthModel, ExpandedClub} from "$lib/dp/types/ExpandedResponse.ts";
   import type {ClubsResponse, UsersResponse, UsersUpdate} from "$lib/dp/types/pb-types.ts";
+  import {Collection} from "$lib/dp/enum/Collection.ts";
 
   const authRecord = $derived(authSettings.record as CustomAuthModel);
 
@@ -19,21 +20,22 @@
   const {club, buttonClasses = ""}: Props = $props();
 
   let form: Partial<ExpandedClub> = $state(
-      club ?? {
-        id: "",
-        name: "",
-        bsm_id: 0,
-        bsm_api_key: "",
-        acronym: "",
-        admins: [],
-      }
+    club ?? {
+      id: "",
+      name: "",
+      bsm_id: 0,
+      bsm_api_key: "",
+      acronym: "",
+      service_requirement: 0,
+      admins: [],
+    }
   );
 
   let open = $state(false);
 
   let selectedAdmins: UsersResponse[] = $state(form?.expand?.admins ?? []);
 
-  const allUsersForClub = client.collection("users").getFullList<UsersResponse>({
+  const allUsersForClub = client.collection(Collection.Users).getFullList<UsersResponse>({
     filter: `club ?~ '${club?.id}'`,
     requestKey: `users-for-club-${club?.id}`,
   });
@@ -49,15 +51,15 @@
           return admin.id;
         });
 
-        result = await client.collection("clubs").update<ClubsResponse>(form.id, form);
+        result = await client.collection(Collection.Clubs).update<ClubsResponse>(form.id, form);
       } else {
         // a user creating a club becomes its first admin
         form?.admins?.push(authRecord.id);
 
-        result = await client.collection("clubs").create<ClubsResponse>(form);
+        result = await client.collection(Collection.Clubs).create<ClubsResponse>(form);
 
         // a user needs to become a member of the new club
-        await client.collection("users").update<UsersUpdate>(authRecord.id, {
+        await client.collection(Collection.Users).update<UsersUpdate>(authRecord.id, {
           "club+": result.id,
         });
       }
@@ -76,7 +78,7 @@
 <Sheet.Root bind:open={open}>
   <Sheet.Trigger class={buttonClasses}>
     {#if form.id}
-      <ClipboardEdit/>
+      <ClipboardPen/>
       <span>Edit Club</span>
     {:else}
       <Plus/>
@@ -98,22 +100,22 @@
     <form class="mt-4 space-y-3" onsubmit={submitForm}>
       <div class="edit-form-grid">
         <input
-                autocomplete="off"
-                bind:value={form.id}
-                class="input"
-                name="id"
-                readonly
-                type="hidden"
+          autocomplete="off"
+          bind:value={form.id}
+          class="input"
+          name="id"
+          readonly
+          type="hidden"
         />
 
         <label class="label">
           <span>Name</span>
           <input
-                  bind:value={form.name}
-                  class="input"
-                  name="name"
-                  required
-                  type="text"
+            bind:value={form.name}
+            class="input"
+            name="name"
+            required
+            type="text"
           />
         </label>
 
@@ -122,10 +124,10 @@
                 Acronym
                 </span>
           <input
-                  bind:value={form.acronym}
-                  class="input"
-                  name="acronym"
-                  type="text"
+            bind:value={form.acronym}
+            class="input"
+            name="acronym"
+            type="text"
           />
         </label>
 
@@ -134,11 +136,11 @@
                 BSM Club ID
                 </span>
           <input
-                  bind:value={form.bsm_id}
-                  class="input"
-                  name="bsm_id"
-                  required
-                  type="number"
+            bind:value={form.bsm_id}
+            class="input"
+            name="bsm_id"
+            required
+            type="number"
           >
           <span class="text-sm">Can be found in the BSM address bar while editing
                     (e.g. <span class="italic">https://bsm.baseball-softball.de/clubs/xxx/edit</span>).
@@ -151,16 +153,31 @@
                 BSM API Key
                 </span>
           <input
-                  bind:value={form.bsm_api_key}
-                  class="input"
-                  name="bsm_api_key"
-                  placeholder="current value not shown for security"
-                  type="text"
+            bind:value={form.bsm_api_key}
+            class="input"
+            name="bsm_api_key"
+            placeholder="current value not shown for security"
+            type="text"
           />
           <span class="text-sm">
                     Must be created in BSM in a user's account that has the role "Team Administration".
                     If set, all game events for the club can be automatically imported.
                 </span>
+        </label>
+
+        <label class="label">
+          Community Service Requirement
+          <input
+            bind:value={form.service_requirement}
+            class="input"
+            name="service_requirement"
+            type="number"
+          >
+          <span class="text-sm">
+            Designated community service time amount (in minutes) that each
+            member is expected to provide during a calendar year
+            (e.g. 20h = 1200 minutes).
+          </span>
         </label>
 
         {#if form.id /* we are editing and might want to change admins */}
