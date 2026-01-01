@@ -10,6 +10,7 @@
   import type {TeamsUpdate, UsersUpdate} from "$lib/dp/types/pb-types.ts";
   import {closeModal} from "$lib/dp/utility/closeModal.ts";
   import LocalDate from "../utils/LocalDate.svelte";
+  import {positionKeysToEnumStringValues} from "$lib/dp/types/BaseballPosition.ts";
 
   interface Props {
     handler: TableHandler<CustomAuthModel>;
@@ -128,13 +129,13 @@
 
     <td>
       {#if row.bsm_id}
-        {row.bsm_id}
+        <code class="code">{row.bsm_id}</code>
       {:else}
         <span>None</span>
       {/if}
     </td>
 
-    <td>{row.position}</td>
+    <td>{positionKeysToEnumStringValues(row.position)}</td>
 
     <td>
       <LocalDate date={row.last_login}/>
@@ -151,7 +152,7 @@
           {#if team.admins.includes(row.id)}
             <button class="badge preset-tonal-warning border border-warning-500" onclick={() => removeUserAsAdmin(row)}>
               <Lock class="m-0.5" size="18"/>
-              Revoke Admin Access
+              Revoke Admin
             </button>
           {:else }
             <button class="badge preset-tonal-tertiary border border-tertiary-500" onclick={() => makeUserAdmin(row)}>
@@ -160,10 +161,10 @@
             </button>
           {/if}
 
-          <Dialog triggerClasses="badge preset-tonal-error border border-error-500 gap-0!" closeButtonClasses="sr-only">
+          <Dialog triggerClasses="btn btn-sm preset-tonal-error border border-error-500 gap-0!"
+                  closeButtonClasses="sr-only">
             {#snippet triggerContent()}
-              <Trash class="m-0.5" size="18"/>
-              Remove
+              <Trash class="m-0.5" size="18" aria-label="Remove User from Team"/>
             {/snippet}
 
             {#snippet title()}
