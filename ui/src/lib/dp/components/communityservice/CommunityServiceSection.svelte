@@ -22,6 +22,7 @@
       current={toHours(item.current_minutes)}
       target={toHours(item.club.service_requirement)}
       showTarget={true}
+      --visualizer-spacing="4"
     />
 
     <div class="entry-cards">

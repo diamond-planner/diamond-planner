@@ -35,10 +35,10 @@
 <GenericDatatable
   {handler}
   {filterSortOptions}
-  showInHeader="sort"
+  showInHeader="all"
   caption="Community Service Data for {club.name}"
 >
   {#snippet contentRows()}
-    <CommunityServiceTableContent rows={data}/>
+    <CommunityServiceTableContent {handler}/>
   {/snippet}
 </GenericDatatable>

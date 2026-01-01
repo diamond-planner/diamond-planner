@@ -12,7 +12,7 @@
 <div style="--progress: {percentage};">
   {#if showTarget}
     <dl>
-      <dt>Target:</dt>
+      <dt class="sr-only">Target:</dt>
       <dd class="visualized chip preset-tonal">
         {current.toFixed(1)} / {target.toFixed(1)}
       </dd>
@@ -27,7 +27,7 @@
     display: flex;
     align-items: center;
     gap: calc(var(--spacing) * 2);
-    margin-block: calc(var(--spacing) * 4);
+    margin-block: calc(var(--spacing) * var(--visualizer-spacing));
   }
 
   .visualized {

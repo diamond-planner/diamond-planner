@@ -105,7 +105,7 @@
           {/snippet}
 
           {#snippet control()}
-            Club Administration
+            Club Administration ({club.acronym})
           {/snippet}
 
           {#snippet panel()}
