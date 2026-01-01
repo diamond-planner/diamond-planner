@@ -4,6 +4,7 @@
   import UserDataCard from "$lib/dp/components/user/UserDataCard.svelte";
   import {authSettings} from "$lib/dp/client.svelte.js";
   import type {CustomAuthModel} from "$lib/dp/types/ExpandedResponse.ts";
+  import AnnouncementSectionContent from "$lib/dp/components/announcements/AnnouncementSectionContent.svelte";
 
   const authRecord = $derived(authSettings.record as CustomAuthModel);
 
@@ -17,6 +18,10 @@
 
   <PlayerProfileClubsSection clubs={data.clubs}/>
 </div>
+
+<h2 class="h2">My Announcements</h2>
+
+<AnnouncementSectionContent store={data.announcementStore}/>
 
 <h2 class="h2">My Teams</h2>
 
@@ -32,7 +37,8 @@
 
 <style>
   h2 {
-    margin-block: calc(var(--spacing) * 4);
+    margin-block-start: calc(var(--spacing) * 6);
+    margin-block-end: calc(var(--spacing) * 4);
   }
 
   .top-grid {
