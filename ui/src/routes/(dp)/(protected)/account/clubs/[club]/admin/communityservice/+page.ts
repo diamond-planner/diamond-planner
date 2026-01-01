@@ -14,7 +14,7 @@ export const load: PageLoad = (async ({fetch, params, url, depends, parent}) => 
   }
   query.season = season;
 
-  const rows = client.send<ClubCommunityServiceRow>(`/api/clubs/${params.club}/admin/communityservice`, {
+  const rows = client.send<ClubCommunityServiceRow[]>(`/api/clubs/${params.club}/admin/communityservice`, {
     fetch: fetch,
     query: query,
   });

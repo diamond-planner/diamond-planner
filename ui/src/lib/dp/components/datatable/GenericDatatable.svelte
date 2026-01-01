@@ -18,6 +18,7 @@
     contentRows: Snippet;
     additionalFilters?: Snippet;
     additionalSort?: Snippet;
+    caption?: string;
   }
 
   let {
@@ -27,6 +28,7 @@
     contentRows,
     additionalFilters,
     additionalSort,
+    caption = "",
   }: Props = $props();
 
   let filters = $derived(filterSortOptions);
@@ -42,6 +44,10 @@
 
   <!-- Table -->
   <table class="table table-compact">
+    {#if caption}
+      <caption class="sr-only">{caption}</caption>
+    {/if}
+
     <thead>
     {#if showInHeader === "all" || showInHeader === "sort"}
       <tr class="sticky preset-filled-surface-200-800">
