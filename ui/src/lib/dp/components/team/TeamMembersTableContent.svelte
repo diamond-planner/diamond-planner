@@ -11,6 +11,7 @@
   import {closeModal} from "$lib/dp/utility/closeModal.ts";
   import LocalDate from "../utils/LocalDate.svelte";
   import {positionKeysToEnumStringValues} from "$lib/dp/types/BaseballPosition.ts";
+  import {Collection} from "$lib/dp/enum/Collection.ts";
 
   interface Props {
     handler: TableHandler<CustomAuthModel>;
@@ -22,7 +23,7 @@
 
   async function makeUserAdmin(model: CustomAuthModel) {
     try {
-      await client.collection("teams").update<TeamsUpdate>(team.id, {
+      await client.collection(Collection.Teams).update<TeamsUpdate>(team.id, {
         "admins+": model.id,
       });
       toastController.trigger({
@@ -41,7 +42,7 @@
 
   async function removeUserAsAdmin(model: CustomAuthModel) {
     try {
-      await client.collection("teams").update<TeamsUpdate>(team.id, {
+      await client.collection(Collection.Teams).update<TeamsUpdate>(team.id, {
         "admins-": model.id,
       });
       toastController.trigger({
@@ -60,7 +61,7 @@
 
   async function deleteUserFromTeam(model: CustomAuthModel) {
     try {
-      await client.collection("users").update<UsersUpdate>(model.id, {
+      await client.collection(Collection.Users).update<UsersUpdate>(model.id, {
         "teams-": team.id,
       });
       toastController.trigger({
@@ -82,9 +83,9 @@
 </script>
 
 {#each rows as row}
-  <tr class="align-middle">
+  <tr class="content-row">
     <td>
-      <div class="flex items-center gap-2">
+      <div class="avatar-container">
         <Avatar
           src={client.files.getURL(row, row.avatar)}
           fallback={`${row.first_name.charAt(0)?.toUpperCase()}${row.last_name.charAt(0)?.toUpperCase()}`}
@@ -119,9 +120,9 @@
 
     <td>
       {#if row.number}
-                    <span class="badge-icon p-3 preset-filled-primary-500 text-white text-lg"
-                    >{row.number}</span
-                    >
+        <span class="badge-icon jersey-number preset-filled-primary-500">
+          {row.number}
+        </span>
       {:else}
         <span>None</span>
       {/if}
@@ -144,10 +145,6 @@
     {#if showAdminSection}
       <td>
         <div class="flex gap-1 lg:gap-2 justify-end">
-          <!--        <button class="btn btn-sm variant-ghost-primary">-->
-          <!--          <EditOutline/>-->
-          <!--          Edit-->
-          <!--        </button>-->
 
           {#if team.admins.includes(row.id)}
             <button class="badge preset-tonal-warning border border-warning-500" onclick={() => removeUserAsAdmin(row)}>
@@ -175,7 +172,7 @@
               <span>Are you sure you wish to remove "{row.first_name + " " + row.last_name}" from "{team.name}"?</span>
             {/snippet}
 
-            <div class="flex justify-end gap-2 mt-1">
+            <div class="button-container">
               <button class="btn preset-tonal-surface border border-surface-500" type="button" onclick={closeModal}>
                 Cancel
               </button>
@@ -199,5 +196,28 @@
     display: flex;
     align-items: center;
     gap: var(--spacing);
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: calc(var(--spacing) * 2);
+    margin-block-start: var(--spacing);
+  }
+
+  .content-row {
+    vertical-align: middle;
+  }
+
+  .avatar-container {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 2);
+  }
+
+  .jersey-number {
+    color: white;
+    font-size: var(--text-lg);
+    padding: calc(var(--spacing) * 3);
   }
 </style>
