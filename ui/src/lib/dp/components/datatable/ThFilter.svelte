@@ -14,6 +14,7 @@
   <input
     class="input preset-outlined-primary-500"
     type="text"
+    placeholder="Filter..."
     bind:value={filter.value}
     oninput={() => {
 			if (filterBy) filter.set();

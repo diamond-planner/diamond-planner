@@ -10,7 +10,6 @@
   import type {TeamsUpdate, UsersUpdate} from "$lib/dp/types/pb-types.ts";
   import {closeModal} from "$lib/dp/utility/closeModal.ts";
   import LocalDate from "../utils/LocalDate.svelte";
-  import ThSort from "$lib/dp/components/datatable/ThSort.svelte";
 
   interface Props {
     handler: TableHandler<CustomAuthModel>;
@@ -81,22 +80,6 @@
   const rows = $derived(handler.rows);
 </script>
 
-<thead>
-<tr class="sticky preset-filled-surface-200-800">
-  <ThSort {handler} orderBy="last_name">Name</ThSort>
-  <ThSort {handler} orderBy="verified">Status</ThSort>
-  <ThSort {handler} orderBy="number">Number</ThSort>
-  <ThSort {handler} orderBy="bsm_id">BSM ID</ThSort>
-  <ThSort {handler} orderBy="position">Position</ThSort>
-  <ThSort {handler} orderBy="last_login">Last Login</ThSort>
-
-  {#if showAdminSection}
-    <th>Actions</th>
-  {/if}
-</tr>
-</thead>
-
-<tbody>
 {#each rows as row}
   <tr class="align-middle">
     <td>
@@ -209,7 +192,6 @@
     <th class="py-4" colspan="8">No team members to display.</th>
   </tr>
 {/if}
-</tbody>
 
 <style>
   .checkmark-container {

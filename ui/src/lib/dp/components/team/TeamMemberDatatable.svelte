@@ -1,11 +1,9 @@
 <script lang="ts">
   import {TableHandler} from "@vincjo/datatables";
-  import Pagination from "$lib/dp/components/datatable/Pagination.svelte";
-  import RowCount from "$lib/dp/components/datatable/RowCount.svelte";
-  import RowsPerPage from "$lib/dp/components/datatable/RowsPerPage.svelte";
-  import Search from "$lib/dp/components/datatable/Search.svelte";
   import type {CustomAuthModel, ExpandedTeam} from "$lib/dp/types/ExpandedResponse.ts";
   import TeamMembersTableContent from "./TeamMembersTableContent.svelte";
+  import GenericDatatable from "$lib/dp/components/datatable/GenericDatatable.svelte";
+  import type {FilterSortOptions} from "$lib/dp/types/FilterSortOptions.ts";
 
   interface Props {
     data: CustomAuthModel[];
@@ -14,7 +12,21 @@
     showAdminSection?: boolean;
   }
 
-  let {data, team, rowsPerPage = 25, showAdminSection = false}: Props = $props();
+  const filterSortOptions: FilterSortOptions = {
+    last_name: {displayName: "Name", value: ""},
+    verified: {displayName: "Status", value: ""},
+    number: {displayName: "Number", value: ""},
+    bsm_id: {displayName: "BSM ID", value: ""},
+    position: {displayName: "Position", value: ""},
+    last_login: {displayName: "Last Login", value: ""},
+  };
+
+  let {
+    data,
+    team,
+    rowsPerPage = 25,
+    showAdminSection = false
+  }: Props = $props();
 
   const handler = $derived(
     new TableHandler<CustomAuthModel>(data, {
@@ -23,24 +35,14 @@
   );
 </script>
 
-<div class="table-wrap">
-  <!-- Header -->
-  <header class="table-header">
-    <Search {handler}/>
+<GenericDatatable {handler} {filterSortOptions} showInHeader="sort">
+  {#snippet additionalSort()}
+    {#if showAdminSection}
+      <th>Actions</th>
+    {/if}
+  {/snippet}
 
-    <RowsPerPage {handler}/>
-  </header>
-
-  <!-- Table -->
-  <table class="table table-compact">
+  {#snippet contentRows()}
     <TeamMembersTableContent {handler} {showAdminSection} {team}/>
-
-    <tfoot></tfoot>
-  </table>
-
-  <!-- Footer -->
-  <footer class="table-footer">
-    <RowCount {handler}/>
-    <Pagination {handler}/>
-  </footer>
-</div>
+  {/snippet}
+</GenericDatatable>
