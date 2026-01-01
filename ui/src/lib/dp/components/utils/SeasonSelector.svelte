@@ -1,11 +1,20 @@
 <script lang="ts">
+  import {page} from "$app/state";
+
   interface Props {
-    selectedSeason: number
-    seasonOptions: number[]
-    onChangeCallback: () => void
+    selectedSeason: number;
+    seasonOptions: number[];
+    onChangeCallback: () => void;
   }
 
-  let {selectedSeason = $bindable(), seasonOptions, onChangeCallback}: Props = $props()
+  let {selectedSeason = $bindable(), seasonOptions, onChangeCallback}: Props = $props();
+
+  const seasonParam = $derived(page.url.searchParams.get("season"));
+
+  // Svelte will complain, but reading just the initial value is intentional
+  if (seasonParam) {
+    selectedSeason = parseInt(seasonParam);
+  }
 </script>
 
 <div class="container lg:gap-8 preset-tonal-surface rounded-base">
