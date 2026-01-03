@@ -19,28 +19,33 @@ type ClubCommunityServiceRow struct {
 	ID           string `db:"id" json:"id"`
 	Email        string `db:"email" json:"email"`
 	Name         string `db:"name" json:"name"`
-	Target       int    `db:"target" json:"target"`
+	Target       *int   `db:"target" json:"target"`
 	TotalMinutes int    `db:"total_minutes" json:"total_minutes"`
 	TargetMet    bool   `db:"target_met" json:"target_met"`
 }
 
 func getCommunityServiceDataForClub(app core.App, clubID string, season string) ([]ClubCommunityServiceRow, error) {
 	var result []ClubCommunityServiceRow
+
+	seasonParam := dbx.Params{"season": season}
 	query := app.DB().
 		Select(
 			"users.id",
 			"users.email",
 			"concat(users.first_name, ' ', users.last_name) AS name",
 			"clubs.service_requirement AS target",
-			"SUM(serviceentries.minutes) AS total_minutes",
+			"COALESCE(SUM(serviceentries.minutes), 0) AS total_minutes",
 			"CASE WHEN SUM(serviceentries.minutes) >= clubs.service_requirement THEN 1 ELSE 0 END AS target_met",
 		).
-		From(ServiceEntryCollection).
-		InnerJoin("users", dbx.NewExp("users.id = serviceentries.member")).
-		InnerJoin("clubs", dbx.NewExp("clubs.id = serviceentries.club")).
-		Where(dbx.NewExp("strftime('%Y', serviceentries.service_date) = {:season}", dbx.Params{"season": season})).
-		AndWhere(dbx.NewExp("serviceentries.club = {:clubID}", dbx.Params{"clubID": clubID})).
-		GroupBy("users.id", "users.email")
+		From(UserCollection).
+		LeftJoin(ServiceEntryCollection, dbx.NewExp(
+			"users.id = serviceentries.member AND strftime('%Y', serviceentries.service_date) = {:season}",
+			seasonParam,
+		)).
+		LeftJoin(ClubsCollection, dbx.NewExp("clubs.id = {:clubID}", dbx.Params{"clubID": clubID})).
+		AndWhere(dbx.NewExp("strftime('%Y', users.created) <= {:season}", seasonParam)).
+		AndWhere(dbx.Exists(dbx.NewExp("SELECT 1 FROM json_each(users.club) WHERE value = {:clubID}", dbx.Params{"clubID": clubID}))).
+		GroupBy("users.id", "users.email", "clubs.service_requirement")
 
 	err := query.All(&result)
 	if err != nil {
