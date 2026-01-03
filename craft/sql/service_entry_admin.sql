@@ -7,6 +7,7 @@ SELECT users.id,
 FROM users
          LEFT JOIN serviceentries ON users.id = serviceentries.member
     AND strftime('%Y', serviceentries.service_date) = '2025'
+    AND serviceentries.club = 'x2f8mayfly6zye3'
          LEFT JOIN clubs ON clubs.id = 'x2f8mayfly6zye3' -- Joined directly to get the requirement for this specific club
 WHERE 1 = 1
   AND strftime('%Y', users.created) <= '2025'

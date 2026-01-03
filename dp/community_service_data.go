@@ -28,6 +28,7 @@ func getCommunityServiceDataForClub(app core.App, clubID string, season string) 
 	var result []ClubCommunityServiceRow
 
 	seasonParam := dbx.Params{"season": season}
+	clubParams := dbx.Params{"clubID": clubID}
 	query := app.DB().
 		Select(
 			"users.id",
@@ -39,10 +40,10 @@ func getCommunityServiceDataForClub(app core.App, clubID string, season string) 
 		).
 		From(UserCollection).
 		LeftJoin(ServiceEntryCollection, dbx.NewExp(
-			"users.id = serviceentries.member AND strftime('%Y', serviceentries.service_date) = {:season}",
-			seasonParam,
+			"users.id = serviceentries.member AND strftime('%Y', serviceentries.service_date) = {:season} AND serviceentries.club = {:clubID}",
+			seasonParam, clubParams,
 		)).
-		LeftJoin(ClubsCollection, dbx.NewExp("clubs.id = {:clubID}", dbx.Params{"clubID": clubID})).
+		LeftJoin(ClubsCollection, dbx.NewExp("clubs.id = {:clubID}", clubParams)).
 		AndWhere(dbx.NewExp("strftime('%Y', users.created) <= {:season}", seasonParam)).
 		AndWhere(dbx.Exists(dbx.NewExp("SELECT 1 FROM json_each(users.club) WHERE value = {:clubID}", dbx.Params{"clubID": clubID}))).
 		GroupBy("users.id", "users.email", "clubs.service_requirement")
