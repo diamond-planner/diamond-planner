@@ -23,7 +23,6 @@
   <option value="fr">🇫🇷</option>
   <option value="es">🇪🇸</option>
   <option value="pl">🇵🇱</option>
-  <option value="ru">🇷🇺</option>
 </select>
 
 
