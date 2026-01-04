@@ -47,6 +47,22 @@ self.addEventListener('activate', (event) => {
   event.waitUntil(deleteOldCaches());
 });
 
+self.addEventListener('push', function (event) {
+  console.log('Received a push message', event);
+
+  const data = event.data?.json() ?? {};
+  const title = data.title || "Test Notification";
+  const message = data.message || "Real men test in production.";
+  const tag = data.tag || "test-notification";
+
+  event.waitUntil(
+    self.registration.showNotification(title, {
+      body: message,
+      tag: tag
+    })
+  );
+});
+
 self.addEventListener('fetch', (event) => {
   // ignore POST requests etc
   if (event.request.method !== 'GET') return;
