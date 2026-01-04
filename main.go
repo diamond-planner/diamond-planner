@@ -28,7 +28,9 @@ func init() {
 
 func main() {
 	client := bsm.NewAPIClient()
-	app := dp.NewDiamondPlanner(client)
+	pushService := dp.NewPushService()
+
+	app := dp.NewDiamondPlanner(client, pushService)
 
 	if err := app.Start(); err != nil {
 		log.Fatal(err)

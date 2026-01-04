@@ -20,7 +20,7 @@ type DiamondPlanner struct {
 	*pocketbase.PocketBase
 }
 
-func NewDiamondPlanner(client bsm.APIClient) *DiamondPlanner {
+func NewDiamondPlanner(client bsm.APIClient, pushService PushService) *DiamondPlanner {
 	dp := &DiamondPlanner{
 		pocketbase.New(),
 	}
@@ -37,7 +37,7 @@ func NewDiamondPlanner(client bsm.APIClient) *DiamondPlanner {
 		Automigrate: isGoRun,
 	})
 
-	BindDPHooks(dp, client)
+	BindDPHooks(dp, client, pushService)
 
 	//------------------- Commands -------------------------//
 
@@ -74,7 +74,7 @@ func NewDiamondPlanner(client bsm.APIClient) *DiamondPlanner {
 	return dp
 }
 
-func BindDPHooks(app core.App, client bsm.APIClient) {
+func BindDPHooks(app core.App, client bsm.APIClient, pushService PushService) {
 
 	//------------------- Hooks -------------------------//
 
@@ -180,6 +180,15 @@ func BindDPHooks(app core.App, client bsm.APIClient) {
 
 		clubAdminGroup.Bind(RequireClubAdminAccess())
 		clubAdminGroup.GET("/communityservice", GetClubCommunityService())
+		return se.Next()
+	})
+
+	app.OnServe().BindFunc(func(se *core.ServeEvent) error {
+		pushGroup := se.Router.Group("/api/webpush")
+
+		pushGroup.POST("/{user}/notify-me", notifyWithTestPushMessage(pushService)).
+			Bind(apis.RequireAuth())
+
 		return se.Next()
 	})
 
