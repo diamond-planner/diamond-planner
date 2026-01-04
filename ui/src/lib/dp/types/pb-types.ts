@@ -253,6 +253,7 @@ export interface UsersCollection {
 		comments_via_user: CommentsCollection[];
 		serviceentries_via_member: ServiceentriesCollection[];
 		serviceentries_via_board_member: ServiceentriesCollection[];
+		pushsubscriptions_via_user: PushsubscriptionsCollection[];
 	};
 }
 
@@ -347,9 +348,9 @@ export interface ClubsResponse extends BaseCollectionResponse {
 	bsm_id: number;
 	acronym: string;
 	admins: Array<string>;
-	service_requirement: number;
 	created: string;
 	updated: string;
+	service_requirement: number;
 }
 
 export interface ClubsCreate extends BaseCollectionCreate {
@@ -358,9 +359,9 @@ export interface ClubsCreate extends BaseCollectionCreate {
 	bsm_id?: number;
 	acronym?: string;
 	admins: MaybeArray<string>;
-	service_requirement?: number;
 	created?: string | Date;
 	updated?: string | Date;
+	service_requirement?: number;
 }
 
 export interface ClubsUpdate extends BaseCollectionUpdate {
@@ -373,11 +374,11 @@ export interface ClubsUpdate extends BaseCollectionUpdate {
 	admins?: MaybeArray<string>;
 	'admins+'?: MaybeArray<string>;
 	'admins-'?: MaybeArray<string>;
+	created?: string | Date;
+	updated?: string | Date;
 	service_requirement?: number;
 	'service_requirement+'?: number;
 	'service_requirement-'?: number;
-	created?: string | Date;
-	updated?: string | Date;
 }
 
 export interface ClubsCollection {
@@ -1185,6 +1186,54 @@ export interface ServiceentriesCollection {
 	};
 }
 
+// ===== pushsubscriptions =====
+
+export interface PushsubscriptionsResponse extends BaseCollectionResponse {
+	collectionName: 'pushsubscriptions';
+	id: string;
+	user: string;
+	endpoint: string;
+	key_p256dh: string;
+	key_auth: string;
+	encoding: string;
+	created: string;
+	updated: string;
+}
+
+export interface PushsubscriptionsCreate extends BaseCollectionCreate {
+	id?: string;
+	user: string;
+	endpoint: string | URL;
+	key_p256dh: string;
+	key_auth: string;
+	encoding?: string;
+	created?: string | Date;
+	updated?: string | Date;
+}
+
+export interface PushsubscriptionsUpdate extends BaseCollectionUpdate {
+	id?: string;
+	user?: string;
+	endpoint?: string | URL;
+	key_p256dh?: string;
+	key_auth?: string;
+	encoding?: string;
+	created?: string | Date;
+	updated?: string | Date;
+}
+
+export interface PushsubscriptionsCollection {
+	type: 'base';
+	collectionId: string;
+	collectionName: 'pushsubscriptions';
+	response: PushsubscriptionsResponse;
+	create: PushsubscriptionsCreate;
+	update: PushsubscriptionsUpdate;
+	relations: {
+		user: UsersCollection;
+	};
+}
+
 // ===== Schema =====
 
 export type Schema = {
@@ -1206,4 +1255,5 @@ export type Schema = {
 	announcements: AnnouncementsCollection;
 	comments: CommentsCollection;
 	serviceentries: ServiceentriesCollection;
+	pushsubscriptions: PushsubscriptionsCollection;
 };
