@@ -1,11 +1,13 @@
 package dp
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"os"
 	"strings"
 
+	"github.com/SherClockHolmes/webpush-go"
 	"github.com/diamond-planner/diamond-planner/bsm"
 	"github.com/pocketbase/pocketbase"
 	"github.com/pocketbase/pocketbase/apis"
@@ -55,6 +57,17 @@ func NewDiamondPlanner(client bsm.APIClient) *DiamondPlanner {
 			if err != nil {
 				log.Print("Error while running LeagueGroupImport: " + err.Error())
 			}
+		},
+	})
+
+	dp.RootCmd.AddCommand(&cobra.Command{
+		Use: "push:generateVAPID",
+		Run: func(cmd *cobra.Command, args []string) {
+			privateKey, publicKey, err := webpush.GenerateVAPIDKeys()
+			if err != nil {
+				log.Print("Error while generating VAPID keys: " + err.Error())
+			}
+			fmt.Printf("Private key: %s\nPublic key: %s\n", privateKey, publicKey)
 		},
 	})
 

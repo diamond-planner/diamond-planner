@@ -3,6 +3,7 @@ module github.com/diamond-planner/diamond-planner
 go 1.25
 
 require (
+	github.com/SherClockHolmes/webpush-go v1.4.0
 	github.com/pocketbase/dbx v1.11.0
 	github.com/pocketbase/pocketbase v0.35.0
 	github.com/spf13/cast v1.10.0
