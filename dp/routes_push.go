@@ -1,6 +1,8 @@
 package dp
 
 import (
+	"net/http"
+
 	"github.com/pocketbase/dbx"
 	"github.com/pocketbase/pocketbase/core"
 )
@@ -33,6 +35,6 @@ func notifyWithTestPushMessage(ps PushService, app core.App) func(e *core.Reques
 			}
 		}
 
-		return nil
+		return e.JSON(http.StatusOK, "Test push sent")
 	}
 }

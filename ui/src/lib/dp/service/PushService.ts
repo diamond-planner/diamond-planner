@@ -1,6 +1,8 @@
 import {dev} from "$app/environment";
 import {client} from "$lib/dp/client.svelte.ts";
 import {PUBLIC_VAPID_PUBLIC_KEY} from "$env/static/public";
+import type {PushsubscriptionsCreate, PushsubscriptionsResponse} from "$lib/dp/types/pb-types.ts";
+import {Collection} from "$lib/dp/enum/Collection.ts";
 
 type PushSubscriptionResult = {
   subscription: PushSubscription | null
@@ -51,17 +53,33 @@ export class PushService {
     };
   }
 
-  public async sendSubscriptionToServer(subscription: PushSubscription) {
-    const response = await client.send("/api/push/subscribe", {
-      method: "POST",
-      body: subscription.toJSON()
-    });
+  public async sendSubscriptionToServer(subscription: PushSubscription, userID: string): Promise<PushsubscriptionsResponse | null> {
+    const subscriptionData = this.convertToDatabaseFormat(subscription, userID);
 
-    if (!response.ok) {
-      throw new Error('Bad status code from server.');
+    const response = await client
+      .collection(Collection.PushSubscriptions)
+      .create<PushsubscriptionsResponse>(subscriptionData);
+
+    return response ?? null;
+  }
+
+  protected convertToDatabaseFormat(subscription: PushSubscription, userID: string): PushsubscriptionsCreate {
+    const decoder = new TextDecoder("utf-8");
+    // TODO: submit this correctly
+    const authKey = subscription.getKey("auth");
+    const p256dhKey = subscription.getKey("p256dh");
+
+    if (!authKey || !p256dhKey) {
+      throw new Error("Failed to extract keys from push subscription.");
     }
 
-    return response.json();
+    return {
+      user: userID,
+      endpoint: subscription.endpoint,
+      key_auth: decoder.decode(authKey),
+      key_p256dh: decoder.decode(p256dhKey),
+      encoding: PushManager.supportedContentEncodings.join(),
+    };
   }
 }
 
