@@ -185,9 +185,9 @@ func BindDPHooks(app core.App, client bsm.APIClient, pushService PushService) {
 
 	app.OnServe().BindFunc(func(se *core.ServeEvent) error {
 		pushGroup := se.Router.Group("/api/webpush")
+		pushGroup.Bind(apis.RequireAuth())
 
-		pushGroup.POST("/{user}/notify-me", notifyWithTestPushMessage(pushService)).
-			Bind(apis.RequireAuth())
+		pushGroup.POST("/{user}/notify-me", notifyWithTestPushMessage(pushService, app))
 
 		return se.Next()
 	})

@@ -1,6 +1,7 @@
 package dp
 
 import (
+	"github.com/SherClockHolmes/webpush-go"
 	"github.com/pocketbase/pocketbase/core"
 )
 
@@ -58,4 +59,16 @@ func (p *PushSubscription) Encoding() string {
 
 func (p *PushSubscription) SetEncoding(encoding string) {
 	p.Set("encoding", encoding)
+}
+
+// ToWebPushSubscription converts a Diamond Planner push subscription record from the database
+// to a webpush.Subscription to be sent via external browser-vendored Push Service.
+func (p *PushSubscription) ToWebPushSubscription() webpush.Subscription {
+	return webpush.Subscription{
+		Endpoint: p.Endpoint(),
+		Keys: webpush.Keys{
+			Auth:   p.KeyAuth(),
+			P256dh: p.KeyP256dh(),
+		},
+	}
 }
