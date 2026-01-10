@@ -64,10 +64,12 @@ export class PushService {
   }
 
   protected convertToDatabaseFormat(subscription: PushSubscription, userID: string): PushsubscriptionsCreate {
-    const decoder = new TextDecoder("utf-8");
-    // TODO: submit this correctly
-    const authKey = subscription.getKey("auth");
-    const p256dhKey = subscription.getKey("p256dh");
+    if (dev) {
+      console.log(subscription);
+    }
+    const pushJSON = subscription.toJSON();
+    const authKey = pushJSON.keys?.auth;
+    const p256dhKey = pushJSON.keys?.p256dh;
 
     if (!authKey || !p256dhKey) {
       throw new Error("Failed to extract keys from push subscription.");
@@ -76,8 +78,8 @@ export class PushService {
     return {
       user: userID,
       endpoint: subscription.endpoint,
-      key_auth: decoder.decode(authKey),
-      key_p256dh: decoder.decode(p256dhKey),
+      key_auth: authKey,
+      key_p256dh: p256dhKey,
       encoding: PushManager.supportedContentEncodings.join(),
     };
   }

@@ -44,9 +44,10 @@ func setupTestApp(t testing.TB) *tests.TestApp {
 	if mockClient.BaseAPIURL == "" {
 		t.Fatal("BSM_API_URL not set, aborting")
 	}
+	pushService := dp.NewPushService()
 
 	// no need to clean up since scenario.Test() will do that for us
-	dp.BindDPHooks(testApp, mockClient)
+	dp.BindDPHooks(testApp, mockClient, pushService)
 
 	return testApp
 }
