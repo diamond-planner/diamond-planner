@@ -1,6 +1,7 @@
 package dp
 
 import (
+	"encoding/json"
 	"io"
 	"log"
 	"os"
@@ -14,8 +15,15 @@ const (
 	VAPIDPrivateKeyEnvName = "VAPID_PRIVATE_KEY"
 )
 
+type PushMessage struct {
+	Title string `json:"title"`
+	Body  string `json:"body"`
+	Tag   string `json:"tag"`
+}
+
 type PushService interface {
 	handleTestPush(sub *webpush.Subscription) error
+	SendPushMessage(msg *PushMessage, sub *webpush.Subscription) error
 }
 
 type PushServiceImpl struct {
@@ -37,8 +45,14 @@ func NewPushService() PushService {
 	return &s
 }
 
-func (p PushServiceImpl) handleTestPush(sub *webpush.Subscription) error {
-	resp, err := webpush.SendNotification([]byte("Web Push Test"), sub, &webpush.Options{
+// SendPushMessage sends a push notification to the given subscription
+func (p PushServiceImpl) SendPushMessage(msg *PushMessage, sub *webpush.Subscription) error {
+	blob, err := json.Marshal(msg)
+	if err != nil {
+		return err
+	}
+
+	resp, err := webpush.SendNotification(blob, sub, &webpush.Options{
 		Subscriber:      p.Subscriber,
 		VAPIDPublicKey:  p.VAPIDPublicKey,
 		VAPIDPrivateKey: p.VAPIDPrivateKey,
@@ -52,4 +66,15 @@ func (p PushServiceImpl) handleTestPush(sub *webpush.Subscription) error {
 	}(resp.Body)
 
 	return nil
+}
+
+// handleTestPush sends a test push notification to the given subscription
+func (p PushServiceImpl) handleTestPush(sub *webpush.Subscription) error {
+	msg := PushMessage{
+		Title: "Hello there",
+		Body:  "Real men test in production",
+		Tag:   "Test Tag",
+	}
+
+	return p.SendPushMessage(&msg, sub)
 }

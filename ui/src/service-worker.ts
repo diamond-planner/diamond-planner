@@ -11,6 +11,7 @@
 /// <reference types="../.svelte-kit/ambient.d.ts" />
 
 import {build, files, version} from '$service-worker';
+import type {Extension} from "./lib/dp/types/ExpandedResponse";
 
 // This gives `self` the correct types
 const self = globalThis.self as unknown as ServiceWorkerGlobalScope;
@@ -47,18 +48,16 @@ self.addEventListener('activate', (event) => {
   event.waitUntil(deleteOldCaches());
 });
 
-self.addEventListener('push', function (event) {
-  console.log('Received a push message', event);
+type PushData = Extension<NotificationOptions, { title: string }>
 
-  const data = event.data?.json() ?? {};
-  const title = data.title || "Test Notification";
-  const message = data.message || "Real men test in production.";
-  const tag = data.tag || "test-notification";
+self.addEventListener('push', function (event) {
+  const data = event.data?.json() as PushData;
+  console.log('Received a push message', data);
 
   event.waitUntil(
-    self.registration.showNotification(title, {
-      body: message,
-      tag: tag
+    self.registration.showNotification(data.title, {
+      body: data.body,
+      tag: data.tag,
     })
   );
 });
