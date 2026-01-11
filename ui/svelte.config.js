@@ -39,6 +39,7 @@ const config = {
         "script-src": ["self"],
         "script-src-elem": ["self"],
         "style-src": ["self", "unsafe-inline"],
+        "worker-src": ["self", "blob:"],
         "frame-ancestors": ["none"],
       },
     },
