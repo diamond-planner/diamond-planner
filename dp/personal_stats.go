@@ -16,6 +16,7 @@ func LoadUserStats(user *core.Record, requestEvent *core.RequestEvent) (Personal
 	if teamParam != "" {
 		team, err := requestEvent.App.FindRecordById("teams", teamParam, nil)
 		if err != nil {
+			requestEvent.App.Logger().Error("failed to load team record: %v", "error", err, "teamID", teamParam)
 			return statsItem, err
 		}
 		statsItem.TeamName = team.GetString("name")

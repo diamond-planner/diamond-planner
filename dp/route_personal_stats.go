@@ -21,7 +21,7 @@ func GetUserStats() func(event *core.RequestEvent) error {
 
 		statsItem, err := LoadUserStats(user, event)
 		if err != nil {
-			return event.InternalServerError("failed to load user stat", err)
+			return event.InternalServerError("", err)
 		}
 
 		return event.JSON(http.StatusOK, statsItem)
