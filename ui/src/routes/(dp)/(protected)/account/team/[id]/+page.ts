@@ -19,6 +19,7 @@ export const load = (async ({fetch, parent, params, url, depends}) => {
       team = await client.collection("teams").getOne<ExpandedTeam>(params.id, {
         expand: "club,admins",
         fetch: fetch,
+        requestKey: `team-${params.id}`,
       });
     } catch (e) {
       if (dev) {
@@ -39,6 +40,7 @@ export const load = (async ({fetch, parent, params, url, depends}) => {
   const eventSeries = await client.collection(Collection.EventSeries).getFullList<EventseriesResponse>({
     filter: `team = "${team.id}" && series_start >= "${eventSeriesCutoff}"`,
     fetch: fetch,
+    requestKey: `team-${team.id}-eventseries`,
     sort: "+series_start",
   });
 

@@ -37,7 +37,7 @@
 
   const authRecord = $derived(authSettings.record as CustomAuthModel);
   const canEdit = $derived(
-    data.team.admins.includes(authRecord?.id) ||
+    data.team?.admins.includes(authRecord?.id) ||
     data.team?.expand?.club?.admins.includes(authRecord?.id)
   );
 </script>
@@ -120,7 +120,7 @@
   </div>
 
   <div class="events-grid">
-    {#each $events.items as event (event.id)}
+    {#each $events?.items as event (event.id)}
       <div class="">
         <EventTeaser {event} link={true}/>
       </div>
