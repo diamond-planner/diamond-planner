@@ -4,7 +4,7 @@ import {PUBLIC_VAPID_PUBLIC_KEY} from "$env/static/public";
 import type {PushsubscriptionsCreate, PushsubscriptionsResponse} from "$lib/dp/types/pb-types.ts";
 import {Collection} from "$lib/dp/enum/Collection.ts";
 
-type PushSubscriptionResult = {
+export type PushSubscriptionResult = {
   subscription: PushSubscription | null
   status: "granted" | "denied" | "already-subscribed" | "not-found"
 }
@@ -53,6 +53,27 @@ export class PushService {
     };
   }
 
+  public async unsubscribeUser(): Promise<boolean> {
+    const registration = await navigator.serviceWorker.getRegistration();
+    if (!registration) {
+      return true;
+    }
+    const subscribed = await registration.pushManager.getSubscription();
+    if (!subscribed) {
+      return true;
+    }
+    return await subscribed.unsubscribe();
+  }
+
+  public async isUserSubscribed(): Promise<boolean> {
+    const registration = await navigator.serviceWorker.getRegistration();
+    if (!registration) {
+      return false;
+    }
+    const subscribed = await registration.pushManager.getSubscription();
+    return !!subscribed;
+  }
+
   public async sendSubscriptionToServer(subscription: PushSubscription, userID: string): Promise<PushsubscriptionsResponse | null> {
     const subscriptionData = this.convertToDatabaseFormat(subscription, userID);
 
@@ -61,6 +82,12 @@ export class PushService {
       .create<PushsubscriptionsResponse>(subscriptionData);
 
     return response ?? null;
+  }
+
+  public async sendTestNotification(userID: string) {
+    await client.send<string>(`/api/webpush/${userID}/notify-me`, {
+      method: "POST"
+    });
   }
 
   protected convertToDatabaseFormat(subscription: PushSubscription, userID: string): PushsubscriptionsCreate {

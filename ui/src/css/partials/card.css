@@ -1,13 +1,14 @@
 /* Components: Cards */
 .card {
+  --card-padding: calc(var(--spacing) * 4);
   border-radius: var(--radius-container);
 
-  .card-header {
+  .card-header, .card-body {
     padding: calc(var(--spacing) * 4);
   }
 
   .card-footer {
-    padding: calc(var(--spacing) * 4);
+    padding: 0 var(--card-padding) var(--card-padding) var(--card-padding);
   }
 
   & a {

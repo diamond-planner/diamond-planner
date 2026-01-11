@@ -7,7 +7,11 @@ const config = {
   // Consult https://kit.svelte.dev/docs/integrations#preprocessors
   // for more information about preprocessors
   preprocess: [vitePreprocess()],
-
+  compilerOptions: {
+    experimental: {
+      async: true,
+    }
+  },
   kit: {
     adapter: adapter({
       fallback: "index.html",
