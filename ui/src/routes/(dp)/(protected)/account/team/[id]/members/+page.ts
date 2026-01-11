@@ -2,7 +2,8 @@ import {error} from "@sveltejs/kit";
 import {client} from "$lib/dp/client.svelte.js";
 import {watchWithPagination} from "$lib/dp/records/RecordOperations.ts";
 import type {CustomAuthModel, ExpandedTeam} from "$lib/dp/types/ExpandedResponse.ts";
-import type {PageLoad} from "../../../../../../../../.svelte-kit/types/src/routes";
+import type {PageLoad} from "./$types";
+import {Collection} from "$lib/dp/enum/Collection.ts";
 
 export const load = (async ({fetch, parent, params, depends}) => {
   const data = await parent();
@@ -19,13 +20,13 @@ export const load = (async ({fetch, parent, params, depends}) => {
   if (!team) throw error(404, "Team not found");
 
   const players = await watchWithPagination<CustomAuthModel>(
-      "users",
-      {
-        filter: `teams ?~ "${params.id}"`,
-        fetch: fetch,
-      },
-      1,
-      99
+    Collection.Users,
+    {
+      filter: `teams ?~ "${params.id}"`,
+      fetch: fetch,
+    },
+    1,
+    99
   );
 
   depends("members:list");
