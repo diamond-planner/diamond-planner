@@ -11,6 +11,10 @@ func notifyWithTestPushMessage(ps PushService, app core.App) func(e *core.Reques
 	return func(e *core.RequestEvent) error {
 		userID := e.Request.PathValue("user")
 
+		if userID != e.Auth.Id {
+			return e.ForbiddenError("", nil)
+		}
+
 		subRecords, err := app.FindRecordsByFilter(
 			PushSubscriptionsCollection,
 			"user.id = {:userID}",
