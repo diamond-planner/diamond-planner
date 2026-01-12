@@ -53,16 +53,20 @@ export class PushService {
     };
   }
 
-  public async unsubscribeUser(): Promise<boolean> {
+  public async unsubscribeUser(): Promise<PushSubscription | null> {
     const registration = await navigator.serviceWorker.getRegistration();
     if (!registration) {
-      return true;
+      return null;
     }
     const subscribed = await registration.pushManager.getSubscription();
     if (!subscribed) {
-      return true;
+      return null;
     }
-    return await subscribed.unsubscribe();
+    const unsub = await subscribed.unsubscribe();
+    if (!unsub) {
+      return null;
+    }
+    return subscribed;
   }
 
   public async isUserSubscribed(): Promise<boolean> {
@@ -82,6 +86,15 @@ export class PushService {
       .create<PushsubscriptionsResponse>(subscriptionData);
 
     return response ?? null;
+  }
+
+  public async deleteSubscriptionFromServer(subscription: PushSubscription): Promise<boolean> {
+    const response = await client.send("/api/webpush/unsubscribe", {
+      method: "DELETE",
+      body: JSON.stringify({endpoint: subscription.endpoint})
+    });
+
+    return !!response;
   }
 
   public async sendTestNotification(userID: string) {

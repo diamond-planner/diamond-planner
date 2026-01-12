@@ -65,12 +65,22 @@
         pushEnabled = false;
       }
     } else {
-      const result = await pushService.unsubscribeUser();
-      //TODO: remove specific one from server
-      if (result) {
+      const unsub = await pushService.unsubscribeUser();
+
+      let serverResult: boolean | undefined;
+      if (unsub) {
+        serverResult = await pushService.deleteSubscriptionFromServer(unsub);
+      }
+
+      if (unsub && serverResult) {
         toastController.trigger({
           message: "Push notifications successfully unregistered.",
           background: "preset-filled-success-500"
+        });
+      } else {
+        toastController.trigger({
+          message: "Technical error - push notification unregistration failed.",
+          background: "preset-filled-error-500"
         });
       }
     }

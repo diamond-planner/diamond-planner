@@ -42,3 +42,37 @@ func notifyWithTestPushMessage(ps PushService, app core.App) func(e *core.Reques
 		return e.JSON(http.StatusOK, "Test push sent")
 	}
 }
+
+func deletePushSubscription(app core.App) func(e *core.RequestEvent) error {
+	return func(e *core.RequestEvent) error {
+		info, err := e.RequestInfo()
+		if err != nil {
+			return e.InternalServerError("", err)
+		}
+		endpoint := info.Body["endpoint"].(string)
+
+		record, err := app.FindFirstRecordByFilter(
+			PushSubscriptionsCollection,
+			"endpoint = {:endpoint}",
+			dbx.Params{"endpoint": endpoint},
+		)
+		if err != nil {
+			app.Logger().Error("failed to find subscription to delete", "error", err, "endpoint", endpoint)
+			return e.BadRequestError("", err)
+		}
+		var sub PushSubscription
+		sub.SetProxyRecord(record)
+
+		if sub.User() != e.Auth.Id {
+			return e.ForbiddenError("", nil)
+		}
+
+		err = app.Delete(sub)
+		if err != nil {
+			app.Logger().Error("failed to delete subscription", "error", err, "sub", sub)
+			return e.InternalServerError("", err)
+		}
+
+		return e.NoContent(http.StatusNoContent)
+	}
+}
