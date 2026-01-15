@@ -94,6 +94,7 @@ msgid "Forgot Password?"
 msgstr "Passwort vergessen?"
 
 #: src/lib/dp/auth/LoginForm.svelte
+#: src/routes/(dp)/(protected)/account/[user]/settings/+page.svelte
 msgid "Reset Password"
 msgstr "Passwort zurücksetzen"
 
@@ -1005,11 +1006,7 @@ msgstr "<0/> Zum Admin machen"
 #. placeholder {1}: team.name
 #. placeholder {0}: row.first_name + " " + row.last_name
 #. placeholder {1}: team.name
-#: src/lib/dp/components/team/TeamMembersTableContent.svelte
-msgid "Are you sure you wish to remove \"{0}\" from \"{1}\"?"
-msgstr "Bist du sicher, dass du \"{0}\" von \"{1}\" entfernen möchtest?"
 
-#: src/lib/dp/components/team/TeamMembersTableContent.svelte
 msgid "No team members to display."
 msgstr "Keine Teammitglieder zum Anzeigen."
 
@@ -1860,11 +1857,7 @@ msgstr "Antritt außer Konkurrenz (aK):"
 
 #. placeholder {0}: modelName
 #. placeholder {0}: modelName
-#: src/lib/dp/components/utils/DeleteButton.svelte
-msgid "Are you sure you wish to delete this {0}? In most cases, data cannot be recovered after deletion. Please be certain."
-msgstr "Möchtest du dieses {0} wirklich löschen? In den meisten Fällen können Daten nach dem Löschen nicht wiederhergestellt werden. Bitte sei sicher."
 
-#: src/lib/tib/components/favorite/ClubTeamPicker.svelte
 msgid "Select Team:"
 msgstr "Team auswählen:"
 
@@ -2436,17 +2429,13 @@ msgstr "Benutzerdaten bearbeiten:"
 
 #. placeholder {0}: model.first_name
 #. placeholder {1}: model.last_name
-#. placeholder {0}: model.first_name
-#. placeholder {1}: model.last_name
-#: src/lib/dp/components/user/UserDataCard.svelte
+#: src/routes/(dp)/(protected)/account/[user]/settings/+page.svelte
 msgid "Change email address for {0} {1}"
 msgstr "E-Mail-Adresse für {0} {1} ändern"
 
 #. placeholder {0}: model.first_name
 #. placeholder {1}: model.last_name
-#. placeholder {0}: model.first_name
-#. placeholder {1}: model.last_name
-#: src/lib/dp/components/user/UserDataCard.svelte
+#: src/routes/(dp)/(protected)/account/[user]/settings/+page.svelte
 msgid "Edit User Data for {0} {1}"
 msgstr "Benutzerdaten für {0} {1} bearbeiten"
 
@@ -2711,11 +2700,7 @@ msgstr "Keine Antwort"
 #: src/lib/dp/components/forms/EventSeriesForm.svelte
 msgid ""
 "When editing an event series, only select fields can be changed because editing past events would affect\n"
-"participation statistics. If you want to change a long-running practice series, end the previous one by\n"
-"setting the end date accordingly and create a new series."
-msgstr "Beim Bearbeiten einer Veranstaltungsreihe können nur bestimmte Felder geändert werden, da die Bearbeitung vergangener Veranstaltungen die Teilnehmerstatistiken beeinflussen würde. Wenn du eine längere Serie ändern möchtest, beende die vorherige, indem du das Enddatum entsprechend festlegst und erstelle eine neue Serie."
 
-#. placeholder {0}: modelName
 #. placeholder {0}: modelName
 #: src/lib/dp/service/ToastController.svelte.ts
 msgid "An error occurred while saving {0} data."
@@ -2986,9 +2971,6 @@ msgstr ""
 msgid "Diamond Planner Logo"
 msgstr ""
 
-#~ msgid "MÖPP"
-#~ msgstr ""
-
 #: src/lib/dp/components/user/PlayerDataProfileSection.svelte
 msgid ""
 "You have the option to display your player data in your public\n"
@@ -3061,15 +3043,6 @@ msgstr ""
 msgid "Community Service Entry"
 msgstr ""
 
-#~ msgid "{0}h"
-#~ msgstr ""
-
-#~ msgid "{0}h / {1}h"
-#~ msgstr ""
-
-#~ msgid "Team Admins <0/>"
-#~ msgstr ""
-
 #: src/lib/dp/components/forms/ServiceEntryForm.svelte
 msgid "Date <0/>"
 msgstr ""
@@ -3086,37 +3059,12 @@ msgstr ""
 msgid "<0/> Create new"
 msgstr ""
 
-#~ msgid "Delete Community Service Entry"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Designated community service time amount (in minutes) that each\n"
-#~ "member is expected to provide during a calendar year."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Community Service Requirement <0/> <1>Designated community service time amount (in minutes) that each\n"
-#~ "member is expected to provide during a calendar year.</1>"
-#~ msgstr ""
-
 #: src/lib/dp/components/forms/ClubForm.svelte
 msgid ""
 "Community Service Requirement <0/> <1>Designated community service time amount (in minutes) that each\n"
 "member is expected to provide during a calendar year\n"
 "(e.g. 20h = 1200 minutes).</1>"
 msgstr ""
-
-#~ msgid ""
-#~ "Each club can set a community service target for its members. Members are expected to provide this amount\n"
-#~ "of voluntary work each calendar year. You can report your community service hours\n"
-#~ "here, as well as view your status in regard to the target."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Each club can set a community service target for its members. Members are expected to provide this amount\n"
-#~ "of voluntary working hours each calendar year. You can report your community service hours\n"
-#~ "here, as well as view your status in regard to the target."
-#~ msgstr ""
 
 #: src/routes/(dp)/(protected)/account/[user]/communityservice/+page.svelte
 msgid ""
@@ -3125,32 +3073,17 @@ msgid ""
 "here, as well as view your previously sent hours and compare with the target."
 msgstr ""
 
-#~ msgid "LINK"
-#~ msgstr ""
-
-#~ msgid "Club Page"
-#~ msgstr ""
-
 #: src/lib/dp/components/meta/SidebarNavigation.svelte
 msgid "Club Main Page"
 msgstr ""
-
-#~ msgid "<0/> Club Main Page"
-#~ msgstr ""
 
 #: src/lib/dp/components/meta/SidebarNavigation.svelte
 msgid "Attendance Dashboard"
 msgstr ""
 
-#~ msgid "MÖP!"
-#~ msgstr ""
-
 #: src/routes/(dp)/(protected)/account/clubs/[club]/admin/communityservice/+page.svelte
 msgid "Community Service Admin Dashboard"
 msgstr ""
-
-#~ msgid "for"
-#~ msgstr ""
 
 #: src/lib/dp/components/datatable/ThFilter.svelte
 msgid "Filter..."
@@ -3183,19 +3116,16 @@ msgstr ""
 
 #: src/lib/dp/components/communityservice/CommunityServiceTableContent.svelte
 msgid "Met"
-msgstr ""
+msgstr "Erfüllt"
 
 #: src/lib/dp/components/communityservice/CommunityServiceTableContent.svelte
 msgid "Not Met"
-msgstr ""
+msgstr "Nicht erfüllt"
 
 #. placeholder {0}: club.acronym
 #: src/lib/dp/components/meta/SidebarNavigation.svelte
 msgid "Club Administration ({0})"
 msgstr ""
-
-#~ msgid "Go to community service page for this user"
-#~ msgstr ""
 
 #. placeholder {0}: row.name
 #: src/lib/dp/components/communityservice/CommunityServiceTableContent.svelte
@@ -3205,3 +3135,61 @@ msgstr ""
 #: src/routes/(dp)/(protected)/account/+page.svelte
 msgid "My Announcements"
 msgstr ""
+
+#: src/lib/dp/components/user/UserDataCard.svelte
+msgid "Go to User Settings"
+msgstr ""
+
+#: src/routes/(dp)/(protected)/account/[user]/settings/+page.svelte
+msgid "User Settings"
+msgstr "Nutzereinstellungen"
+
+#: src/lib/dp/components/user/UserDataCard.svelte
+msgid ""
+"User\n"
+"Settings"
+msgstr ""
+
+#: src/routes/(dp)/(protected)/account/[user]/settings/+page.svelte
+msgid "User not found. That should not happen, if it does anyway, please log in."
+msgstr "Nutzer nicht gefunden. Das sollte nicht passieren, wenn es doch passiert, bitte einloggen."
+
+#: src/routes/(dp)/(protected)/account/[user]/settings/+page.svelte
+msgid "Account Data"
+msgstr "Kontodaten"
+
+#: src/lib/dp/components/settings/PushSettingsSection.svelte
+msgid "Push Notifications"
+msgstr "Push-Benachrichtigungen"
+
+#: src/routes/(dp)/(protected)/account/[user]/settings/+page.svelte
+msgid "Change Email Address"
+msgstr ""
+
+#: src/routes/(dp)/(protected)/account/[user]/settings/+page.svelte
+msgid "Edit Profile Data"
+msgstr ""
+
+#: src/routes/(dp)/(protected)/account/[user]/settings/+page.svelte
+msgid "Your player profile data can be changed on <0>a dedicated page</0>."
+msgstr "Du kannst deine Profildaten auf einer <0>eigenen Seite anpassen</0>."
+
+#: src/routes/(dp)/(protected)/account/[user]/settings/+page.svelte
+msgid "Go to Player profile page"
+msgstr "Gehe zur Profilseite des Spielers"
+
+#: src/lib/dp/components/settings/PushSettingsSection.svelte
+msgid "Send Push Notifications"
+msgstr "Sende Push-Benachrichtigungen"
+
+#: src/lib/dp/components/settings/PushSettingsSection.svelte
+msgid "Upon checking this box, your browser will prompt you for confirmation to enable push messages on this device."
+msgstr "Beim Aktivieren dieses Schalters wird dich dein Browser um Erlaubnis für Push-Benachrichtigungen auf diesem Gerät fragen."
+
+#: src/lib/dp/components/settings/PushSettingsSection.svelte
+msgid "Push notifications successfully unregistered."
+msgstr "Push-Nachrichten erfolgreich registriert."
+
+#: src/lib/dp/components/settings/PushSettingsSection.svelte
+msgid "Technical error - push notification unregistration failed."
+msgstr "Technischer Fehler - Push-Nachrichten konnten nicht registriert werden."
